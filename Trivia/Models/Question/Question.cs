@@ -12,9 +12,10 @@ namespace Trivia.Models.Question
     {
         private readonly string questionText;
         private readonly IList<IAnswer> answers;
+        private int points;
         private readonly DifficultyLevel difficultyLevel;
 
-        public Question(string questionText, IList<IAnswer> answers, DifficultyLevel difficultyLevel, CategoryType category)
+        public Question(string questionText, IList<IAnswer> answers, int points, DifficultyLevel difficultyLevel, CategoryType category)
         {
             //Guard
             this.questionText = questionText;
@@ -26,7 +27,13 @@ namespace Trivia.Models.Question
 
         public DifficultyLevel DifficultyLevel => difficultyLevel;
 
-        public void AddQuestion(string text)
+        public int Points
+        {
+            get => this.points;
+            protected set => points = value;
+        }
+
+        public void AddAnswer(string text)
         {
             //Guard
             throw new NotImplementedException();

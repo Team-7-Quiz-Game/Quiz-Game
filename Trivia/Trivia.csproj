@@ -57,7 +57,7 @@
     <Compile Include="Models\Player\Player.cs" />
     <Compile Include="Models\Question\Answer.cs" />
     <Compile Include="Models\Question\BonusQuestion.cs" />
-    <Compile Include="Models\Question\HistoryQuestion.cs" />
+    <Compile Include="Models\Question\TimedQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Question\Question.cs" />
   </ItemGroup>

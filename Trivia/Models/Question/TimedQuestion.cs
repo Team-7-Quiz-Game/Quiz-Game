@@ -8,9 +8,9 @@ using Trivia.Contracts;
 
 namespace Trivia.Models.Question
 {
-    public class BonusQuestion : Question
+    public class TimedQuestion : Question
     {
-        public BonusQuestion(string questionText, IList<IAnswer> answers, int points, DifficultyLevel difficultyLevel, CategoryType category)
+        public TimedQuestion(string questionText, IList<IAnswer> answers, int points, DifficultyLevel difficultyLevel, CategoryType category, int timeForAnswer) 
             : base(questionText, answers, points, difficultyLevel, category)
         {
         }

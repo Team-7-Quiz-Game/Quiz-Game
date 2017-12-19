@@ -8,7 +8,7 @@ namespace Trivia.Models.Hint
 {
     public abstract class Hint
     {
-        public Hint(string name, string description)
+        public Hint(string name, string description, int quantity)
         {
 
         }
