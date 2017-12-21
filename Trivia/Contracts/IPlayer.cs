@@ -13,12 +13,6 @@ namespace Trivia.Contracts
 
         PlayerType PlayerType { get; }
 
-        //int Points { get; set; }
-
-        //int WrongAnswers { get; }
-
-        //int CorrectAnswers { get; }
-
         string ToString();
     }
 }

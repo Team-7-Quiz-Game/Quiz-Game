@@ -21,11 +21,13 @@ namespace Trivia.Models.Player
 
         public void CreateQuestion(IQuestion question)
         {
+            //guard
             quizzardQuestions.Add(question);
         }
 
         public void RemoveQuestion(IQuestion question)
         {
+            //guard
             quizzardQuestions.Remove(question);
         }
     }
