@@ -13,5 +13,10 @@ namespace Trivia.Core
         {
 
         }
+
+        public void GenerateLevels()
+        {
+
+        }
     }
 }

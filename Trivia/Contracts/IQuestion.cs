@@ -9,7 +9,7 @@ namespace Trivia.Contracts
 {
     public interface IQuestion
     {
-        string QuizQuestion { get; }
+        string QuestionText { get; }
 
         DifficultyLevel DifficultyLevel { get; }
 

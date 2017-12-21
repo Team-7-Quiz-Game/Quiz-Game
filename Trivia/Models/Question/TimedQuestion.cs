@@ -10,9 +10,12 @@ namespace Trivia.Models.Question
 {
     public class TimedQuestion : Question
     {
-        public TimedQuestion(string questionText, IList<IAnswer> answers, int points, DifficultyLevel difficultyLevel, CategoryType category, int timeForAnswer) 
-            : base(questionText, answers, points, difficultyLevel, category)
+        private readonly int timeForAnswer;
+
+        public TimedQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int timeForAnswer) 
+            : base(questionText, difficultyLevel, category, QuestionType.Timed)
         {
+            this.timeForAnswer = timeForAnswer;
         }
     }
 }

@@ -14,16 +14,20 @@ namespace Trivia.Models.Question
         private readonly IList<IAnswer> answers;
         private int points;
         private readonly DifficultyLevel difficultyLevel;
+        private readonly QuestionType questionType;
 
-        public Question(string questionText, IList<IAnswer> answers, int points, DifficultyLevel difficultyLevel, CategoryType category)
+        public Question(string questionText, DifficultyLevel difficultyLevel, CategoryType category, QuestionType questionType)
         {
             //Guard
             this.questionText = questionText;
             this.answers = new List<IAnswer>();
             this.difficultyLevel = difficultyLevel;
+            this.questionType = questionType;
         }
 
-        public string QuizQuestion => questionText;
+        public string QuestionText => questionText;
+
+        public IList<IAnswer> Answers => this.answers;
 
         public DifficultyLevel DifficultyLevel => difficultyLevel;
 
@@ -32,6 +36,7 @@ namespace Trivia.Models.Question
             get => this.points;
             protected set => points = value;
         }
+        public QuestionType QuestionType => this.questionType;
 
         public void AddAnswer(string text)
         {

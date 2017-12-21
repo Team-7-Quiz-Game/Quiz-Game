@@ -10,9 +10,13 @@ namespace Trivia.Models.Question
 {
     public class BonusQuestion : Question
     {
-        public BonusQuestion(string questionText, IList<IAnswer> answers, int points, DifficultyLevel difficultyLevel, CategoryType category)
-            : base(questionText, answers, points, difficultyLevel, category)
+        private readonly int pointsAmplifier;
+
+        public BonusQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int pointsAmplifier)
+            : base(questionText, difficultyLevel, category, QuestionType.Bonus)
         {
+            //guard
+            this.pointsAmplifier = pointsAmplifier;
         }
     }
 }

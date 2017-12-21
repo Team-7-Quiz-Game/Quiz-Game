@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Common\CategoryType.cs" />
     <Compile Include="Common\PlayerType.cs" />
+    <Compile Include="Common\QuestionType.cs" />
     <Compile Include="Models\Category\Category.cs" />
     <Compile Include="Common\DifficultyLevel.cs" />
     <Compile Include="Contracts\IAnswer.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Models\Player\Player.cs" />
     <Compile Include="Models\Question\Answer.cs" />
     <Compile Include="Models\Question\BonusQuestion.cs" />
+    <Compile Include="Models\Question\NormalQuestion.cs" />
     <Compile Include="Models\Question\TimedQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Question\Question.cs" />
