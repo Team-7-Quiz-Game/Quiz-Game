@@ -18,12 +18,12 @@ namespace Trivia.Models.Player
         {
             //Guard
             this.name = name;
-            this.PlayerType = playerType;
+            this.playerType = playerType;
         }
 
         public string Name => this.name;
 
-        public PlayerType PlayerType { get; private set; }
+        public PlayerType PlayerType => this.playerType;
 
         public override string ToString()
         {
