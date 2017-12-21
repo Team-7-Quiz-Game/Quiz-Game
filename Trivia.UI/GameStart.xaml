@@ -1,0 +1,31 @@
+﻿<Page x:Class="LetsGetQuizzical.GameStart"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="900" Background="#edea49"
+	Title="LetsGetQuizzical - Game Start">
+
+    <Grid>
+        <Canvas RenderTransformOrigin="0.481,0.444">
+            <Label Content="Let's get quizzical!" HorizontalAlignment="Left" Height="71" VerticalAlignment="Top" Width="512" FontFamily="Showcard Gothic" FontSize="48" RenderTransformOrigin="0.478,0.481" Canvas.Left="207" Canvas.Top="171">
+                <Label.Effect>
+                    <DropShadowEffect Color="#FFFF9CF5"/>
+                </Label.Effect>
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-11.365"/>
+                        <TranslateTransform X="-0.299" Y="1.757"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Button Content="START" HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="132" Click="Button_Click" FontSize="22" RenderTransformOrigin="0.496,0.47" Background="#FF7AB0A3" FontFamily="Broadway" Opacity="0.9" Canvas.Left="378" Canvas.Top="430"/>
+            <Label Content="with Team 7" Height="42" Canvas.Left="367" Canvas.Top="340" Width="166" FontFamily="Showcard Gothic" FontSize="24"/>
+
+        </Canvas>
+
+    </Grid>
+</Page>

@@ -1,0 +1,40 @@
+﻿<Page x:Class="LetsGetQuizzical.PlayerMode"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GroupProject_Test_02"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="900" Background="#edea49"
+      Title="PlayerMode">
+
+    <Grid>
+        <Label Content="Choose your mode" HorizontalAlignment="Left" Height="64" Margin="211,44,0,0" VerticalAlignment="Top" Width="484" FontSize="48" FontFamily="Showcard Gothic">
+            <Label.Effect>
+                <DropShadowEffect Color="#FFE366FF" ShadowDepth="7"/>
+            </Label.Effect>
+        </Label>
+        <Label Content="Regular Player" HorizontalAlignment="Left" Height="36" Margin="109,185,0,0" VerticalAlignment="Top" Width="214" FontFamily="Showcard Gothic" FontSize="24"/>
+        <Label Content="Quizzard" HorizontalAlignment="Left" Height="36" Margin="627,185,0,0" VerticalAlignment="Top" Width="131" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.513,0.513"/>
+        <Label Content="Name" HorizontalAlignment="Left" Height="29" Margin="55,255,0,0" VerticalAlignment="Top" Width="62" FontFamily="Showcard Gothic" FontSize="18"/>
+        <Label Content="Choose categories" HorizontalAlignment="Left" Height="29" Margin="118,316,0,0" VerticalAlignment="Top" Width="190" FontFamily="Showcard Gothic" FontSize="18" RenderTransformOrigin="0.484,0.407"/>
+        <StackPanel Orientation="Horizontal" Margin="28,358,394,63">
+            <StackPanel Orientation="Vertical" Height="132" RenderTransformOrigin="0.505,0.532">
+                <CheckBox x:Name="science" FontSize="13" FontFamily="Broadway" Margin="5,5,5.2,5" Content="Science" Click="Check_Click"/>
+                <CheckBox x:Name="history" FontSize="13" FontFamily="Broadway" Margin="5" Content="History" Click="Check_Click"/>
+                <CheckBox x:Name="geography" FontSize="13" FontFamily="Broadway" Margin="5" Content="Geography" Click="Check_Click"/>
+                <CheckBox x:Name="sciFi" FontSize="13" FontFamily="Broadway" Margin="5" Content="Sci-Fi" Click="Check_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Height="132" RenderTransformOrigin="0.505,0.532">
+                <CheckBox x:Name="math" FontSize="13" FontFamily="Broadway" Margin="5" Content="Math" Click="Check_Click"/>
+                <CheckBox x:Name="movies" FontSize="13" FontFamily="Broadway" Margin="5" Content="Movies" Click="Check_Click"/>
+                <CheckBox x:Name="literature" FontSize="13" FontFamily="Broadway" Margin="5" Content="Literature" Click="Check_Click"/>
+                <CheckBox x:Name="random" FontSize="13" FontFamily="Broadway" Margin="5" Content="Random" Click="Check_Click"/>
+            </StackPanel>
+        </StackPanel>
+        <Button Content="Go, Player!" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="134" Click="GoPayer" Background="#FF7AB0A3" FontFamily="Broadway" FontSize="18" Foreground="Black" Margin="305,474,0,0"/>
+        <Button Content="Go, Quizzard!" HorizontalAlignment="Left" Height="40" Margin="673,474,0,0" VerticalAlignment="Top" Width="161" Click="GoQuizzard" Background="#FF7AB0A3" FontFamily="Broadway" FontSize="18" Foreground="Black"/>
+        <Label Content="In quizzard mode you&#xD;&#xA;can make your personnal&#xD;&#xA;quiz and grill your friends&#xD;&#xA;with it!&#xD;&#xA;" HorizontalAlignment="Left" Height="136" Margin="543,276,0,0" VerticalAlignment="Top" Width="317" FontFamily="Broadway" FontSize="20" RenderTransformOrigin="0.513,0.513"/>
+
+    </Grid>
+</Page>
