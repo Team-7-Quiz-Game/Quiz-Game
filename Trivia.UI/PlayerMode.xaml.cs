@@ -26,6 +26,7 @@ namespace LetsGetQuizzical
             // We put the checked by the user categories in a list.
             checkedCategories = new List<string>();
         }
+
         List<string> checkedCategories;
         private void Check_Click(object sender, RoutedEventArgs e)
         {
@@ -38,15 +39,26 @@ namespace LetsGetQuizzical
                 checkedCategories.Remove(s);
         }
         // Button for the Regular Player Page. It takes the checked categories.
+        // We define a name variable that will take when the user presses the button either Go, Player or Go, Quizzard
+        string name;
         private void GoPayer(object sender, RoutedEventArgs e) 
         {
-            string checkList = string.Join(",", checkedCategories.ToArray()); 
+            name = Name.Text;
+            string checkList = string.Join(",", checkedCategories.ToArray());
+            //new normal player
+            // new list category
+            // foreach checkedCategories parse and add to categorList
+            // Game game = new Game(player, categoryList)
+            // start engine with game
         }
         // Button for the Quizzard Page. For the moment it directs the user to a TEST page.
         private void GoQuizzard(object sender, RoutedEventArgs e) 
         {
+            name = Name.Text;
             NextPage nextPage = new NextPage();
             this.NavigationService.Navigate(nextPage);
         }
+
+
     }
 }

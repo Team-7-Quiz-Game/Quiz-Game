@@ -24,5 +24,6 @@ namespace LetsGetQuizzical
         {
             InitializeComponent();            
         }      
+        // For the quizzard page: we receive the quizzard
     }
 }
