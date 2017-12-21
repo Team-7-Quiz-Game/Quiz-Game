@@ -16,6 +16,7 @@ namespace Trivia.Models.Question
         {
             //guard
             this.answerText = answerText;
+            this.isCorrect = isCorrect;
         }
 
         public string AnswerText => this.answerText;

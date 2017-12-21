@@ -10,19 +10,23 @@ namespace Trivia.Models.Player
 {
     public class MasterPlayer : Player
     {
+        private IList<IQuestion> quizzardQuestions;
+
         public MasterPlayer(string name)
-            : base(name, PlayerType.QuizzMaster)
+            : base(name, PlayerType.Quizzard)
         {
         }
 
+        public int QuestionsCount => this.quizzardQuestions.Count;
+
         public void CreateQuestion(IQuestion question)
         {
-
+            quizzardQuestions.Add(question);
         }
 
         public void RemoveQuestion(IQuestion question)
         {
-
+            quizzardQuestions.Remove(question);
         }
     }
 }

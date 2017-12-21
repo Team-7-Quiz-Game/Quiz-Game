@@ -8,7 +8,7 @@ using Trivia.Contracts;
 
 namespace Trivia.Models.Category
 {
-    public class Category
+    public class Category : ICategory
     {
         private readonly CategoryType categoryType;
         private IList<IQuestion> easyQuestions;
@@ -25,5 +25,20 @@ namespace Trivia.Models.Category
         }
         
         public CategoryType CategoryType => this.categoryType;
+
+        public void AddEasyQuestion(IQuestion question)
+        {
+            this.easyQuestions.Add(question);
+        }
+
+        public void AddNormalQuestion(IQuestion question)
+        {
+            this.normalQuestions.Add(question);
+        }
+
+        public void AddHardQuestion(IQuestion question)
+        {
+            this.hardQuestions.Add(question);
+        }
     }
 }

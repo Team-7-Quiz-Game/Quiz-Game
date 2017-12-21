@@ -17,6 +17,7 @@ namespace Trivia.Models.Question
         {
             //guard
             this.pointsAmplifier = pointsAmplifier;
+            this.Points = (int)difficultyLevel * 100 * this.pointsAmplifier;
         }
     }
 }

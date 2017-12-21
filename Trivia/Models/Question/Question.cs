@@ -38,10 +38,10 @@ namespace Trivia.Models.Question
         }
         public QuestionType QuestionType => this.questionType;
 
-        public void AddAnswer(string text)
+        public void AddAnswer(IAnswer answer)
         {
             //Guard
-            throw new NotImplementedException();
+            this.answers.Add(answer);
         }
 
         public override string ToString()

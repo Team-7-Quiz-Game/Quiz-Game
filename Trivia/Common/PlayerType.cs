@@ -8,7 +8,7 @@ namespace Trivia.Common
 {
     public enum PlayerType
     {
-        Normal,
-        QuizzMaster
+        Player,
+        Quizzard
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Trivia.Common;
 
 namespace Trivia.Contracts
 {
@@ -10,11 +11,13 @@ namespace Trivia.Contracts
     {
         string Name { get; }
 
-        int Points { get; set; }
+        PlayerType PlayerType { get; }
 
-        int WrongAnswers { get; }
+        //int Points { get; set; }
 
-        int CorrectAnswers { get; }
+        //int WrongAnswers { get; }
+
+        //int CorrectAnswers { get; }
 
         string ToString();
     }

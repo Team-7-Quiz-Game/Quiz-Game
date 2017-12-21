@@ -13,6 +13,12 @@ namespace Trivia.Contracts
 
         DifficultyLevel DifficultyLevel { get; }
 
+        IList<IAnswer> Answers { get; }
+
+        int Points { get; }
+
+        void AddAnswer(IAnswer answer);
+
         string ToString();
     }
 }

@@ -16,6 +16,7 @@ namespace Trivia.Models.Question
             : base(questionText, difficultyLevel, category, QuestionType.Timed)
         {
             this.timeForAnswer = timeForAnswer;
+            this.Points = (int)DifficultyLevel * 100;
         }
     }
 }
