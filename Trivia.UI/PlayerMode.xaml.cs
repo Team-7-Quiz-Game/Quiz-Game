@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GroupProject_Test_02;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,10 +56,8 @@ namespace LetsGetQuizzical
         private void GoQuizzard(object sender, RoutedEventArgs e) 
         {
             name = Name.Text;
-            NextPage nextPage = new NextPage();
-            this.NavigationService.Navigate(nextPage);
+            QuizzardInitialPage quizzardInitialPage = new QuizzardInitialPage();
+            this.NavigationService.Navigate(quizzardInitialPage);
         }
-
-
     }
 }

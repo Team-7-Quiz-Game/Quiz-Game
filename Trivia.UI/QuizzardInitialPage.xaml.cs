@@ -16,14 +16,18 @@ using System.Windows.Shapes;
 namespace LetsGetQuizzical
 {
     /// <summary>
-    /// This is just a TEST next page in order to test the buttons and if they are working
+    /// Interaction logic for QuizzardInitialPage.xaml
     /// </summary>
-    public partial class NextPage : Page
+    public partial class QuizzardInitialPage : Page
     {
-        public NextPage()
+        public QuizzardInitialPage()
         {
-            InitializeComponent();            
-        }      
-        // For the quizzard page: we receive the quizzard
+            InitializeComponent();
+        }
+
+        private void AddQuestion(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
