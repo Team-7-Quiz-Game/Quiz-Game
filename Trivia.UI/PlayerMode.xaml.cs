@@ -52,7 +52,7 @@ namespace LetsGetQuizzical
             // Game game = new Game(player, categoryList)
             // start engine with game
         }
-        // Button for the Quizzard Page. For the moment it directs the user to a TEST page.
+        // Button for the Quizzard Page.
         private void GoQuizzard(object sender, RoutedEventArgs e) 
         {
             name = Name.Text;
