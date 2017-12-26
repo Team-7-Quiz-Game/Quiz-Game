@@ -57,6 +57,9 @@
     <Compile Include="QuizzardInitialPage.xaml.cs">
       <DependentUpon>QuizzardInitialPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StartQuizzardTest.xaml.cs">
+      <DependentUpon>StartQuizzardTest.xaml</DependentUpon>
+    </Compile>
     <Page Include="GameStart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -81,6 +84,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="QuizzardInitialPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StartQuizzardTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

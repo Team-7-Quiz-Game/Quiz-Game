@@ -22,7 +22,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Label Content="Answer&#xA;Options :" HorizontalAlignment="Left" Height="59" Margin="22,254,0,0" VerticalAlignment="Top" Width="100" FontFamily="Showcard Gothic" FontSize="18" RenderTransformOrigin="0.5,0.5">
+        <Label Content="Answer Options :" HorizontalAlignment="Left" Height="30" Margin="22,212,0,0" VerticalAlignment="Top" Width="172" FontFamily="Showcard Gothic" FontSize="18" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -32,7 +32,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="A:" HorizontalAlignment="Left" Height="37" Margin="129,255,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
+        <Label Content="A:" HorizontalAlignment="Left" Height="37" Margin="114,252,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5" Foreground="#FF004506">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -92,7 +92,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="C:" HorizontalAlignment="Left" Height="37" Margin="129,367,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
+        <Label Content="C:" HorizontalAlignment="Left" Height="37" Margin="115,367,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -112,7 +112,18 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Content="Add question" HorizontalAlignment="Left" Height="40" Margin="679,472,0,0" VerticalAlignment="Top" Width="161" Click="AddQuestionButton" Background="#FF7DB07A" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
+        <Button Content="Add question" HorizontalAlignment="Left" Height="40" Margin="535,472,0,0" VerticalAlignment="Top" Width="161" Click="AddQuestionButton" Background="#FF7DB07A" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
         <TextBlock Name="QuestionsCount" Text="0" HorizontalAlignment="Left" Height="35" Margin="736,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="22" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FFD30606"/>
+        <Label Content="should be &#xD;&#xA;  correct" HorizontalAlignment="Left" Height="47" Margin="82,290,0,0" VerticalAlignment="Top" Width="93" FontFamily="Showcard Gothic" FontSize="15" RenderTransformOrigin="0.5,0.5" Foreground="#FF004506">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.239"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.378"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Button Content="Finish" HorizontalAlignment="Left" Height="40" Margin="716,472,0,0" VerticalAlignment="Top" Width="161" Click="FinishButton" Background="#FF7DB07A" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
     </Grid>
 </Page>
