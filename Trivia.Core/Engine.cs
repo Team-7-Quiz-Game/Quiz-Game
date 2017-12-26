@@ -9,17 +9,19 @@ using Trivia.Core.Contracts;
 
 namespace Trivia.Core
 {
-    public class Engine : IEngine
+    public sealed class Engine : IEngine
     {
         private static readonly IEngine SingleInstance = new Engine();
         private readonly IFactory factory;
         private static IPlayer player;
         private readonly IDictionary<string, ICategory> categories;
+        private readonly DB database;
         
         private Engine()
         {
             this.factory = new Factory();
             this.categories = new Dictionary<string, ICategory>();
+            this.database = new DB();
         }
 
         public static IEngine Instance
@@ -86,9 +88,16 @@ namespace Trivia.Core
                 var categoryToAdd = this.factory.CreateCategory(categoryType);
                 this.categories.Add(categoryName, categoryToAdd);
             }
+
+            
         }
 
-        public void AddQuestionToCategory(string categoryNameToAdd, IQuestion questionToAdd)
+        private IQuestion GetQuestionFromDb(string categoryName)
+        {
+
+        }
+
+        private void AddQuestionsToCategory(string categoryNameToAdd, IQuestion questionToAdd)
         {
             if (!this.categories.ContainsKey(categoryNameToAdd))
             {
@@ -112,6 +121,8 @@ namespace Trivia.Core
                     break;
             }
         }
+
+        //For Quizzard
 
         public IAnswer CreateAnswer(string answerText, bool isCorrect)
         {
