@@ -9,12 +9,8 @@
       Title="StartQuizzardTest">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="167,138,0,0" Width="191" Height="31" FontFamily="Consolas" Text="Answer A........." FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" Height="69" Margin="319,41,0,0" TextWrapping="Wrap" Text="Some question" VerticalAlignment="Top" Width="322" FontFamily="Showcard Gothic" FontSize="36"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="551,138,0,0" Width="191" Height="57" FontFamily="Consolas" Text="Answer B........." FontSize="20"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="167,300,0,0" Width="191" Height="57" FontFamily="Consolas" Text="Answer C........." FontSize="20"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="551,297,0,0" Width="191" Height="57" FontFamily="Consolas" Text="Answer D........." FontSize="20"/>
-        <Label Content="B:" HorizontalAlignment="Left" Height="37" Margin="503,131,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
+        <Label Content="B:" HorizontalAlignment="Left" Height="37" Margin="503,190,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -24,7 +20,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="D:" HorizontalAlignment="Left" Height="37" Margin="503,288,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
+        <Label Content="A:" HorizontalAlignment="Left" Height="37" Margin="26,193,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -34,7 +30,9 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="C:" HorizontalAlignment="Left" Height="37" Margin="127,289,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
+        <Button Content="Answer A..." HorizontalAlignment="Left" Height="68" Margin="74,181,0,0" VerticalAlignment="Top" Width="319" Click="AnswerAButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
+        <Button Content="Answer B..." HorizontalAlignment="Left" Height="68" Margin="551,181,0,0" VerticalAlignment="Top" Width="319" Click="AnswerBButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
+        <Label Content="D:" HorizontalAlignment="Left" Height="37" Margin="503,328,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -44,7 +42,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="A:" HorizontalAlignment="Left" Height="37" Margin="126,130,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
+        <Label Content="C:" HorizontalAlignment="Left" Height="37" Margin="26,331,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -54,7 +52,33 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Content="Submit" HorizontalAlignment="Left" Height="40" Margin="703,472,0,0" VerticalAlignment="Top" Width="161" Click="SubmitAnswerButton" Background="#FF7DB07A" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
-
+        <Button Content="Answer C..." HorizontalAlignment="Left" Height="68" Margin="74,319,0,0" VerticalAlignment="Top" Width="319" Click="AnswerCButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
+        <Button Content="Answer D..." HorizontalAlignment="Left" Height="68" Margin="551,319,0,0" VerticalAlignment="Top" Width="319" Click="AnswerDButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Height="34" Margin="651,113,0,0" TextWrapping="Wrap" Text="Score:" VerticalAlignment="Top" Width="82" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FFA60202"/>
+        <TextBlock HorizontalAlignment="Left" Height="34" Margin="738,113,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="26" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FFA60202"/>
+        <Popup Name="MyPopup"
+           PlacementTarget="{Binding ElementName=btnTest}"
+           Placement="Mouse"
+           StaysOpen="False">
+            <StackPanel Background="PaleGreen">
+                <Label HorizontalAlignment="Center">I am a popup</Label>
+                <Button  Content="Close">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <BooleanAnimationUsingKeyFrames                 
+            Storyboard.TargetName="MyPopup" 
+            Storyboard.TargetProperty="IsOpen"
+            Duration="0:0:1" FillBehavior="HoldEnd">
+                                        <DiscreteBooleanKeyFrame Value="False" KeyTime="0:0:0" />
+                                    </BooleanAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+            </StackPanel>
+        </Popup>
     </Grid>
 </Page>

@@ -23,10 +23,32 @@ namespace LetsGetQuizzical
         public StartQuizzardTest()
         {
             InitializeComponent();
+           
+        }
+        // The buttons will be binded with the answers from the list. Upon clicking on a button 
+        bool answerIsCorrect = false;
+        private void AnswerAButton(object sender, RoutedEventArgs e)
+        {
+            answerIsCorrect = false;
         }
 
-        private void SubmitAnswerButton(object sender, RoutedEventArgs e)
+        private void AnswerBButton(object sender, RoutedEventArgs e)
         {
+            answerIsCorrect = false;
+        }
+
+        private void AnswerCButton(object sender, RoutedEventArgs e)
+        {
+            answerIsCorrect = true;
+            if (answerIsCorrect)
+            {
+                MyPopup.IsOpen = true;
+            }
+        }
+
+        private void AnswerDButton(object sender, RoutedEventArgs e)
+        {
+            answerIsCorrect = false;
         }
     }
 }
