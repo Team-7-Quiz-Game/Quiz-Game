@@ -22,8 +22,6 @@ namespace Trivia.Core.Contracts
 
         IPlayer CreateQuizzardPlayer(string name);
 
-        IGame CreateGame(IPlayer firstPlayer, IList<ICategory> categories);
-
         ICategory CreateCategory(CategoryType categoryType);
     }
 }

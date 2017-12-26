@@ -40,11 +40,6 @@ namespace Trivia.Core
             return new QuizzardPlayer(name);
         }
 
-        public IGame CreateGame(IPlayer firstPlayer, IList<ICategory> categories)
-        {
-            return new Game(firstPlayer, categories);
-        }
-
         public ICategory CreateCategory(CategoryType categoryType)
         {
             return new Category(categoryType);

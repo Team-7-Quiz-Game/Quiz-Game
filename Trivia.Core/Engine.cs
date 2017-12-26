@@ -10,27 +10,26 @@ namespace Trivia.Core
 {
     public class Engine : IEngine
     {
-        private static IEngine instanceHolder;
+        private static readonly IEngine SingleInstance = new Engine();
+        private readonly IFactory factory;
+        private static IPlayer player;
+        private readonly IList<ICategory> categories;
         
         private Engine()
         {
-            //this.Game = new Game();
+            this.factory = new Factory();
+            this.categories = new List<ICategory>();
         }
 
         public static IEngine Instance
         {
             get
             {
-                if (instanceHolder == null)
-                {
-                    instanceHolder = new Engine();
-                }
-
-                return instanceHolder;
+                return SingleInstance;
             }
         }
 
-        public IGame Game { get; private set; }
+        public static IPlayer Player { get => player; private set => player = value; }
 
         public void Start()
         {
