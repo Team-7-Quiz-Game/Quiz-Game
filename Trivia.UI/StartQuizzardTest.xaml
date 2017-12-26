@@ -1,0 +1,60 @@
+﻿<Page x:Class="LetsGetQuizzical.StartQuizzardTest"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GroupProject_Test_02"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="900" Background="#edea49"
+      Title="StartQuizzardTest">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="167,138,0,0" Width="191" Height="31" FontFamily="Consolas" Text="Answer A........." FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Height="69" Margin="319,41,0,0" TextWrapping="Wrap" Text="Some question" VerticalAlignment="Top" Width="322" FontFamily="Showcard Gothic" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="551,138,0,0" Width="191" Height="57" FontFamily="Consolas" Text="Answer B........." FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="167,300,0,0" Width="191" Height="57" FontFamily="Consolas" Text="Answer C........." FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="551,297,0,0" Width="191" Height="57" FontFamily="Consolas" Text="Answer D........." FontSize="20"/>
+        <Label Content="B:" HorizontalAlignment="Left" Height="37" Margin="503,131,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.239"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.378"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="D:" HorizontalAlignment="Left" Height="37" Margin="503,288,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.239"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.378"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="C:" HorizontalAlignment="Left" Height="37" Margin="127,289,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.239"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.378"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="A:" HorizontalAlignment="Left" Height="37" Margin="126,130,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.239"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.378"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Button Content="Submit" HorizontalAlignment="Left" Height="40" Margin="703,472,0,0" VerticalAlignment="Top" Width="161" Click="SubmitAnswerButton" Background="#FF7DB07A" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
+
+    </Grid>
+</Page>

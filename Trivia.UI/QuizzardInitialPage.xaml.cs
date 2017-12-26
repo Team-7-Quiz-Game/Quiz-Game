@@ -29,17 +29,22 @@ namespace LetsGetQuizzical
         }
         // We take the question and the four answers as strings when the Quizzard presses on the AddQuestion button
         string question;
-        string answerA;
+        string answerACorrect;
         string answerB;
         string answerC;
         string answerD;
         private void AddQuestionButton(object sender, RoutedEventArgs e)
         {
             question = Question.Text;
-            answerA = AnswerA.Text;
+            answerACorrect = AnswerA.Text; 
             answerB = AnswerB.Text;
             answerC = AnswerC.Text;
             answerD = AnswerD.Text;
+        }
+        private void FinishButton(object sender, RoutedEventArgs e)
+        {
+            StartQuizzardTest startQuizzardTest = new StartQuizzardTest();
+            this.NavigationService.Navigate(startQuizzardTest);
         }
     }
 }
