@@ -10,7 +10,7 @@ namespace Trivia.Core.Contracts
 {
     public interface IFactory
     {
-        IAnswer CreateAnswerstring(string answerText, bool isCorrect);
+        IAnswer CreateAnswer(string answerText, bool isCorrect);
 
         IQuestion CreateBonusQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int pointsAmplifier);
 
@@ -21,8 +21,6 @@ namespace Trivia.Core.Contracts
         IPlayer CreateNormalPlayer(string name);
 
         IPlayer CreateQuizzardPlayer(string name);
-
-        IGame CreateGame(IPlayer firstPlayer, IList<ICategory> categories);
 
         ICategory CreateCategory(CategoryType categoryType);
     }

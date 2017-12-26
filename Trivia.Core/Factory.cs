@@ -10,7 +10,7 @@ namespace Trivia.Core
 {
     public class Factory : IFactory
     {
-        public IAnswer CreateAnswerstring (string answerText, bool isCorrect)
+        public IAnswer CreateAnswer (string answerText, bool isCorrect)
         {
             return new Answer(answerText, isCorrect);
         }
@@ -38,11 +38,6 @@ namespace Trivia.Core
         public IPlayer CreateQuizzardPlayer(string name)
         {
             return new QuizzardPlayer(name);
-        }
-
-        public IGame CreateGame(IPlayer firstPlayer, IList<ICategory> categories)
-        {
-            return new Game(firstPlayer, categories);
         }
 
         public ICategory CreateCategory(CategoryType categoryType)
