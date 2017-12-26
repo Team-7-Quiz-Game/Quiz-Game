@@ -7,7 +7,7 @@ using Trivia.Contracts;
 
 namespace Trivia.Core
 {
-    public class Game
+    public class Game : IGame
     {
         public Game(IPlayer firstPlayer, IList<ICategory> categories)
         {

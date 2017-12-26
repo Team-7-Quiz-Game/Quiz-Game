@@ -43,6 +43,7 @@
     <Compile Include="Common\CategoryType.cs" />
     <Compile Include="Common\PlayerType.cs" />
     <Compile Include="Common\QuestionType.cs" />
+    <Compile Include="Contracts\IGame.cs" />
     <Compile Include="Models\Category\Category.cs" />
     <Compile Include="Common\DifficultyLevel.cs" />
     <Compile Include="Contracts\IAnswer.cs" />
@@ -50,10 +51,8 @@
     <Compile Include="Contracts\IPlayer.cs" />
     <Compile Include="Contracts\IQuestion.cs" />
     <Compile Include="Models\Game\Game.cs" />
-    <Compile Include="Models\Game\GameRound.cs" />
-    <Compile Include="Models\Game\GameRules.cs" />
     <Compile Include="Models\Hint\Hint.cs" />
-    <Compile Include="Models\Player\MasterPlayer.cs" />
+    <Compile Include="Models\Player\QuizzardPlayer.cs" />
     <Compile Include="Models\Player\NormalPlayer.cs" />
     <Compile Include="Models\Player\Player.cs" />
     <Compile Include="Models\Question\Answer.cs" />

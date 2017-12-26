@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Trivia.Core
+namespace Trivia.Contracts
 {
-    public class GameRound
+    public interface IGame
     {
     }
 }

@@ -8,11 +8,11 @@ using Trivia.Common;
 
 namespace Trivia.Models.Player
 {
-    public class MasterPlayer : Player
+    public class QuizzardPlayer : Player
     {
         private IList<IQuestion> quizzardQuestions;
 
-        public MasterPlayer(string name)
+        public QuizzardPlayer(string name)
             : base(name, PlayerType.Quizzard)
         {
         }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Trivia.Models.Game
+namespace Trivia.Core.Contracts
 {
-    class GameRules
+    public interface IEngine
     {
     }
 }
