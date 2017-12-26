@@ -10,7 +10,7 @@ namespace Trivia.Core.Contracts
 {
     public interface IFactory
     {
-        IAnswer CreateAnswerstring(string answerText, bool isCorrect);
+        IAnswer CreateAnswer(string answerText, bool isCorrect);
 
         IQuestion CreateBonusQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int pointsAmplifier);
 

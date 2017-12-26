@@ -10,7 +10,7 @@ namespace Trivia.Core
 {
     public class Factory : IFactory
     {
-        public IAnswer CreateAnswerstring (string answerText, bool isCorrect)
+        public IAnswer CreateAnswer (string answerText, bool isCorrect)
         {
             return new Answer(answerText, isCorrect);
         }
