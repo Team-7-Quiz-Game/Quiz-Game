@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LetsGetQuizzical
+namespace Trivia.UI
 {
     /// <summary>
     /// Interaction logic for WrongAnswer.xaml

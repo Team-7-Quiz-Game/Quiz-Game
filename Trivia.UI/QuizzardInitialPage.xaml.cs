@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 using Trivia.Contracts;
 using Trivia.Models;
 
-namespace LetsGetQuizzical
+namespace Trivia.UI
 {
     /// <summary>
     /// Interaction logic for QuizzardInitialPage.xaml

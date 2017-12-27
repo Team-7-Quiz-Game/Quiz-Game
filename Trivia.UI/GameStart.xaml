@@ -1,4 +1,4 @@
-﻿<Page x:Class="LetsGetQuizzical.GameStart"
+﻿<Page x:Class="Trivia.UI.GameStart"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -22,7 +22,7 @@
                     </TransformGroup>
                 </Label.RenderTransform>
             </Label>
-            <Button Content="START" HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="132" Click="Button_Click" FontSize="30" RenderTransformOrigin="0.496,0.47" Background="#FF7AB0A3" FontFamily="Consolas" Opacity="0.9" Canvas.Left="378" Canvas.Top="430" FontWeight="Bold"/>
+            <Button Content="START" HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="132" Click="StartGameButton" FontSize="30" RenderTransformOrigin="0.496,0.47" Background="#FF7AB0A3" FontFamily="Consolas" Opacity="0.9" Canvas.Left="378" Canvas.Top="430" FontWeight="Bold"/>
             <Label Content="with Team 7" Height="42" Canvas.Left="367" Canvas.Top="340" Width="166" FontFamily="Showcard Gothic" FontSize="24"/>
 
         </Canvas>

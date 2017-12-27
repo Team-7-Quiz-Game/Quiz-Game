@@ -12,20 +12,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Trivia.Core.Contracts;
 
-namespace LetsGetQuizzical
+namespace Trivia.UI
 {
     /// <summary>
     /// Interaction logic for GameStart.xaml
     /// </summary>
     public partial class GameStart : Page
     {
+        IEngine engine;
         public GameStart()
         {
             InitializeComponent();
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void StartGameButton(object sender, RoutedEventArgs e)
         {
+            // Upon clicking on the start button, the game engline starts
+           
             // Go to Choose A Player Mode
             PlayerMode playerMode = new PlayerMode();
             this.NavigationService.Navigate(playerMode);
