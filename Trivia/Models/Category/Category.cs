@@ -26,19 +26,53 @@ namespace Trivia.Models.Category
         
         public CategoryType CategoryType => this.categoryType;
 
-        public void AddEasyQuestion(IQuestion question)
+        private void AddEasyQuestion(IQuestion question)
         {
+            if (this.easyQuestions.Count > 5)
+            {
+                throw new ArgumentException("Easy questions per category must be 5!");
+            }
+
             this.easyQuestions.Add(question);
         }
 
-        public void AddNormalQuestion(IQuestion question)
+        private void AddNormalQuestion(IQuestion question)
         {
+            if (this.normalQuestions.Count > 5)
+            {
+                throw new ArgumentException("Normal questions per category must be 5!");
+            }
+
             this.normalQuestions.Add(question);
         }
 
-        public void AddHardQuestion(IQuestion question)
+        private void AddHardQuestion(IQuestion question)
         {
+            if (this.hardQuestions.Count > 5)
+            {
+                throw new ArgumentException("Hard questions per category must be 5!");
+            }
+
             this.hardQuestions.Add(question);
+        }
+
+        public void AddQuestion(IQuestion question)
+        {
+            //guard
+            switch (question.DifficultyLevel)
+            {
+                case DifficultyLevel.Easy:
+                    this.AddEasyQuestion(question);
+                    break;
+                case DifficultyLevel.Normal:
+                    this.AddNormalQuestion(question);
+                    break;
+                case DifficultyLevel.Hard:
+                    this.AddHardQuestion(question);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

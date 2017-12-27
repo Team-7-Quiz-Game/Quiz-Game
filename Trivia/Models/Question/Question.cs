@@ -15,13 +15,15 @@ namespace Trivia.Models.Question
         private int points;
         private readonly DifficultyLevel difficultyLevel;
         private readonly QuestionType questionType;
+        private readonly CategoryType categoryType;
 
-        public Question(string questionText, DifficultyLevel difficultyLevel, CategoryType category, QuestionType questionType)
+        public Question(string questionText, DifficultyLevel difficultyLevel, CategoryType categoryType, QuestionType questionType)
         {
             //Guard
             this.questionText = questionText;
             this.answers = new List<IAnswer>();
             this.difficultyLevel = difficultyLevel;
+            this.categoryType = categoryType;
             this.questionType = questionType;
         }
 
@@ -36,7 +38,10 @@ namespace Trivia.Models.Question
             get => this.points;
             protected set => points = value;
         }
+
         public QuestionType QuestionType => this.questionType;
+
+        public CategoryType CategoryType => this.categoryType;
 
         public void AddAnswer(IAnswer answer)
         {

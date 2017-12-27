@@ -88,14 +88,12 @@ namespace Trivia.Core
                 var categoryToAdd = this.factory.CreateCategory(categoryType);
                 this.categories.Add(categoryName, categoryToAdd);
             }
-
-            
         }
 
-        private IQuestion GetQuestionFromDb(string categoryName)
-        {
+        //private IQuestion GetQuestionFromDb(string categoryName)
+        //{
 
-        }
+        //}
 
         private void AddQuestionsToCategory(string categoryNameToAdd, IQuestion questionToAdd)
         {
@@ -106,23 +104,22 @@ namespace Trivia.Core
 
             var category = this.categories[categoryNameToAdd];
 
-            switch (questionToAdd.DifficultyLevel)
-            {
-                case DifficultyLevel.Easy:
-                    category.AddEasyQuestion(questionToAdd);
-                    break;
-                case DifficultyLevel.Normal:
-                    category.AddNormalQuestion(questionToAdd);
-                    break;
-                case DifficultyLevel.Hard:
-                    category.AddHardQuestion(questionToAdd);
-                    break;
-                default:// throw some error
-                    break;
-            }
+            category.AddQuestion(questionToAdd);
         }
 
-        //For Quizzard
+        public IPlayer CreateNormalPlayer(string name)
+        {
+            //guard
+            return this.factory.CreateNormalPlayer(name);
+        }
+
+        public IPlayer CreateQuizzardPlayer(string name)
+        {
+            //guard
+            return this.factory.CreateQuizzardPlayer(name);
+        }
+
+        //FOR QUIZZARD MODE BELLOW
 
         public IAnswer CreateAnswer(string answerText, bool isCorrect)
         {
@@ -146,18 +143,6 @@ namespace Trivia.Core
         {
             //guard
             return this.factory.CreateTimedQuestion(questionText, difficultyLevel, category, timeForAnswer);
-        }
-
-        public IPlayer CreateNormalPlayer(string name)
-        {
-            //guard
-            return this.factory.CreateNormalPlayer(name);
-        }
-
-        public IPlayer CreateQuizzardPlayer(string name)
-        {
-            //guard
-            return this.factory.CreateQuizzardPlayer(name);
         }
     }
 }

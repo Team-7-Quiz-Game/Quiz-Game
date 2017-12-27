@@ -7,8 +7,8 @@
     <ProjectGuid>{E0191A63-82A3-4216-8FB5-22CC07BAECF5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Trivia.Core</RootNamespace>
-    <AssemblyName>Trivia</AssemblyName>
+    <RootNamespace>Trivia</RootNamespace>
+    <AssemblyName>Trivia.Core</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

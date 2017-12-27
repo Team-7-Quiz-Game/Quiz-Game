@@ -11,10 +11,6 @@ namespace Trivia.Contracts
     {
         CategoryType CategoryType { get; }
 
-        void AddEasyQuestion(IQuestion question);
-
-        void AddNormalQuestion(IQuestion question);
-
-        void AddHardQuestion(IQuestion question);
+        void AddQuestion(IQuestion question);
     }
 }
