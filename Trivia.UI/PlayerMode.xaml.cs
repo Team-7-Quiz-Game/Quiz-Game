@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Trivia.Core;
+using Trivia.Core.Contracts;
 
 namespace Trivia.UI
 {
@@ -42,10 +44,13 @@ namespace Trivia.UI
         // Button for the Regular Player Page. It takes the checked categories.
         // We define a name variable that will take when the user presses the button either Go, Player or Go, Quizzard
         string name;
-        private void GoPayer(object sender, RoutedEventArgs e) 
+        private void GoPlayer(object sender, RoutedEventArgs e) 
         {
+
             name = Name.Text;
-            string checkList = string.Join(",", checkedCategories.ToArray());
+            Engine.Instance.CreateCategory(checkedCategories);
+
+            //NormalPlayer player = new NormalPlayer(name);
             //new normal player
             // new list category
             // foreach checkedCategories parse and add to categorList

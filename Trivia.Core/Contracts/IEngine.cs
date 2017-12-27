@@ -8,5 +8,8 @@ namespace Trivia.Core.Contracts
 {
     public interface IEngine
     {
+        // TEST
+        //void Start();
+        void CreateCategory(IList<string> checkedCategories);
     }
 }

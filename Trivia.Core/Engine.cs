@@ -34,28 +34,31 @@ namespace Trivia.Core
 
         public static IPlayer Player { get => player; private set => player = value; }
 
+        // TEST for the engine start that takes the name from the user input
         //public void Start()
         //{
-        //    while (true)
-        //    {
-        //        try
-        //        {
-        //            //var commandAsString = this.Reader.ReadLine();
+            // Check if the name != null or Enter your name
 
-        //            //if (commandAsString.ToLower() == TerminationCommand.ToLower())
-        //            //{
-        //            //    break;
-        //            //}
+            //while (true)
+            //{
+            //    try
+            //    {
+            //        //var commandAsString = this.Reader.ReadLine();
 
-        //            //this.ProcessCommand(commandAsString);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            //this.Writer.WriteLine(ex.Message);
-        //            //this.Writer.WriteLine("####################");
-        //        }
-        //    }
-        //}
+            //        //if (commandAsString.ToLower() == TerminationCommand.ToLower())
+            //        //{
+            //        //    break;
+            //        //}
+
+            //        //this.ProcessCommand(commandAsString);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        //this.Writer.WriteLine(ex.Message);
+            //        //this.Writer.WriteLine("####################");
+            //    }
+            //}
+      //  }
 
         //private void ProcessCommand(string commandAsString)
         //{

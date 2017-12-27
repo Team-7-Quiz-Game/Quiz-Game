@@ -20,16 +20,13 @@ namespace Trivia.UI
     /// Interaction logic for GameStart.xaml
     /// </summary>
     public partial class GameStart : Page
-    {
-        IEngine engine;
+    {        
         public GameStart()
         {
             InitializeComponent();
         }
         private void StartGameButton(object sender, RoutedEventArgs e)
-        {
-            // Upon clicking on the start button, the game engline starts
-           
+        {       
             // Go to Choose A Player Mode
             PlayerMode playerMode = new PlayerMode();
             this.NavigationService.Navigate(playerMode);
