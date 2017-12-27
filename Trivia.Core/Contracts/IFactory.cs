@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Trivia.Common;
 using Trivia.Contracts;
+using Trivia.Models.Hint;
 
 namespace Trivia.Core.Contracts
 {
@@ -23,5 +24,9 @@ namespace Trivia.Core.Contracts
         IPlayer CreateQuizzardPlayer(string name);
 
         ICategory CreateCategory(CategoryType categoryType);
+
+        Hint CreateSkipQuestionHint(int quantity);
+
+        Hint CreateRemoveTwoHint(int quantity);
     }
 }

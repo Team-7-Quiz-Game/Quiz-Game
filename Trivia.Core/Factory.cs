@@ -3,6 +3,7 @@ using Trivia.Common;
 using Trivia.Contracts;
 using Trivia.Core.Contracts;
 using Trivia.Models.Category;
+using Trivia.Models.Hint;
 using Trivia.Models.Player;
 using Trivia.Models.Question;
 
@@ -10,6 +11,20 @@ namespace Trivia.Core
 {
     public class Factory : IFactory
     {
+        private static IFactory instanceHolder = new Factory();
+
+        private Factory()
+        {
+        }
+
+        public static IFactory Instance
+        {
+            get
+            {
+                return instanceHolder;
+            }
+        }
+
         public IAnswer CreateAnswer (string answerText, bool isCorrect)
         {
             return new Answer(answerText, isCorrect);
@@ -43,6 +58,16 @@ namespace Trivia.Core
         public ICategory CreateCategory(CategoryType categoryType)
         {
             return new Category(categoryType);
+        }
+
+        public Hint CreateSkipQuestionHint(int quantity)
+        {
+            return new SkipQuestionHint(quantity);
+        }
+
+        public Hint CreateRemoveTwoHint(int quantity)
+        {
+            return new RemoveTwoHint(quantity);
         }
     }
 }

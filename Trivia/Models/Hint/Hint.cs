@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Trivia.Common;
 
 namespace Trivia.Models.Hint
 {
     public abstract class Hint
     {
-        private readonly string name;
-        private readonly string description;
+        private string description;
+        private readonly HintType type;
         private int quantity;
 
-        public Hint(string name, string description, int quantity)
+        public Hint(int quantity, HintType type)
         {
             //guard
-            this.name = name;
-            this.description = description;
+            this.type = type;
             this.quantity = quantity;
         }
 
-        public string Name => this.name;
+        public HintType Name => this.type;
 
-        public string Description => this.description;
+        public string Description { get => this.description; protected set => this.description = value; }
 
         public int Quantity { get => this.quantity; set => this.quantity = value; }
     }

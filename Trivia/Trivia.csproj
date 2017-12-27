@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\CategoryType.cs" />
+    <Compile Include="Common\HintType.cs" />
     <Compile Include="Common\PlayerType.cs" />
     <Compile Include="Common\QuestionType.cs" />
     <Compile Include="Models\Category\Category.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Contracts\IQuestion.cs" />
     <Compile Include="Models\Hint\Hint.cs" />
     <Compile Include="Models\Hint\RemoveTwoHint.cs" />
+    <Compile Include="Models\Hint\SkipQuestionHint.cs" />
     <Compile Include="Models\Player\QuizzardPlayer.cs" />
     <Compile Include="Models\Player\NormalPlayer.cs" />
     <Compile Include="Models\Player\Player.cs" />

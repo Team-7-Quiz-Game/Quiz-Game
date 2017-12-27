@@ -19,7 +19,7 @@ namespace Trivia.Core
         
         private Engine()
         {
-            this.factory = new Factory();
+            this.factory = Factory.Instance;
             this.categories = new Dictionary<string, ICategory>();
             this.database = new DB(this.factory);
         }
