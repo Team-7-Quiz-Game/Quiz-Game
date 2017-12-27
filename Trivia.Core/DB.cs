@@ -13,11 +13,12 @@ namespace Trivia.Core
     public class DB
     {
         private IList<ICategory> categories;
-        private IFactory factory;
+        private readonly IFactory factory;
 
-        public DB()
+        public DB(IFactory factory)
         {
             this.categories = new List<ICategory>();
+            this.factory = factory;
             this.PopulateCategories();
             this.PopulateQuestions();
         }

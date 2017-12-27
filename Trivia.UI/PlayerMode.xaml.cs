@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Trivia.Core;
 using Trivia.Core.Contracts;
+using Trivia.Models.Category;
 
 namespace Trivia.UI
 {
@@ -46,6 +47,8 @@ namespace Trivia.UI
         string name;
         private void GoPlayer(object sender, RoutedEventArgs e) 
         {
+            //var fac = new Factory();
+            //var cat = new Category(Common.CategoryType.Geography);
 
             name = Name.Text;
             Engine.Instance.CreateCategory(checkedCategories);

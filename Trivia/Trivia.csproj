@@ -7,7 +7,7 @@
     <ProjectGuid>{DCA06CD0-F54F-4EA9-A7E0-5C21961A3F03}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Trivia</RootNamespace>
+    <RootNamespace>TriviaGame</RootNamespace>
     <AssemblyName>Trivia</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

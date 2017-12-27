@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{72540EA8-5A8D-48A9-BD0A-DB77B6A6E340}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Trivia.Program</RootNamespace>
-    <AssemblyName>Trivia</AssemblyName>
+    <RootNamespace>TriviaGame</RootNamespace>
+    <AssemblyName>Trivia.Program</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

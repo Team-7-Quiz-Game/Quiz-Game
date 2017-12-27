@@ -9,9 +9,9 @@ using Trivia.Core.Contracts;
 
 namespace Trivia.Core
 {
-    public sealed class Engine : IEngine
+    public class Engine : IEngine
     {
-        private static readonly IEngine SingleInstance = new Engine();
+        private static IEngine SingleInstance;
         private readonly IFactory factory;
         private static IPlayer player;
         private readonly IDictionary<string, ICategory> categories;
@@ -21,13 +21,18 @@ namespace Trivia.Core
         {
             this.factory = new Factory();
             this.categories = new Dictionary<string, ICategory>();
-            this.database = new DB();
+            this.database = new DB(this.factory);
         }
 
         public static IEngine Instance
         {
             get
             {
+                if (SingleInstance == null)
+                {
+                    SingleInstance = new Engine();
+                }
+
                 return SingleInstance;
             }
         }
