@@ -7,7 +7,7 @@
     <ProjectGuid>{DCA06CD0-F54F-4EA9-A7E0-5C21961A3F03}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TriviaGame</RootNamespace>
+    <RootNamespace>Trivia</RootNamespace>
     <AssemblyName>Trivia</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -50,6 +50,7 @@
     <Compile Include="Contracts\IPlayer.cs" />
     <Compile Include="Contracts\IQuestion.cs" />
     <Compile Include="Models\Hint\Hint.cs" />
+    <Compile Include="Models\Hint\RemoveTwoHint.cs" />
     <Compile Include="Models\Player\QuizzardPlayer.cs" />
     <Compile Include="Models\Player\NormalPlayer.cs" />
     <Compile Include="Models\Player\Player.cs" />

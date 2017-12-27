@@ -14,8 +14,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Trivia.Core;
-using Trivia.Core.Contracts;
-using Trivia.Models.Category;
 
 namespace Trivia.UI
 {
@@ -50,7 +48,7 @@ namespace Trivia.UI
             //var fac = new Factory();
             //var cat = new Category(Common.CategoryType.Geography);
 
-            name = Name.Text;
+            name = pName.Text;
             Engine.Instance.CreateCategory(checkedCategories);
 
             //NormalPlayer player = new NormalPlayer(name);
@@ -63,7 +61,7 @@ namespace Trivia.UI
         // Button for the Quizzard Page.
         private void GoQuizzard(object sender, RoutedEventArgs e) 
         {
-            name = Name.Text;
+            name = pName.Text;
             QuizzardInitialPage quizzardInitialPage = new QuizzardInitialPage();
             this.NavigationService.Navigate(quizzardInitialPage);
         }

@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A8D6F766-6E38-4F3F-9146-DD4D07704911}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>TriviaGame</RootNamespace>
+    <RootNamespace>Trivia.UI</RootNamespace>
     <AssemblyName>Trivia.UI</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -139,10 +139,6 @@
     <ProjectReference Include="..\Trivia.Core\Trivia.Core.csproj">
       <Project>{e0191a63-82a3-4216-8fb5-22cc07baecf5}</Project>
       <Name>Trivia.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Trivia\Trivia.csproj">
-      <Project>{dca06cd0-f54f-4ea9-a7e0-5c21961a3f03}</Project>
-      <Name>Trivia</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

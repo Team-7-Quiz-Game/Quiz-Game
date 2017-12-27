@@ -15,6 +15,7 @@ namespace Trivia.Models.Player
         public QuizzardPlayer(string name)
             : base(name, PlayerType.Quizzard)
         {
+            this.quizzardQuestions = new List<IQuestion>();
         }
 
         public int QuestionsCount => this.quizzardQuestions.Count;

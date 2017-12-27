@@ -39,20 +39,25 @@ namespace Trivia.Core
         private void PopulateQuestions()
         {
             var qText = "When did it happen?";
-
-            var qA1 = new Answer("Yesterday", false);
-            var qA2 = new Answer("Never", false);
-            var qA3 = new Answer("No one knows", false);
-            var qA4 = new Answer("The day before tomorrow", true);
-
             var historyQ1 = this.factory.CreateNormalQuestion(qText, DifficultyLevel.Easy, CategoryType.History);
 
-            historyQ1.AddAnswer(qA1);
-            historyQ1.AddAnswer(qA2);
-            historyQ1.AddAnswer(qA3);
-            historyQ1.AddAnswer(qA4);
+            var a1 = new Answer("Yesterday", false);
+            var a2 = new Answer("Never", false);
+            var a3 = new Answer("No one knows", false);
+            var a4 = new Answer("The day before tomorrow", true);
 
-            this.categories.Single(x => x.CategoryType == historyQ1.CategoryType).AddQuestion(historyQ1);
+            AddQuestion(historyQ1, a1, a2, a3, a4);
+            // ===TODO - REPEAT above template for all questions==
+        }
+
+        private void AddQuestion(IQuestion question, IAnswer answer1, IAnswer answer2, IAnswer answer3, IAnswer answer4)
+        {
+            question.AddAnswer(answer1);
+            question.AddAnswer(answer2);
+            question.AddAnswer(answer3);
+            question.AddAnswer(answer4);
+
+            this.categories.Single(x => x.CategoryType == question.CategoryType).AddQuestion(question);
         }
 
     }

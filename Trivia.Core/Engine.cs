@@ -13,7 +13,7 @@ namespace Trivia.Core
     {
         private static IEngine SingleInstance;
         private readonly IFactory factory;
-        private static IPlayer player;
+        private IPlayer player;
         private readonly IDictionary<string, ICategory> categories;
         private readonly DB database;
         
@@ -37,7 +37,7 @@ namespace Trivia.Core
             }
         }
 
-        public static IPlayer Player { get => player; private set => player = value; }
+        public IPlayer Player { get => player; private set => player = value; }
 
         // TEST for the engine start that takes the name from the user input
         //public void Start()
