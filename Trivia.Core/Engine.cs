@@ -11,7 +11,7 @@ namespace Trivia.Core
 {
     public class Engine : IEngine
     {
-        private static IEngine SingleInstance;
+        private readonly static IEngine engine = new Engine();
         private readonly IFactory factory;
         private IPlayer player;
         private readonly IDictionary<string, ICategory> categories;
@@ -28,58 +28,12 @@ namespace Trivia.Core
         {
             get
             {
-                if (SingleInstance == null)
-                {
-                    SingleInstance = new Engine();
-                }
-
-                return SingleInstance;
+                return engine;
             }
         }
 
         public IPlayer Player { get => player; private set => player = value; }
-
-        // TEST for the engine start that takes the name from the user input
-        //public void Start()
-        //{
-            // Check if the name != null or Enter your name
-
-            //while (true)
-            //{
-            //    try
-            //    {
-            //        //var commandAsString = this.Reader.ReadLine();
-
-            //        //if (commandAsString.ToLower() == TerminationCommand.ToLower())
-            //        //{
-            //        //    break;
-            //        //}
-
-            //        //this.ProcessCommand(commandAsString);
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        //this.Writer.WriteLine(ex.Message);
-            //        //this.Writer.WriteLine("####################");
-            //    }
-            //}
-      //  }
-
-        //private void ProcessCommand(string commandAsString)
-        //{
-        //    if (string.IsNullOrWhiteSpace(commandAsString))
-        //    {
-        //        throw new ArgumentNullException("Command cannot be null or empty.");
-        //    }
-
-        //    //var command = this.Parser.ParseCommand(commandAsString);
-        //    //var parameters = this.Parser.ParseParameters(commandAsString);
-
-        //    //var executionResult = command.Execute(parameters);
-        //    //this.Writer.WriteLine(executionResult);
-        //    //this.Writer.WriteLine("####################");
-        //}
-
+        
         public void CreateCategory(IList<string> categories)
         {
             for (int i = 0; i < categories.Count; i++)
@@ -98,6 +52,7 @@ namespace Trivia.Core
             }
         }
 
+        //TODO
         //private IQuestion GetQuestionFromDb(string categoryName)
         //{
 

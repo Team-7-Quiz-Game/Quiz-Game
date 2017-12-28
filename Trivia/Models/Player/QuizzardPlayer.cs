@@ -18,6 +18,8 @@ namespace Trivia.Models.Player
             this.quizzardQuestions = new List<IQuestion>();
         }
 
+        public IList<IQuestion> QuizzardQuestions => this.CloneQuestions();
+
         public int QuestionsCount => this.quizzardQuestions.Count;
 
         public void CreateQuestion(IQuestion question)
@@ -30,6 +32,18 @@ namespace Trivia.Models.Player
         {
             //guard
             quizzardQuestions.Remove(question);
+        }
+
+        private IList<IQuestion> CloneQuestions()
+        {
+            var cloned = new List<IQuestion>();
+
+            foreach (var question in quizzardQuestions)
+            {
+                cloned.Add(question);
+            }
+
+            return cloned;
         }
     }
 }
