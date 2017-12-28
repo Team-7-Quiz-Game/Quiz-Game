@@ -54,6 +54,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PlayerFirstLevelPage.xaml.cs">
+      <DependentUpon>PlayerFirstLevelPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="QuizzardInitialPage.xaml.cs">
       <DependentUpon>QuizzardInitialPage.xaml</DependentUpon>
     </Compile>
@@ -85,6 +88,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PlayerFirstLevelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PlayerMode.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -139,6 +146,10 @@
     <ProjectReference Include="..\Trivia.Core\Trivia.Core.csproj">
       <Project>{e0191a63-82a3-4216-8fb5-22cc07baecf5}</Project>
       <Name>Trivia.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Trivia\Trivia.csproj">
+      <Project>{DCA06CD0-F54F-4EA9-A7E0-5C21961A3F03}</Project>
+      <Name>Trivia</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

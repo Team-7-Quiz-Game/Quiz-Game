@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,23 +13,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Trivia.Models.Player;
+using Trivia;
 
 namespace Trivia.UI
 {
     /// <summary>
-    /// Interaction logic for StartQuizzardTest.xaml
+    /// Interaction logic for PlayerFirstLevelPage.xaml
     /// </summary>
-    public partial class StartQuizzardTest : Page
+    public partial class PlayerFirstLevelPage : Page
     {
-        public StartQuizzardTest()
+        string playerName;
+        public PlayerFirstLevelPage(NormalPlayer player)
         {
             InitializeComponent();
-           
-        }
-        // The buttons will be binded with the answers from the list. Upon clicking on a button 
 
+            playerName = player.Name;
+            int pointsPlayer = player.Points;
+        }      
         private void AnswerAButton(object sender, RoutedEventArgs e)
         {
+     
         }
 
         private void AnswerBButton(object sender, RoutedEventArgs e)

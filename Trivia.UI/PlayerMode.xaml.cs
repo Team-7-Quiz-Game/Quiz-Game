@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Trivia.Core;
+using Trivia.Models.Player;
 
 namespace Trivia.UI
 {
@@ -50,8 +51,11 @@ namespace Trivia.UI
 
             name = pName.Text;
             Engine.Instance.CreateCategory(checkedCategories);
+            //var player = Engine.Instance.CreateNormalPlayer(name);
 
-            //NormalPlayer player = new NormalPlayer(name);
+            NormalPlayer player = new NormalPlayer(name);
+            PlayerFirstLevelPage firstLevelPagePlayer = new PlayerFirstLevelPage(player);
+            this.NavigationService.Navigate(firstLevelPagePlayer);
             //new normal player
             // new list category
             // foreach checkedCategories parse and add to categorList
