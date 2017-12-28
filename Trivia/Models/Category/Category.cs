@@ -26,6 +26,12 @@ namespace Trivia.Models.Category
         
         public CategoryType CategoryType => this.categoryType;
 
+        public IList<IQuestion> EasyQuestions => CloneQuestions(this.easyQuestions);
+
+        public IList<IQuestion> NormalQuestions => CloneQuestions(this.normalQuestions);
+
+        public IList<IQuestion> HardQuestions => CloneQuestions(this.hardQuestions);
+
         private void AddEasyQuestion(IQuestion question)
         {
             if (this.easyQuestions.Count > 5)
@@ -73,6 +79,18 @@ namespace Trivia.Models.Category
                 default:
                     break;
             }
+        }
+
+        private IList<IQuestion> CloneQuestions(IList<IQuestion> listToBeCloned)
+        {
+            var cloned = new List<IQuestion>();
+
+            foreach (var question in listToBeCloned)
+            {
+                cloned.Add(question);
+            }
+
+            return cloned;
         }
     }
 }

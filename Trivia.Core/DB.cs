@@ -41,10 +41,10 @@ namespace Trivia.Core
             var qText = "When did it happen?";
             var historyQ1 = this.factory.CreateNormalQuestion(qText, DifficultyLevel.Easy, CategoryType.History);
 
-            var a1 = new Answer("Yesterday", false);
-            var a2 = new Answer("Never", false);
-            var a3 = new Answer("No one knows", false);
-            var a4 = new Answer("The day before tomorrow", true);
+            var a1 = this.factory.CreateAnswer("Yesterday", false);
+            var a2 = this.factory.CreateAnswer("Never", false);
+            var a3 = this.factory.CreateAnswer("No one knows", false);
+            var a4 = this.factory.CreateAnswer("The day before tomorrow", true);
 
             AddQuestion(historyQ1, a1, a2, a3, a4);
             // ===TODO - REPEAT above template for all questions==

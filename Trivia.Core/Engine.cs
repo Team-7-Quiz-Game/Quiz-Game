@@ -60,6 +60,8 @@ namespace Trivia.Core
 
         private void AddQuestionsToCategory(string categoryNameToAdd, IQuestion questionToAdd)
         {
+            //guard
+
             if (!this.categories.ContainsKey(categoryNameToAdd))
             {
                 //throw some custom error or something - category does not exists
