@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,8 @@ namespace Trivia.Core
         private IPlayer player;
         private readonly IDictionary<string, ICategory> categories;
         private readonly DB database;
-        
+        // TEST
+        private IList<IQuestion> easyQuestions;
         private Engine()
         {
             this.factory = Factory.Instance;
@@ -35,6 +37,18 @@ namespace Trivia.Core
 
         public IPlayer Player { get => player; set => player = value; }
         
+        // TEST Property
+        public IList<IQuestion> EasyQuestions
+        {
+            get
+            {
+                return GetEasyQuestions(categories);
+            }
+            set
+            {
+                this.easyQuestions = value;
+            }
+        }
         public void CreateCategory(IList<string> categories)
         {
             for (int i = 0; i < categories.Count; i++)
@@ -53,7 +67,6 @@ namespace Trivia.Core
                 this.GetRandomQuestionsFromDb(categoryToAdd);
             }
         }
-
         private void GetRandomQuestionsFromDb(ICategory category)
         {
             var questions = this.database.GetRandomQuestions(category, QUESTIONS_PER_LEVEL_COUNT);
@@ -78,7 +91,19 @@ namespace Trivia.Core
 
             category.AddQuestion(questionToAdd);
         }
-
+        // TEST
+        public IList<IQuestion> GetEasyQuestions(IDictionary<string, ICategory> categories)
+        {
+            this.easyQuestions = new List<IQuestion>();
+            foreach (var category in this.categories)
+            {
+                foreach(var question in category.Value.EasyQuestions)
+                {
+                    this.easyQuestions.Add(question);
+                }
+            }
+            return this.easyQuestions;
+        }
         public IPlayer CreateNormalPlayer(string name)
         {
             //guard

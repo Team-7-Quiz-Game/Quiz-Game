@@ -17,6 +17,7 @@ using Trivia.Models.Player;
 using Trivia;
 using Trivia.Contracts;
 using Trivia.Core.Contracts;
+using Trivia.Models.Category;
 
 namespace Trivia.UI
 {
@@ -34,10 +35,27 @@ namespace Trivia.UI
             NormalPlayer currentPlayer = (NormalPlayer)engine.Player;
             int pointsPlayer = currentPlayer.Points;
             pNameTB.Text = playerName;
+            pPoints.Text = pointsPlayer.ToString();
+            var easyQuestions = engine.EasyQuestions;
+
+            foreach (var question in easyQuestions)
+            {
+                displayQuestion.Text = question.QuestionText;
+                
+                displayAnswerA.Content = question.Answers[0].ToString();
+                displayAnswerB.Content = question.Answers[1].ToString();
+                displayAnswerC.Content = question.Answers[2].ToString();
+                displayAnswerD.Content = question.Answers[3].ToString();
+                //Button button = new Button(); 
+                //button.Content = question.Answers[0].ToString();
+                //displayAnswer.Content = question.Answers[0].ToString();
+
+            }
         }      
+
         private void AnswerAButton(object sender, RoutedEventArgs e)
         {
-     
+            
         }
 
         private void AnswerBButton(object sender, RoutedEventArgs e)

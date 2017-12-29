@@ -11,6 +11,7 @@ namespace Trivia.Core.Contracts
     public interface IEngine
     {
         IPlayer Player { get ; set; }
+        IList<IQuestion> EasyQuestions { get; }
 
         void CreateCategory(IList<string> checkedCategories);
 
@@ -25,5 +26,7 @@ namespace Trivia.Core.Contracts
         IQuestion CreateBonusQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int pointsAmplifier);
 
         IQuestion CreateTimedQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int timeForAnswer);
+        IList<IQuestion> GetEasyQuestions(IDictionary<string, ICategory> categories);
+        //void GetEasyQuestions(IDictionary<string, ICategory> categories);
     }
 }

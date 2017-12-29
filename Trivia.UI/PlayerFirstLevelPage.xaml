@@ -13,10 +13,11 @@
         <Label Content="Difficulty :&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="162" Margin="54,66,0,0" FontFamily="Showcard Gothic" FontSize="24"/>
         <Label Content="Easy&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="69" Margin="221,66,0,0" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FF084000"/>
         <Label Content="score :&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="99" Margin="639,63,0,0" FontFamily="Showcard Gothic" FontSize="24"/>
-        <Label Content="0&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="29" Margin="738,63,0,0" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FFA50000"/>
         <Label Content="name :&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="85" Margin="638,21,0,0" FontFamily="Showcard Gothic" FontSize="24"/>
 
-        <TextBlock HorizontalAlignment="Left" Height="69" Margin="319,147,0,0" TextWrapping="Wrap" Text="Some question" VerticalAlignment="Top" Width="322" FontFamily="Showcard Gothic" FontSize="36"/>
+        <TextBlock Name="displayQuestion" HorizontalAlignment="Center" Height="69" Margin="102,147,0,0" TextWrapping="Wrap" Text="Some question" VerticalAlignment="Top" Width="700" FontFamily="Showcard Gothic" FontSize="24"/>
+        <TextBlock Name="pNameTB" HorizontalAlignment="Left" Height="40" Margin="738,26,0,0" TextWrapping="Wrap" Text="Player" VerticalAlignment="Top" Width="132" IsEnabled="False" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FF084000" RenderTransformOrigin="0.484,1.064"/>
+        <TextBlock x:Name="pPoints" HorizontalAlignment="Left" Height="40" Margin="738,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" IsEnabled="False" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FFA50000" RenderTransformOrigin="0.484,1.064"><Run Text="0"/><LineBreak/><Run/></TextBlock>
         <Label Content="B:" HorizontalAlignment="Left" Height="37" Margin="503,296,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -37,8 +38,8 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Content="Answer A..." HorizontalAlignment="Left" Height="68" Margin="74,287,0,0" VerticalAlignment="Top" Width="319" Click="AnswerAButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
-        <Button Content="Answer B..." HorizontalAlignment="Left" Height="68" Margin="551,287,0,0" VerticalAlignment="Top" Width="319" Click="AnswerBButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
+        <Button Name="displayAnswerA" HorizontalAlignment="Left" Height="68" Margin="74,287,0,0" VerticalAlignment="Top" Width="319" Click="AnswerAButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
+        <Button Name="displayAnswerB" HorizontalAlignment="Left" Height="68" Margin="551,287,0,0" VerticalAlignment="Top" Width="319" Click="AnswerBButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
         <Label Content="D:" HorizontalAlignment="Left" Height="37" Margin="503,434,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -59,9 +60,9 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Content="Answer C..." HorizontalAlignment="Left" Height="68" Margin="74,425,0,0" VerticalAlignment="Top" Width="319" Click="AnswerCButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
-        <Button Content="Answer D..." HorizontalAlignment="Left" Height="68" Margin="551,425,0,0" VerticalAlignment="Top" Width="319" Click="AnswerDButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Height="40" Margin="738,21,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="86" IsEnabled="False" Name="pNameTB"/>
+        <Button Name="displayAnswerC"  HorizontalAlignment="Left" Height="68" Margin="74,425,0,0" VerticalAlignment="Top" Width="319" Click="AnswerCButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
+        <Button Name="displayAnswerD" HorizontalAlignment="Left" Height="68" Margin="551,425,0,0" VerticalAlignment="Top" Width="319" Click="AnswerDButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
+
 
 
     </Grid>

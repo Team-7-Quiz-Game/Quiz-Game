@@ -59,19 +59,17 @@ namespace Trivia.UI
             //var cat = new Category(Common.CategoryType.Geography);
 
             name = pName.Text;
+            //if(name == null || name == "  Enter your name")
+            //{
+            //    throw new ArgumentException("Enter player's name");
+            //}
             this.engine.CreateCategory(checkedCategories);
-            //var player = Engine.Instance.CreateNormalPlayer(name);
-
+    
             var player = engine.CreateNormalPlayer(name);
             this.engine.Player = (NormalPlayer)player;
-
+        //    var easyQuestions = Engine.Instance.EasyQuestions;
             PlayerFirstLevelPage firstLevelPagePlayer = new PlayerFirstLevelPage(this.engine);
             this.NavigationService.Navigate(firstLevelPagePlayer);
-            //new normal player
-            // new list category
-            // foreach checkedCategories parse and add to categorList
-            // Game game = new Game(player, categoryList)
-            // start engine with game
         }
         // Button for the Quizzard Page.
         private void GoQuizzard(object sender, RoutedEventArgs e)
