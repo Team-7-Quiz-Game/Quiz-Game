@@ -65,6 +65,7 @@ namespace Trivia.Core
             if (!this.categories.ContainsKey(categoryNameToAdd))
             {
                 //throw some custom error or something - category does not exists
+                throw new ArgumentException("Invalid question category entered.");
             }
 
             var category = this.categories[categoryNameToAdd];
