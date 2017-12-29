@@ -30,6 +30,7 @@ namespace Trivia.UI
 
             playerName = player.Name;
             int pointsPlayer = player.Points;
+            pNameTB.Text = playerName;
         }      
         private void AnswerAButton(object sender, RoutedEventArgs e)
         {
