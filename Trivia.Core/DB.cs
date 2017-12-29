@@ -38,19 +38,21 @@ namespace Trivia.Core
                 uniqueQuestionsList.Add(selectedCategory.EasyQuestions[index]);
             }
 
-            var normalQuestionIndices = GetRandomIndices(selectedCategory.NormalQuestions.Count, numOfQuestions);
+            // Uncomment when all difficulty questions are implemented
 
-            foreach (var index in normalQuestionIndices)
-            {
-                uniqueQuestionsList.Add(selectedCategory.NormalQuestions[index]);
-            }
+            //var normalQuestionIndices = GetRandomIndices(selectedCategory.NormalQuestions.Count, numOfQuestions);
 
-            var hardQuestionIndices = GetRandomIndices(selectedCategory.HardQuestions.Count, numOfQuestions);
+            //foreach (var index in normalQuestionIndices)
+            //{
+            //    uniqueQuestionsList.Add(selectedCategory.NormalQuestions[index]);
+            //}
 
-            foreach (var index in hardQuestionIndices)
-            {
-                uniqueQuestionsList.Add(selectedCategory.HardQuestions[index]);
-            }
+            //var hardQuestionIndices = GetRandomIndices(selectedCategory.HardQuestions.Count, numOfQuestions);
+
+            //foreach (var index in hardQuestionIndices)
+            //{
+            //    uniqueQuestionsList.Add(selectedCategory.HardQuestions[index]);
+            //}
 
             return uniqueQuestionsList;
         }

@@ -60,7 +60,7 @@ namespace Trivia.Core
 
             foreach (var question in questions)
             {
-                this.AddQuestionsToCategory(category.ToString(), question);
+                this.AddQuestionsToCategory(category.CategoryType.ToString(), question);
             }
         }
 
