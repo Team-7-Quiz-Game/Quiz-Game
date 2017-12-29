@@ -7,6 +7,7 @@ using Trivia.Contracts;
 using Trivia.Core.Contracts;
 using Trivia.Common;
 using Trivia.Models.Question;
+using Trivia.Models.Category;
 
 namespace Trivia.Core
 {
@@ -23,7 +24,61 @@ namespace Trivia.Core
             this.PopulateQuestions();
         }
 
-        public IList<ICategory> Categories { get => this.categories; }
+        public IList<ICategory> Categories => this.categories;
+
+        public IList<IQuestion> GetRandomQuestions(ICategory category, int numOfQuestions)
+        {
+            var uniqueQuestionsList = new List<IQuestion>();
+            var selectedCategory = this.Categories.Single(c => c.CategoryType == category.CategoryType);
+
+            var easyQuestionIndices = GetRandomIndices(selectedCategory.EasyQuestions.Count, numOfQuestions);
+
+            foreach (var index in easyQuestionIndices)
+            {
+                uniqueQuestionsList.Add(selectedCategory.EasyQuestions[index]);
+            }
+
+            var normalQuestionIndices = GetRandomIndices(selectedCategory.NormalQuestions.Count, numOfQuestions);
+
+            foreach (var index in normalQuestionIndices)
+            {
+                uniqueQuestionsList.Add(selectedCategory.NormalQuestions[index]);
+            }
+
+            var hardQuestionIndices = GetRandomIndices(selectedCategory.HardQuestions.Count, numOfQuestions);
+
+            foreach (var index in hardQuestionIndices)
+            {
+                uniqueQuestionsList.Add(selectedCategory.HardQuestions[index]);
+            }
+
+            return uniqueQuestionsList;
+        }
+
+        private IList<int> GetRandomIndices(int listCount, int numOfQuestions)
+        {
+            var listOfUniqueIndices = new List<int>();
+
+            Random rnd = new Random();
+            int r;
+
+            while (true)
+            {
+                r = rnd.Next(listCount);
+
+                if (!listOfUniqueIndices.Contains(r))
+                {
+                    listOfUniqueIndices.Add(r);
+                }
+
+                if (listOfUniqueIndices.Count == numOfQuestions)
+                {
+                    break;
+                }
+            }
+
+            return listOfUniqueIndices;
+        }
 
         private void PopulateCategories()
         {

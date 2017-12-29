@@ -10,6 +10,7 @@ namespace Trivia.Models.Category
 {
     public class Category : ICategory
     {
+        private const int MAX_QUESTIONS_COUNT = 5;
         private readonly CategoryType categoryType;
         private IList<IQuestion> easyQuestions;
         private IList<IQuestion> normalQuestions;
@@ -34,9 +35,9 @@ namespace Trivia.Models.Category
 
         private void AddEasyQuestion(IQuestion question)
         {
-            if (this.easyQuestions.Count > 5)
+            if (this.easyQuestions.Count > MAX_QUESTIONS_COUNT)
             {
-                throw new ArgumentException("Easy questions per category must be 5!");
+                throw new ArgumentException($"Easy questions per category must be {MAX_QUESTIONS_COUNT}!");
             }
 
             this.easyQuestions.Add(question);
@@ -44,9 +45,9 @@ namespace Trivia.Models.Category
 
         private void AddNormalQuestion(IQuestion question)
         {
-            if (this.normalQuestions.Count > 5)
+            if (this.normalQuestions.Count > MAX_QUESTIONS_COUNT)
             {
-                throw new ArgumentException("Normal questions per category must be 5!");
+                throw new ArgumentException($"Normal questions per category must be {MAX_QUESTIONS_COUNT}!");
             }
 
             this.normalQuestions.Add(question);
@@ -54,9 +55,9 @@ namespace Trivia.Models.Category
 
         private void AddHardQuestion(IQuestion question)
         {
-            if (this.hardQuestions.Count > 5)
+            if (this.hardQuestions.Count > MAX_QUESTIONS_COUNT)
             {
-                throw new ArgumentException("Hard questions per category must be 5!");
+                throw new ArgumentException($"Hard questions per category must be {MAX_QUESTIONS_COUNT}!");
             }
 
             this.hardQuestions.Add(question);

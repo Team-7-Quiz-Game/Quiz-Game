@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Trivia.Core;
+using Trivia.Core.Contracts;
 using Trivia.Models.Player;
 
 namespace Trivia.UI
@@ -23,8 +24,12 @@ namespace Trivia.UI
     /// </summary>
     public partial class PlayerMode : Page
     {
+        private IEngine engine;
+        private string name;
+
         public PlayerMode()
         {
+            engine = Engine.Instance;
             InitializeComponent();
             // We put the checked by the user categories in a list.
             checkedCategories = new List<string>();
@@ -37,24 +42,30 @@ namespace Trivia.UI
             string s = cbox.Content as string;
 
             if ((bool)cbox.IsChecked)
+            {
                 checkedCategories.Add(s);
+            }
             else
+            {
                 checkedCategories.Remove(s);
+            }
         }
         // Button for the Regular Player Page. It takes the checked categories.
         // We define a name variable that will take when the user presses the button either Go, Player or Go, Quizzard
-        string name;
-        private void GoPlayer(object sender, RoutedEventArgs e) 
+
+        private void GoPlayer(object sender, RoutedEventArgs e)
         {
             //var fac = new Factory();
             //var cat = new Category(Common.CategoryType.Geography);
 
             name = pName.Text;
-            Engine.Instance.CreateCategory(checkedCategories);
+            this.engine.CreateCategory(checkedCategories);
             //var player = Engine.Instance.CreateNormalPlayer(name);
 
-            NormalPlayer player = new NormalPlayer(name);
-            PlayerFirstLevelPage firstLevelPagePlayer = new PlayerFirstLevelPage(player);
+            var player = engine.CreateNormalPlayer(name);
+            this.engine.Player = (NormalPlayer)player;
+
+            PlayerFirstLevelPage firstLevelPagePlayer = new PlayerFirstLevelPage(this.engine);
             this.NavigationService.Navigate(firstLevelPagePlayer);
             //new normal player
             // new list category
@@ -63,7 +74,7 @@ namespace Trivia.UI
             // start engine with game
         }
         // Button for the Quizzard Page.
-        private void GoQuizzard(object sender, RoutedEventArgs e) 
+        private void GoQuizzard(object sender, RoutedEventArgs e)
         {
             name = pName.Text;
             QuizzardInitialPage quizzardInitialPage = new QuizzardInitialPage();

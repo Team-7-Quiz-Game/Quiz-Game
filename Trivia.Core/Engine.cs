@@ -11,6 +11,7 @@ namespace Trivia.Core
 {
     public class Engine : IEngine
     {
+        private const int QUESTIONS_PER_LEVEL_COUNT = 2;
         private readonly static IEngine engine = new Engine();
         private readonly IFactory factory;
         private IPlayer player;
@@ -32,7 +33,7 @@ namespace Trivia.Core
             }
         }
 
-        public IPlayer Player { get => player; private set => player = value; }
+        public IPlayer Player { get => player; set => player = value; }
         
         public void CreateCategory(IList<string> categories)
         {
@@ -49,14 +50,19 @@ namespace Trivia.Core
 
                 var categoryToAdd = this.factory.CreateCategory(categoryType);
                 this.categories.Add(categoryName, categoryToAdd);
+                this.GetRandomQuestionsFromDb(categoryToAdd);
             }
         }
 
-        //TODO
-        //private IQuestion GetQuestionFromDb(string categoryName)
-        //{
+        private void GetRandomQuestionsFromDb(ICategory category)
+        {
+            var questions = this.database.GetRandomQuestions(category, QUESTIONS_PER_LEVEL_COUNT);
 
-        //}
+            foreach (var question in questions)
+            {
+                this.AddQuestionsToCategory(category.ToString(), question);
+            }
+        }
 
         private void AddQuestionsToCategory(string categoryNameToAdd, IQuestion questionToAdd)
         {
