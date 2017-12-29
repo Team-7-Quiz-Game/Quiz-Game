@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Trivia.Models.Player;
 using Trivia;
+using Trivia.Contracts;
+using Trivia.Core.Contracts;
 
 namespace Trivia.UI
 {
@@ -24,12 +26,13 @@ namespace Trivia.UI
     public partial class PlayerFirstLevelPage : Page
     {
         string playerName;
-        public PlayerFirstLevelPage(NormalPlayer player)
+        public PlayerFirstLevelPage(IEngine engine)
         {
             InitializeComponent();
 
-            playerName = player.Name;
-            int pointsPlayer = player.Points;
+            playerName = engine.Player.Name;
+            NormalPlayer currentPlayer = (NormalPlayer)engine.Player;
+            int pointsPlayer = currentPlayer.Points;
             pNameTB.Text = playerName;
         }      
         private void AnswerAButton(object sender, RoutedEventArgs e)

@@ -33,7 +33,7 @@ namespace Trivia.Core
             }
         }
 
-        public IPlayer Player { get => player; private set => player = value; }
+        public IPlayer Player { get => player; set => player = value; }
         
         public void CreateCategory(IList<string> categories)
         {
