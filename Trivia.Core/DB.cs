@@ -283,7 +283,7 @@ namespace Trivia.Core
             a2 = this.factory.CreateAnswer("Scott Smith", false);
             a3 = this.factory.CreateAnswer("Holly Wood", false);
             a4 = this.factory.CreateAnswer("Last Vegan", false);
-            // Last Vegan mi hrumna ot Las Vegas kato ime, ne znam zashto, dobyr komentar, chao
+
             AddQuestion(moviesQ3, a1, a2, a3, a4);
 
             var qMoText4 = "What is the name of the first camera ever used in filming?";
@@ -297,7 +297,7 @@ namespace Trivia.Core
             AddQuestion(moviesQ4, a1, a2, a3, a4);
 
             // Literature
-            // le easy
+            // easy
 
             var qLText1 = "Which of the following authors inspired the following words \"The world's a stage, and we are but the actors.\"?";
             var literatureQ1 = this.factory.CreateNormalQuestion(qLText1, DifficultyLevel.Easy, CategoryType.Literature);

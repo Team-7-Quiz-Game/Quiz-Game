@@ -62,5 +62,7 @@
         </Label>
         <Button Name="displayAnswerC"  HorizontalAlignment="Left" Height="68" Margin="74,425,0,0" VerticalAlignment="Top" Width="319" Click="AnswerCButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
         <Button Name="displayAnswerD" HorizontalAlignment="Left" Height="68" Margin="551,425,0,0" VerticalAlignment="Top" Width="319" Click="AnswerDButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
+        <TextBlock x:Name="wrongAnswer" Visibility="Collapsed" HorizontalAlignment="Center" Height="37" Margin="356,245,416,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FF9C0000" RenderTransformOrigin="0.636,-0.086"/>
+        <TextBlock x:Name="correctAnswer" Visibility="Collapsed" HorizontalAlignment="Center" Height="42" TextWrapping="Wrap" Text="correct answer" VerticalAlignment="Top" Width="242" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FF084000" RenderTransformOrigin="0.501,2.04" Margin="357,245,301,0"/>
     </Grid>
 </Page>

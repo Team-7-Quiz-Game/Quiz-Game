@@ -55,8 +55,13 @@ namespace Trivia.UI
             answerA = easyQuestions[countQuestions].Answers[0].IsCorrect;
             if (answerA)
             {
-                pointsPlayer++;
+                pointsPlayer+=100;
+                correctAnswer.Visibility = Visibility.Visible;
                 pPoints.Text = pointsPlayer.ToString();
+            }
+            else
+            {
+                wrongAnswer.Visibility = Visibility.Visible;
             }
             countQuestions++;
             if (countQuestions > easyQuestions.Count - 1)
@@ -76,8 +81,13 @@ namespace Trivia.UI
             answerB = easyQuestions[countQuestions].Answers[1].IsCorrect;
             if (answerB)
             {
-                pointsPlayer++;
+                pointsPlayer += 100;
+                correctAnswer.Visibility = Visibility.Visible;
                 pPoints.Text = pointsPlayer.ToString();
+            }
+            else
+            {
+                wrongAnswer.Visibility = Visibility.Visible;
             }
             countQuestions++;
             if (countQuestions > easyQuestions.Count - 1)
@@ -98,8 +108,13 @@ namespace Trivia.UI
             answerC = easyQuestions[countQuestions].Answers[2].IsCorrect;
             if (answerC)
             {
-                pointsPlayer++;
+                pointsPlayer += 100;
+                correctAnswer.Visibility = Visibility.Visible;
                 pPoints.Text = pointsPlayer.ToString();
+            }
+            else
+            {
+                wrongAnswer.Visibility = Visibility.Visible;
             }
             countQuestions++;
             if (countQuestions > easyQuestions.Count - 1)
@@ -119,8 +134,13 @@ namespace Trivia.UI
             answerD = easyQuestions[countQuestions].Answers[3].IsCorrect;
             if (answerD)
             {
-                pointsPlayer++;
+                pointsPlayer += 100;
+                correctAnswer.Visibility = Visibility.Visible;
                 pPoints.Text = pointsPlayer.ToString();
+            }
+            else
+            {
+                wrongAnswer.Visibility = Visibility.Visible;
             }
             countQuestions++;
             if(countQuestions > easyQuestions.Count - 1)
