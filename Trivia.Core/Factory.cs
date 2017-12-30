@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Trivia.Common;
+using Trivia.Common.Enums;
 using Trivia.Contracts;
 using Trivia.Core.Contracts;
 using Trivia.Models.Category;

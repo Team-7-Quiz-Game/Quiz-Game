@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trivia.Contracts;
-using Trivia.Common;
+using Trivia.Common.Enums;
 
 namespace Trivia.Models.Player
 {
