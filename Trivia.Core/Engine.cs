@@ -13,9 +13,10 @@ namespace Trivia.Core
         private readonly IFactory factory;
         private IPlayer player;
         private readonly IDictionary<string, ICategory> categories;
-        private readonly DB database;
-        // TEST
+        private readonly DB database;        
         private IList<IQuestion> easyQuestions;
+        // TEST
+        //private IList<IQuestion> normalQuestions;
         private Engine()
         {
             this.factory = Factory.Instance;
@@ -33,7 +34,6 @@ namespace Trivia.Core
 
         public IPlayer Player { get => player; set => player = value; }
         
-        // TEST Property
         public IList<IQuestion> EasyQuestions
         {
             get
@@ -45,6 +45,19 @@ namespace Trivia.Core
                 this.easyQuestions = value;
             }
         }
+        // TEST Property
+        //public IList<IQuestion> NormalQuestions
+        //{
+        //    get
+        //    {
+        //        return GetNormalQuestions(categories);
+        //    }
+        //    set
+        //    {
+        //        this.normalQuestions = value;
+        //    }
+        //}
+     
         public void CreateCategory(IList<string> categories)
         {
             for (int i = 0; i < categories.Count; i++)
@@ -86,7 +99,7 @@ namespace Trivia.Core
 
             category.AddQuestion(questionToAdd);
         }
-        // TEST
+       
         public IList<IQuestion> GetEasyQuestions(IDictionary<string, ICategory> categories)
         {
             this.easyQuestions = new List<IQuestion>();
@@ -99,7 +112,19 @@ namespace Trivia.Core
             }
             return this.easyQuestions;
         }
-
+        // TEST
+        //public IList<IQuestion> GetNormalQuestions(IDictionary<string, ICategory> categories)
+        //{
+        //    this.normalQuestions = new List<IQuestion>();
+        //    foreach (var category in this.categories)
+        //    {
+        //        foreach (var question in category.Value.NormalQuestions)
+        //        {
+        //            this.normalQuestions.Add(question);
+        //        }
+        //    }
+        //    return this.normalQuestions;
+        //}
         public IPlayer CreateNormalPlayer(string name)
         {
             //guard

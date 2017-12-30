@@ -27,6 +27,7 @@ namespace Trivia.Core.Contracts
 
         IQuestion CreateTimedQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int timeForAnswer);
         IList<IQuestion> GetEasyQuestions(IDictionary<string, ICategory> categories);
-        //void GetEasyQuestions(IDictionary<string, ICategory> categories);
+        // TEST
+        //IList<IQuestion> GetNormalQuestions(IDictionary<string, ICategory> categories);
     }
 }
