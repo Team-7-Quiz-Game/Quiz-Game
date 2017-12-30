@@ -1,0 +1,20 @@
+﻿<Page x:Class="Trivia.UI.EndOfEasyLevelPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Trivia.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="900" Background="#edea49"
+      Title="EndOfEasyLevelPage">
+
+    <Grid>
+        <Label Content=", congrats!&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="383,87,0,0" Height="71" Width="303" FontFamily="Showcard Gothic" FontSize="48" Foreground="Black"/>
+        <Button Content="Continue" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="134" Click="ContinueButton" Background="#FF7AB0A3" FontFamily="Consolas" FontSize="18" Foreground="Black" Margin="657,362,0,0" FontWeight="Bold"/>
+        <Label Content="Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="218,180,0,0" Height="71" Width="178" FontFamily="Showcard Gothic" FontSize="48" Foreground="Black"/>
+        <TextBlock Text="0" Name="pPoints" HorizontalAlignment="Left" Height="62" Margin="401,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" FontFamily="Showcard Gothic" FontSize="48" Foreground="#FF43076B"/>
+        <TextBlock Text="Player" Name="pNameTB" HorizontalAlignment="Right" Height="62" Margin="0,92,489,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" FontFamily="Showcard Gothic" FontSize="48" Foreground="#FF43076B"/>
+        <Label Content="now it's getting harder..." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="52,352,0,0" Height="71" Width="537" FontFamily="Showcard Gothic" FontSize="36" Foreground="Black"/>
+
+    </Grid>
+</Page>

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -59,9 +60,10 @@ namespace Trivia.UI
             //var cat = new Category(Common.CategoryType.Geography);
 
             name = pName.Text;
-            //if(name == null || name == "  Enter your name")
+            //if (name == null || name == "  Enter your name")
             //{
-            //    throw new ArgumentException("Enter player's name");
+            //    Popup myPopup = new Popup();
+            //    myPopup.IsOpen = true;
             //}
             this.engine.CreateCategory(checkedCategories);
     

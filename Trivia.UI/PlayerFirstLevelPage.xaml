@@ -62,8 +62,5 @@
         </Label>
         <Button Name="displayAnswerC"  HorizontalAlignment="Left" Height="68" Margin="74,425,0,0" VerticalAlignment="Top" Width="319" Click="AnswerCButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
         <Button Name="displayAnswerD" HorizontalAlignment="Left" Height="68" Margin="551,425,0,0" VerticalAlignment="Top" Width="319" Click="AnswerDButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
-
-
-
     </Grid>
 </Page>

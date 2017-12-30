@@ -18,6 +18,7 @@ using Trivia;
 using Trivia.Contracts;
 using Trivia.Core.Contracts;
 using Trivia.Models.Category;
+using Trivia.Core;
 
 namespace Trivia.UI
 {
@@ -27,50 +28,115 @@ namespace Trivia.UI
     public partial class PlayerFirstLevelPage : Page
     {
         string playerName;
+        static bool answerA;
+        static bool answerB;
+        static bool answerC;
+        static bool answerD;
+        static int pointsPlayer;
+        static IList<IQuestion> easyQuestions;
+        static int countQuestions = 0;
         public PlayerFirstLevelPage(IEngine engine)
         {
             InitializeComponent();
 
             playerName = engine.Player.Name;
             NormalPlayer currentPlayer = (NormalPlayer)engine.Player;
-            int pointsPlayer = currentPlayer.Points;
+            pointsPlayer = currentPlayer.Points;
             pNameTB.Text = playerName;
             pPoints.Text = pointsPlayer.ToString();
-            var easyQuestions = engine.EasyQuestions;
+            easyQuestions = engine.EasyQuestions;
 
-            foreach (var question in easyQuestions)
-            {
-                displayQuestion.Text = question.QuestionText;
-                
-                displayAnswerA.Content = question.Answers[0].ToString();
-                displayAnswerB.Content = question.Answers[1].ToString();
-                displayAnswerC.Content = question.Answers[2].ToString();
-                displayAnswerD.Content = question.Answers[3].ToString();
-                //Button button = new Button(); 
-                //button.Content = question.Answers[0].ToString();
-                //displayAnswer.Content = question.Answers[0].ToString();
-
-            }
-        }      
+            DisplayTextForQuestionAndAnswers(easyQuestions, countQuestions);
+        }
 
         private void AnswerAButton(object sender, RoutedEventArgs e)
         {
-            
+            answerA = easyQuestions[countQuestions].Answers[0].IsCorrect;
+            if (answerA)
+            {
+                pointsPlayer++;
+                pPoints.Text = pointsPlayer.ToString();
+            }
+            countQuestions++;
+            if (countQuestions > easyQuestions.Count - 1)
+            {
+                EndOfEasyLevelPage endOfEasyLevelPage = new EndOfEasyLevelPage(pointsPlayer);
+                this.NavigationService.Navigate(endOfEasyLevelPage);
+            }
+            else
+            {
+                DisplayTextForQuestionAndAnswers(easyQuestions, countQuestions);
+            }
         }
 
         private void AnswerBButton(object sender, RoutedEventArgs e)
         {
+            answerB = easyQuestions[countQuestions].Answers[1].IsCorrect;
+            if (answerB)
+            {
+                pointsPlayer++;
+                pPoints.Text = pointsPlayer.ToString();
+            }
+            countQuestions++;
+            if (countQuestions > easyQuestions.Count - 1)
+            {
+                EndOfEasyLevelPage endOfEasyLevelPage = new EndOfEasyLevelPage(pointsPlayer);
+                this.NavigationService.Navigate(endOfEasyLevelPage);
+            }
+            else
+            {
+                DisplayTextForQuestionAndAnswers(easyQuestions, countQuestions);
+            }
 
         }
 
         private void AnswerCButton(object sender, RoutedEventArgs e)
         {
-
+            answerC = easyQuestions[countQuestions].Answers[2].IsCorrect;
+            if (answerC)
+            {
+                pointsPlayer++;
+                pPoints.Text = pointsPlayer.ToString();
+            }
+            countQuestions++;
+            if (countQuestions > easyQuestions.Count - 1)
+            {
+                EndOfEasyLevelPage endOfEasyLevelPage = new EndOfEasyLevelPage(pointsPlayer);
+                this.NavigationService.Navigate(endOfEasyLevelPage);
+            }
+            else
+            {
+                DisplayTextForQuestionAndAnswers(easyQuestions, countQuestions);
+            }
         }
 
         private void AnswerDButton(object sender, RoutedEventArgs e)
         {
+            answerD = easyQuestions[countQuestions].Answers[3].IsCorrect;
+            if (answerD)
+            {
+                pointsPlayer++;
+                pPoints.Text = pointsPlayer.ToString();
+            }
+            countQuestions++;
+            if(countQuestions > easyQuestions.Count - 1)
+            {
+                EndOfEasyLevelPage endOfEasyLevelPage = new EndOfEasyLevelPage(pointsPlayer);
+                this.NavigationService.Navigate(endOfEasyLevelPage);
+            }
+            else
+            {
+                DisplayTextForQuestionAndAnswers(easyQuestions, countQuestions);
+            }
+        }
+        private void DisplayTextForQuestionAndAnswers(IList<IQuestion> easyQuestions, int countQuestions)
+        {
+            displayQuestion.Text = easyQuestions[countQuestions].QuestionText;
 
+            displayAnswerA.Content = easyQuestions[countQuestions].Answers[0].ToString();
+            displayAnswerB.Content = easyQuestions[countQuestions].Answers[1].ToString();
+            displayAnswerC.Content = easyQuestions[countQuestions].Answers[2].ToString();
+            displayAnswerD.Content = easyQuestions[countQuestions].Answers[3].ToString();
         }
     }
 }

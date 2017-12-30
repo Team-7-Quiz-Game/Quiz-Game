@@ -54,6 +54,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EndOfEasyLevelPage.xaml.cs">
+      <DependentUpon>EndOfEasyLevelPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PlayerFirstLevelPage.xaml.cs">
       <DependentUpon>PlayerFirstLevelPage.xaml</DependentUpon>
     </Compile>
@@ -69,6 +72,10 @@
     <Compile Include="WrongAnswer.xaml.cs">
       <DependentUpon>WrongAnswer.xaml</DependentUpon>
     </Compile>
+    <Page Include="EndOfEasyLevelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GameStart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
