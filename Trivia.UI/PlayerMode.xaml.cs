@@ -56,20 +56,11 @@ namespace Trivia.UI
 
         private void GoPlayer(object sender, RoutedEventArgs e)
         {
-            //var fac = new Factory();
-            //var cat = new Category(Common.CategoryType.Geography);
-
             name = pName.Text;
-            //if (name == null || name == "  Enter your name")
-            //{
-            //    Popup myPopup = new Popup();
-            //    myPopup.IsOpen = true;
-            //}
             this.engine.CreateCategory(checkedCategories);
     
             var player = engine.CreateNormalPlayer(name);
             this.engine.Player = (NormalPlayer)player;
-        //    var easyQuestions = Engine.Instance.EasyQuestions;
             PlayerFirstLevelPage firstLevelPagePlayer = new PlayerFirstLevelPage(this.engine);
             this.NavigationService.Navigate(firstLevelPagePlayer);
         }

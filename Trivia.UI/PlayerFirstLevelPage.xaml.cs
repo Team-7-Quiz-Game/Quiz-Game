@@ -35,12 +35,13 @@ namespace Trivia.UI
         static int pointsPlayer;
         static IList<IQuestion> easyQuestions;
         static int countQuestions = 0;
+        static NormalPlayer currentPlayer;
         public PlayerFirstLevelPage(IEngine engine)
         {
             InitializeComponent();
 
             playerName = engine.Player.Name;
-            NormalPlayer currentPlayer = (NormalPlayer)engine.Player;
+            currentPlayer = (NormalPlayer)engine.Player;
             pointsPlayer = currentPlayer.Points;
             pNameTB.Text = playerName;
             pPoints.Text = pointsPlayer.ToString();
@@ -60,8 +61,9 @@ namespace Trivia.UI
             countQuestions++;
             if (countQuestions > easyQuestions.Count - 1)
             {
-                EndOfEasyLevelPage endOfEasyLevelPage = new EndOfEasyLevelPage(pointsPlayer);
-                this.NavigationService.Navigate(endOfEasyLevelPage);
+                currentPlayer.Points = pointsPlayer;
+                EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(currentPlayer.Points, playerName);
+                this.NavigationService.Navigate(endOfFirstLevelPage);
             }
             else
             {
@@ -80,8 +82,9 @@ namespace Trivia.UI
             countQuestions++;
             if (countQuestions > easyQuestions.Count - 1)
             {
-                EndOfEasyLevelPage endOfEasyLevelPage = new EndOfEasyLevelPage(pointsPlayer);
-                this.NavigationService.Navigate(endOfEasyLevelPage);
+                currentPlayer.Points = pointsPlayer;
+                EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(currentPlayer.Points, playerName);
+                this.NavigationService.Navigate(endOfFirstLevelPage);
             }
             else
             {
@@ -101,8 +104,9 @@ namespace Trivia.UI
             countQuestions++;
             if (countQuestions > easyQuestions.Count - 1)
             {
-                EndOfEasyLevelPage endOfEasyLevelPage = new EndOfEasyLevelPage(pointsPlayer);
-                this.NavigationService.Navigate(endOfEasyLevelPage);
+                currentPlayer.Points = pointsPlayer;
+                EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(currentPlayer.Points, playerName);
+                this.NavigationService.Navigate(endOfFirstLevelPage);
             }
             else
             {
@@ -121,8 +125,9 @@ namespace Trivia.UI
             countQuestions++;
             if(countQuestions > easyQuestions.Count - 1)
             {
-                EndOfEasyLevelPage endOfEasyLevelPage = new EndOfEasyLevelPage(pointsPlayer);
-                this.NavigationService.Navigate(endOfEasyLevelPage);
+                currentPlayer.Points = pointsPlayer;
+                EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(currentPlayer.Points, playerName);
+                this.NavigationService.Navigate(endOfFirstLevelPage);
             }
             else
             {

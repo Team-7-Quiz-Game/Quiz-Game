@@ -18,19 +18,20 @@ using Trivia.Models.Player;
 namespace Trivia.UI
 {
     /// <summary>
-    /// Interaction logic for EndOfEasyLevelPage.xaml
+    /// Interaction logic for PlayerSecondLevelPage.xaml
     /// </summary>
-    public partial class EndOfEasyLevelPage : Page
+    public partial class PlayerSecondLevelPage : Page
     {
-        public EndOfEasyLevelPage(int pointsPlayer)
+        string playerName;
+        static int pointsPlayer;
+        public PlayerSecondLevelPage(IEngine engine)
         {
             InitializeComponent();
+            playerName = engine.Player.Name;
+            NormalPlayer currentPlayer = (NormalPlayer)engine.Player;
+            pNameTB.Text = playerName;
+            pointsPlayer = currentPlayer.Points;
             pPoints.Text = pointsPlayer.ToString();
-        }
-
-        private void ContinueButton(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
