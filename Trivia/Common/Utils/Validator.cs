@@ -31,5 +31,13 @@ namespace Trivia.Common.Utils
                 throw new IndexOutOfRangeException(message);
             }
         }
+
+        public static void CheckIntRange(int value, int min, int max, string message)
+        {
+            if (value < min || value > max)
+            {
+                throw new IndexOutOfRangeException(message);
+            }
+        }
     }
 }

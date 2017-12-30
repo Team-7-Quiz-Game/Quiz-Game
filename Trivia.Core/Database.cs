@@ -7,12 +7,12 @@ using Trivia.Core.Contracts;
 
 namespace Trivia.Core
 {
-    public class DB
+    public class Database
     {
         private IList<ICategory> categories;
         private readonly IFactory factory;
 
-        public DB(IFactory factory)
+        public Database(IFactory factory)
         {
             this.categories = new List<ICategory>();
             this.factory = factory;
@@ -80,9 +80,6 @@ namespace Trivia.Core
 
         private void PopulateCategories()
         {
-            // TO DO completed
-            // Added categories for all types of questions
-
             var Math = factory.CreateCategory(CategoryType.Math);
             this.categories.Add(Math);
 

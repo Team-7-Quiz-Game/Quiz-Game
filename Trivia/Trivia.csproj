@@ -41,10 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Enums\CategoryType.cs" />
+    <Compile Include="Common\Exceptions\CategoryAlreadyExistsException.cs" />
     <Compile Include="Common\Exceptions\CategoryDoesNotExistException.cs" />
     <Compile Include="Common\Enums\HintType.cs" />
     <Compile Include="Common\Enums\PlayerType.cs" />
     <Compile Include="Common\Enums\QuestionType.cs" />
+    <Compile Include="Common\Constants\GlobalConstants.cs" />
     <Compile Include="Common\Utils\Validator.cs" />
     <Compile Include="Models\Category\Category.cs" />
     <Compile Include="Common\Enums\DifficultyLevel.cs" />
