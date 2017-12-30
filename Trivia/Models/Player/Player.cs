@@ -1,4 +1,5 @@
 ﻿using Trivia.Common.Enums;
+using Trivia.Common.Utils;
 using Trivia.Contracts;
 
 namespace Trivia.Models.Player
@@ -11,7 +12,9 @@ namespace Trivia.Models.Player
 
         public Player(string name, PlayerType playerType)
         {
-            //Guard
+            Validator.CheckIfNull(playerType, string.Format(GlobalConstants.ObjectCannotBeNull, "Player type"));
+            Validator.CheckIfStringIsNullOrEmpty(name, string.Format(GlobalConstants.StringCannotBeNullOrEmpty, "Player name quantity"));
+
             this.name = name;
             this.playerType = playerType;
         }

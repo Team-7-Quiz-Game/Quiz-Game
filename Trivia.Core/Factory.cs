@@ -17,13 +17,7 @@ namespace Trivia.Core
         {
         }
 
-        public static IFactory Instance
-        {
-            get
-            {
-                return instanceHolder;
-            }
-        }
+        public static IFactory Instance => instanceHolder;
 
         public IAnswer CreateAnswer (string answerText, bool isCorrect)
         {

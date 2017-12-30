@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Trivia.Common.Utils;
 using Trivia.Contracts;
 
 namespace Trivia.Models.Question
@@ -14,7 +10,8 @@ namespace Trivia.Models.Question
 
         public Answer(string answerText, bool isCorrect)
         {
-            //guard
+            Validator.CheckIfStringIsNullOrEmpty(answerText, string.Format(GlobalConstants.StringCannotBeNullOrEmpty, "Answer text"));
+
             this.answerText = answerText;
             this.isCorrect = isCorrect;
         }

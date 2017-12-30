@@ -9,16 +9,19 @@ namespace Trivia.Core
 {
     public class Database
     {
+        private static Database instanceHolder = new Database();
         private IList<ICategory> categories;
         private readonly IFactory factory;
 
-        public Database(IFactory factory)
+        private Database()
         {
             this.categories = new List<ICategory>();
-            this.factory = factory;
+            this.factory = Factory.Instance;
             this.PopulateCategories();
             this.PopulateQuestions();
         }
+
+        public static Database Instance => instanceHolder;
 
         public IList<ICategory> Categories => this.categories;
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Trivia.Common.Enums;
+using Trivia.Common.Utils;
 using Trivia.Contracts;
 
 namespace Trivia.Models.Category
@@ -15,7 +16,8 @@ namespace Trivia.Models.Category
         
         public Category(CategoryType categoryType)
         {
-            //Guard
+            Validator.CheckIfNull(categoryType, string.Format(GlobalConstants.ObjectCannotBeNull, "Category type"));
+
             this.categoryType = categoryType;
             this.easyQuestions = new List<IQuestion>();
             this.normalQuestions = new List<IQuestion>();
@@ -24,14 +26,16 @@ namespace Trivia.Models.Category
         
         public CategoryType CategoryType => this.categoryType;
 
-        public IList<IQuestion> EasyQuestions => CloneQuestions(this.easyQuestions);
+        public IList<IQuestion> EasyQuestions => this.easyQuestions.Clone();
 
-        public IList<IQuestion> NormalQuestions => CloneQuestions(this.normalQuestions);
+        public IList<IQuestion> NormalQuestions => this.normalQuestions.Clone();
 
-        public IList<IQuestion> HardQuestions => CloneQuestions(this.hardQuestions);
+        public IList<IQuestion> HardQuestions => this.hardQuestions.Clone();
 
         private void AddEasyQuestion(IQuestion question)
         {
+            Validator.CheckIfNull(question, string.Format(GlobalConstants.ObjectCannotBeNull, "Easy question"));
+
             if (this.easyQuestions.Count > MaxQuestionsCount)
             {
                 throw new ArgumentException($"Easy questions per category must be {MaxQuestionsCount}!");
@@ -42,6 +46,8 @@ namespace Trivia.Models.Category
 
         private void AddNormalQuestion(IQuestion question)
         {
+            Validator.CheckIfNull(question, string.Format(GlobalConstants.ObjectCannotBeNull, "Normal question"));
+
             if (this.normalQuestions.Count > MaxQuestionsCount)
             {
                 throw new ArgumentException($"Normal questions per category must be {MaxQuestionsCount}!");
@@ -52,6 +58,8 @@ namespace Trivia.Models.Category
 
         private void AddHardQuestion(IQuestion question)
         {
+            Validator.CheckIfNull(question, string.Format(GlobalConstants.ObjectCannotBeNull, "Hard question"));
+
             if (this.hardQuestions.Count > MaxQuestionsCount)
             {
                 throw new ArgumentException($"Hard questions per category must be {MaxQuestionsCount}!");
@@ -62,7 +70,8 @@ namespace Trivia.Models.Category
 
         public void AddQuestion(IQuestion question)
         {
-            //guard
+            Validator.CheckIfNull(question, string.Format(GlobalConstants.ObjectCannotBeNull, "Question"));
+
             switch (question.DifficultyLevel)
             {
                 case DifficultyLevel.Easy:
@@ -74,21 +83,8 @@ namespace Trivia.Models.Category
                 case DifficultyLevel.Hard:
                     this.AddHardQuestion(question);
                     break;
-                default:
-                    break;
+                default: throw new ArgumentException("Difficulty level not valid!");
             }
-        }
-
-        private IList<IQuestion> CloneQuestions(IList<IQuestion> listToBeCloned)
-        {
-            var cloned = new List<IQuestion>();
-
-            foreach (var question in listToBeCloned)
-            {
-                cloned.Add(question);
-            }
-
-            return cloned;
         }
     }
 }

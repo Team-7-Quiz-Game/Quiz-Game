@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trivia.Common.Enums;
+using Trivia.Common.Utils;
 
 namespace Trivia.Models.Hint
 {
@@ -15,7 +16,9 @@ namespace Trivia.Models.Hint
 
         public Hint(int quantity, HintType type)
         {
-            //guard
+            Validator.CheckIfNull(type, string.Format(GlobalConstants.ObjectCannotBeNull, "Hint type"));
+            Validator.CheckIfIntNegative(quantity, string.Format(GlobalConstants.NumberCannotBeNegative, "Hint quantity"));
+
             this.type = type;
             this.quantity = quantity;
         }

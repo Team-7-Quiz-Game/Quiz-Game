@@ -32,9 +32,17 @@ namespace Trivia.Common.Utils
             }
         }
 
-        public static void CheckIntRange(int value, int min, int max, string message)
+        public static void CheckIntRange(int value, int min, int max, string message = null)
         {
             if (value < min || value > max)
+            {
+                throw new IndexOutOfRangeException(message);
+            }
+        }
+
+        public static void CheckIfIntNegative(int value, string message = null)
+        {
+            if (value < 0)
             {
                 throw new IndexOutOfRangeException(message);
             }

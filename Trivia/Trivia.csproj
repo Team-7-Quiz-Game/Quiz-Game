@@ -47,6 +47,7 @@
     <Compile Include="Common\Enums\PlayerType.cs" />
     <Compile Include="Common\Enums\QuestionType.cs" />
     <Compile Include="Common\Constants\GlobalConstants.cs" />
+    <Compile Include="Common\Utils\ListExtensions.cs" />
     <Compile Include="Common\Utils\Validator.cs" />
     <Compile Include="Models\Category\Category.cs" />
     <Compile Include="Common\Enums\DifficultyLevel.cs" />

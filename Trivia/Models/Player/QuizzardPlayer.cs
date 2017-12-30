@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Trivia.Contracts;
 using Trivia.Common.Enums;
+using Trivia.Common.Utils;
 
 namespace Trivia.Models.Player
 {
@@ -18,32 +19,27 @@ namespace Trivia.Models.Player
             this.quizzardQuestions = new List<IQuestion>();
         }
 
-        public IList<IQuestion> QuizzardQuestions => this.CloneQuestions();
+        public IList<IQuestion> QuizzardQuestions => quizzardQuestions.Clone();
 
         public int QuestionsCount => this.quizzardQuestions.Count;
 
         public void CreateQuestion(IQuestion question)
         {
-            //guard
+            Validator.CheckIfNull(question, string.Format(GlobalConstants.ObjectCannotBeNull, "Question"));
+
             quizzardQuestions.Add(question);
         }
 
         public void RemoveQuestion(IQuestion question)
         {
-            //guard
-            quizzardQuestions.Remove(question);
-        }
+            Validator.CheckIfNull(question, string.Format(GlobalConstants.ObjectCannotBeNull, "Question"));
 
-        private IList<IQuestion> CloneQuestions()
-        {
-            var cloned = new List<IQuestion>();
-
-            foreach (var question in quizzardQuestions)
+            if (!this.quizzardQuestions.Contains(question))
             {
-                cloned.Add(question);
+                throw new ArgumentException("Question not found!");
             }
 
-            return cloned;
+            quizzardQuestions.Remove(question);
         }
     }
 }

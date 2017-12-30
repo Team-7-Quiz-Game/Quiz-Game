@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Trivia.Common.Enums;
+using Trivia.Common.Utils;
 using Trivia.Contracts;
 
 namespace Trivia.Models.Question
@@ -15,7 +16,11 @@ namespace Trivia.Models.Question
 
         public Question(string questionText, DifficultyLevel difficultyLevel, CategoryType categoryType, QuestionType questionType)
         {
-            //Guard
+            Validator.CheckIfStringIsNullOrEmpty(questionText, string.Format(GlobalConstants.StringCannotBeNullOrEmpty, "Question text"));
+            Validator.CheckIfNull(difficultyLevel, string.Format(GlobalConstants.ObjectCannotBeNull, "Difficulty level"));
+            Validator.CheckIfNull(categoryType, string.Format(GlobalConstants.ObjectCannotBeNull, "Category type"));
+            Validator.CheckIfNull(questionType, string.Format(GlobalConstants.ObjectCannotBeNull, "Question type"));
+
             this.questionText = questionText;
             this.answers = new List<IAnswer>();
             this.difficultyLevel = difficultyLevel;
@@ -23,11 +28,11 @@ namespace Trivia.Models.Question
             this.questionType = questionType;
         }
 
-        public string QuestionText => questionText;
+        public string QuestionText => this.questionText;
 
-        public IList<IAnswer> Answers => this.answers;
+        public IList<IAnswer> Answers => this.answers.Clone();
 
-        public DifficultyLevel DifficultyLevel => difficultyLevel;
+        public DifficultyLevel DifficultyLevel => this.difficultyLevel;
 
         public int Points
         {
@@ -41,7 +46,8 @@ namespace Trivia.Models.Question
 
         public void AddAnswer(IAnswer answer)
         {
-            //Guard
+            Validator.CheckIfNull(answer, string.Format(GlobalConstants.ObjectCannotBeNull, "Answer"));
+
             this.answers.Add(answer);
         }
 

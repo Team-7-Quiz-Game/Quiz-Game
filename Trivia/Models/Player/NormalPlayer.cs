@@ -1,4 +1,5 @@
 ﻿using Trivia.Common.Enums;
+using Trivia.Common.Utils;
 
 namespace Trivia.Models.Player
 {
@@ -23,7 +24,8 @@ namespace Trivia.Models.Player
             }
             set
             {
-                //Guard
+                Validator.CheckIfIntNegative(value, string.Format(GlobalConstants.NumberCannotBeNegative, "Points"));
+
                 this.points += value;
             }
         }

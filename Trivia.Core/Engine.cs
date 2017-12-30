@@ -12,10 +12,10 @@ namespace Trivia.Core
     {
         private const int QuestionsPerLevelCount = 2;
         private readonly static IEngine engine = new Engine();
+        private readonly Database database;
         private readonly IFactory factory;
         private IPlayer player;
         private readonly IDictionary<string, ICategory> categories;
-        private readonly Database database;        
         private IList<IQuestion> easyQuestions;
         // TEST
         //private IList<IQuestion> normalQuestions;
@@ -23,8 +23,8 @@ namespace Trivia.Core
         private Engine()
         {
             this.factory = Factory.Instance;
+            this.database = Database.Instance;
             this.categories = new Dictionary<string, ICategory>();
-            this.database = new Database(this.factory);
             this.easyQuestions = new List<IQuestion>();
         }
 
