@@ -1,4 +1,4 @@
-﻿namespace Trivia.Common
+﻿namespace Trivia.Common.Enums
 {
     public enum DifficultyLevel
     {

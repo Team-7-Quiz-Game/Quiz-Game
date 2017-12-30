@@ -1,4 +1,4 @@
-﻿using Trivia.Common;
+﻿using Trivia.Common.Enums;
 
 namespace Trivia.Models.Question
 {

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Trivia.Common;
+using Trivia.Common.Enums;
 
 namespace Trivia.Contracts
 {

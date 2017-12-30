@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Trivia.Common;
+using Trivia.Common.Enums;
 using Trivia.Contracts;
 using Trivia.Core.Contracts;
 
@@ -83,8 +79,7 @@ namespace Trivia.Core
 
             if (!this.categories.ContainsKey(categoryNameToAdd))
             {
-                //throw some custom error or something - category does not exists
-                throw new ArgumentException("Invalid question category entered.");
+                throw new ArgumentException("Category does not exists!");
             }
 
             var category = this.categories[categoryNameToAdd];
@@ -104,6 +99,7 @@ namespace Trivia.Core
             }
             return this.easyQuestions;
         }
+
         public IPlayer CreateNormalPlayer(string name)
         {
             //guard
