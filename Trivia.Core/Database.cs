@@ -235,7 +235,7 @@ namespace Trivia.Core
             a3 = this.factory.CreateAnswer("Thorium Energy", false);
             a4 = this.factory.CreateAnswer("3D Bio Printing", false);
 
-            AddQuestion(sciFiQ1, a1, a2, a3, a4);
+            AddQuestion(sciFiQ2, a1, a2, a3, a4);
 
             var qSFText3 = "Which of the following technologies is not inspired by movies?";
             var sciFiQ3 = this.factory.CreateNormalQuestion(qSFText3, DifficultyLevel.Easy, CategoryType.SciFi);

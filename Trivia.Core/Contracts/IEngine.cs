@@ -28,9 +28,13 @@ namespace Trivia.Core.Contracts
         IQuestion CreateBonusQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int pointsAmplifier);
 
         IQuestion CreateTimedQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int timeForAnswer);
+
         IList<IQuestion> GetEasyQuestions(IDictionary<string, ICategory> categories);
+
         IList<IQuestion> GetNormalQuestions(IDictionary<string, ICategory> categories);
         // TEST
         IList<IQuestion> GetHardQuestions(IDictionary<string, ICategory> categories);
+
+        IList<IQuestion> QuizzardQuestions { get; }
     }
 }

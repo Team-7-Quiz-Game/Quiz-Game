@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace Trivia.Common.Utils
 {
@@ -24,6 +21,18 @@ namespace Trivia.Common.Utils
             }
         }
 
+        // This way we cannot know which element of the array throws = Bad. (works for now, fix later)
+        public static void CheckIfStringCollectionHasNullOrEmpty(string[] array, string message = null)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (string.IsNullOrEmpty(array[i]))
+                {
+                    throw new NullReferenceException(message);
+                }
+            }
+        }
+
         public static void CheckIfStringLengthIsValid(string text, int max, int min = 0, string message = null)
         {
             if (text.Length < min || max < text.Length)
@@ -40,12 +49,26 @@ namespace Trivia.Common.Utils
             }
         }
 
+        public static void CheckIntAboveMax(int value, int max, string message = null)
+        {
+            if (value > max)
+            {
+                throw new IndexOutOfRangeException(message);
+            }
+        }
+
         public static void CheckIfIntNegative(int value, string message = null)
         {
             if (value < 0)
             {
                 throw new IndexOutOfRangeException(message);
             }
+        }
+
+        private static string GetMemberName<T>(Expression<Func<T>> memberExpression)
+        {
+            MemberExpression expressionBody = (MemberExpression)memberExpression.Body;
+            return expressionBody.Member.Name;
         }
     }
 }

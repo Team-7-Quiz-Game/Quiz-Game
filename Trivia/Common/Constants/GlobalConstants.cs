@@ -8,6 +8,9 @@ namespace Trivia.Common.Utils
 {
     public class GlobalConstants
     {
+        public const int MaxAnswersPerQuestion = 4;
+        public const int MaxQuestionsInCategory = 10;
+
         public const int MinPointsAmplifier = 2;
         public const int MaxPointsAmplifier = 10;
 
@@ -15,6 +18,9 @@ namespace Trivia.Common.Utils
         public const int MaxTimeForAnswer = 10;
 
         public const string NumberCannotBeNegative = "{0} cannot be negative!";
+
+        public const string MaxAnswersPerQuestionErrorMessage = "A question cannot have more than {0} answers!";
+        public const string MaxQuestionsInCategoryErrorMessage = "{0} category cannot have more than {1} questions!";
 
         public const string StringCannotBeNullOrEmpty = "{0} cannot be null or empty!";
         public const string ObjectCannotBeNull = "{0} cannot be null!";

@@ -15,7 +15,13 @@ namespace Trivia.Contracts
 
         int Points { get; }
 
+        int Id { get; }
+
         void AddAnswer(IAnswer answer);
+
+        IQuestion AddAnswerFluent(IAnswer answer);
+
+        void ShuffleAnswers();
 
         string ToString();
     }

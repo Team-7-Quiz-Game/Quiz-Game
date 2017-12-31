@@ -20,6 +20,8 @@ namespace Trivia.Core
         private IList<IQuestion> normalQuestions;
         // TEST
         private IList<IQuestion> hardQuestions;
+        private IList<IQuestion> quizzardQuestions;
+
         private Engine()
         {
             this.factory = Factory.Instance;
@@ -28,52 +30,22 @@ namespace Trivia.Core
             this.easyQuestions = new List<IQuestion>();
             this.normalQuestions = new List<IQuestion>();
             this.hardQuestions = new List<IQuestion>();
+            this.quizzardQuestions = new List<IQuestion>();
         }
 
-        public static IEngine Instance
-        {
-            get
-            {
-                return engine;
-            }
-        }
+        public static IEngine Instance => engine;
 
         public IPlayer Player { get => player; set => player = value; }
-        
-        public IList<IQuestion> EasyQuestions
-        {
-            get
-            {
-                return GetEasyQuestions(categories);
-            }
-            set
-            {
-                this.easyQuestions = value;
-            }
-        }
-        public IList<IQuestion> NormalQuestions
-        {
-            get
-            {
-                return GetNormalQuestions(categories);
-            }
-            set
-            {
-                this.normalQuestions = value;
-            }
-        }
+
+        public IList<IQuestion> EasyQuestions { get => GetEasyQuestions(categories); set => this.easyQuestions = value; }
+
+        public IList<IQuestion> NormalQuestions { get => GetNormalQuestions(categories); set => this.normalQuestions = value; }
+
         // TEST
-        public IList<IQuestion> HardQuestions
-        {
-            get
-            {
-                return GetHardQuestions(categories);
-            }
-            set
-            {
-                this.hardQuestions = value;
-            }
-        }
+        public IList<IQuestion> HardQuestions { get => GetHardQuestions(categories); set => this.hardQuestions = value; }
+
+        public IList<IQuestion> QuizzardQuestions { get => this.quizzardQuestions; }
+
         public void CreateCategory(IList<string> categories)
         {
             Validator.CheckIfNull(categories, string.Format(GlobalConstants.ObjectCannotBeNull, "List of categories"));
@@ -121,14 +93,14 @@ namespace Trivia.Core
 
             category.AddQuestion(questionToAdd);
         }
-       
+
         public IList<IQuestion> GetEasyQuestions(IDictionary<string, ICategory> categories)
         {
             Validator.CheckIfNull(categories, string.Format(GlobalConstants.ObjectCannotBeNull, "Dictionary of categories"));
 
             foreach (var category in this.categories)
             {
-                foreach(var question in category.Value.EasyQuestions)
+                foreach (var question in category.Value.EasyQuestions)
                 {
                     this.easyQuestions.Add(question);
                 }
@@ -207,7 +179,7 @@ namespace Trivia.Core
 
             return this.factory.CreateTimedQuestion(questionText, difficultyLevel, category, timeForAnswer);
         }
-        
+
         private void CheckQuizzardCreateQuestions(string questionText, DifficultyLevel difficultyLevel, CategoryType category)
         {
             Validator.CheckIfStringIsNullOrEmpty(questionText, string.Format(GlobalConstants.StringCannotBeNullOrEmpty, "Question's text"));

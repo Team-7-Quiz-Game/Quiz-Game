@@ -9,7 +9,7 @@
       Title="StartQuizzardTest">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Height="69" Margin="319,41,0,0" TextWrapping="Wrap" Text="Some question" VerticalAlignment="Top" Width="322" FontFamily="Showcard Gothic" FontSize="36"/>
+        <TextBlock Name="QuestionText" HorizontalAlignment="Left" Height="69" Margin="319,41,0,0" TextWrapping="Wrap" Text="Some question" VerticalAlignment="Top" Width="322" FontFamily="Showcard Gothic" FontSize="36"/>
         <Label Content="B:" HorizontalAlignment="Left" Height="37" Margin="503,190,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -30,8 +30,8 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Content="Answer A..." HorizontalAlignment="Left" Height="68" Margin="74,181,0,0" VerticalAlignment="Top" Width="319" Click="AnswerAButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
-        <Button Content="Answer B..." HorizontalAlignment="Left" Height="68" Margin="551,181,0,0" VerticalAlignment="Top" Width="319" Click="AnswerBButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
+        <Button Name="AnswerA" Content="Answer A..." HorizontalAlignment="Left" Height="68" Margin="74,181,0,0" VerticalAlignment="Top" Width="319" Click="AnswerAButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
+        <Button Name="AnswerB" Content="Answer B..." HorizontalAlignment="Left" Height="68" Margin="551,181,0,0" VerticalAlignment="Top" Width="319" Click="AnswerBButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
         <Label Content="D:" HorizontalAlignment="Left" Height="37" Margin="503,328,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -52,8 +52,8 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button Content="Answer C..." HorizontalAlignment="Left" Height="68" Margin="74,319,0,0" VerticalAlignment="Top" Width="319" Click="AnswerCButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
-        <Button Content="Answer D..." HorizontalAlignment="Left" Height="68" Margin="551,319,0,0" VerticalAlignment="Top" Width="319" Click="AnswerDButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
+        <Button Name="AnswerC" Content="Answer C..." HorizontalAlignment="Left" Height="68" Margin="74,319,0,0" VerticalAlignment="Top" Width="319" Click="AnswerCButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
+        <Button Name="AnswerD" Content="Answer D..." HorizontalAlignment="Left" Height="68" Margin="551,319,0,0" VerticalAlignment="Top" Width="319" Click="AnswerDButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Height="34" Margin="651,113,0,0" TextWrapping="Wrap" Text="Score:" VerticalAlignment="Top" Width="82" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FFA60202"/>
         <TextBlock HorizontalAlignment="Left" Height="34" Margin="738,113,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="26" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FFA60202"/>
         <Popup Name="MyPopup"

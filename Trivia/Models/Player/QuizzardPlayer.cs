@@ -23,7 +23,7 @@ namespace Trivia.Models.Player
 
         public int QuestionsCount => this.quizzardQuestions.Count;
 
-        public void CreateQuestion(IQuestion question)
+        public void AddQuestion(IQuestion question)
         {
             Validator.CheckIfNull(question, string.Format(GlobalConstants.ObjectCannotBeNull, "Question"));
 

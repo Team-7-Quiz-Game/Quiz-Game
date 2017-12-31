@@ -8,7 +8,6 @@ namespace Trivia.Models.Category
 {
     public class Category : ICategory
     {
-        private const int MaxQuestionsCount = 10;
         private readonly CategoryType categoryType;
         private IList<IQuestion> easyQuestions;
         private IList<IQuestion> normalQuestions;
@@ -35,23 +34,15 @@ namespace Trivia.Models.Category
         private void AddEasyQuestion(IQuestion question)
         {
             Validator.CheckIfNull(question, string.Format(GlobalConstants.ObjectCannotBeNull, "Easy question"));
-
-            if (this.easyQuestions.Count > MaxQuestionsCount)
-            {
-                throw new ArgumentException($"Easy questions per category must be {MaxQuestionsCount}!");
-            }
-
+            Validator.CheckIntAboveMax(this.easyQuestions.Count, GlobalConstants.MaxQuestionsInCategory, string.Format(GlobalConstants.MaxQuestionsInCategoryErrorMessage, "Easy questions", GlobalConstants.MaxQuestionsInCategory));
+            
             this.easyQuestions.Add(question);
         }
 
         private void AddNormalQuestion(IQuestion question)
         {
             Validator.CheckIfNull(question, string.Format(GlobalConstants.ObjectCannotBeNull, "Normal question"));
-
-            if (this.normalQuestions.Count > MaxQuestionsCount)
-            {
-                throw new ArgumentException($"Normal questions per category must be {MaxQuestionsCount}!");
-            }
+            Validator.CheckIntAboveMax(this.easyQuestions.Count, GlobalConstants.MaxQuestionsInCategory, string.Format(GlobalConstants.MaxQuestionsInCategoryErrorMessage, "Normal questions", GlobalConstants.MaxQuestionsInCategory));
 
             this.normalQuestions.Add(question);
         }
@@ -59,12 +50,8 @@ namespace Trivia.Models.Category
         private void AddHardQuestion(IQuestion question)
         {
             Validator.CheckIfNull(question, string.Format(GlobalConstants.ObjectCannotBeNull, "Hard question"));
-
-            if (this.hardQuestions.Count > MaxQuestionsCount)
-            {
-                throw new ArgumentException($"Hard questions per category must be {MaxQuestionsCount}!");
-            }
-
+            Validator.CheckIntAboveMax(this.easyQuestions.Count, GlobalConstants.MaxQuestionsInCategory, string.Format(GlobalConstants.MaxQuestionsInCategoryErrorMessage, "Hard questions", GlobalConstants.MaxQuestionsInCategory));
+            
             this.hardQuestions.Add(question);
         }
 

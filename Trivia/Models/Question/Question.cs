@@ -13,6 +13,7 @@ namespace Trivia.Models.Question
         private readonly DifficultyLevel difficultyLevel;
         private readonly QuestionType questionType;
         private readonly CategoryType categoryType;
+        private readonly int id;
 
         public Question(string questionText, DifficultyLevel difficultyLevel, CategoryType categoryType, QuestionType questionType)
         {
@@ -26,6 +27,7 @@ namespace Trivia.Models.Question
             this.difficultyLevel = difficultyLevel;
             this.categoryType = categoryType;
             this.questionType = questionType;
+            this.id = IdGenerator.GetId;
         }
 
         public string QuestionText => this.questionText;
@@ -44,11 +46,28 @@ namespace Trivia.Models.Question
 
         public CategoryType CategoryType => this.categoryType;
 
+        public int Id => this.id;
+
         public void AddAnswer(IAnswer answer)
+        {
+            Validator.CheckIfNull(answer, string.Format(GlobalConstants.ObjectCannotBeNull, "Answer"));
+            Validator.CheckIntAboveMax(this.answers.Count, GlobalConstants.MaxAnswersPerQuestion, string.Format(GlobalConstants.MaxAnswersPerQuestionErrorMessage, GlobalConstants.MaxAnswersPerQuestion));
+
+            this.answers.Add(answer);
+        }
+
+        public IQuestion AddAnswerFluent(IAnswer answer)
         {
             Validator.CheckIfNull(answer, string.Format(GlobalConstants.ObjectCannotBeNull, "Answer"));
 
             this.answers.Add(answer);
+
+            return this;
+        }
+
+        public void ShuffleAnswers()
+        {
+            this.answers.Shuffle();
         }
 
         public override string ToString()

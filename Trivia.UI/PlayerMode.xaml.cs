@@ -68,6 +68,8 @@ namespace Trivia.UI
         private void GoQuizzard(object sender, RoutedEventArgs e)
         {
             name = pName.Text;
+            var player = engine.CreateQuizzardPlayer(name);
+            this.engine.Player = (QuizzardPlayer)player;
             QuizzardInitialPage quizzardInitialPage = new QuizzardInitialPage();
             this.NavigationService.Navigate(quizzardInitialPage);
         }
