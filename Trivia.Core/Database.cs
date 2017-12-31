@@ -260,10 +260,10 @@ namespace Trivia.Core
 
         private void EasyMovieQuestions()
         {
-            CreateQuestion("Easy movie question 1", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Movies, DifficultyLevel.Easy);
-            CreateQuestion("Easy movie question 2", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Movies, DifficultyLevel.Easy);
-            CreateQuestion("Easy movie question 3", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Movies, DifficultyLevel.Easy);
-            CreateQuestion("Easy movie question 4", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Movies, DifficultyLevel.Easy);
+            CreateQuestion("In the movie 'The Wizard of Oz', what did the Scarecrow want from the wizard?", new[] { "Brain", "True" }, new[] { "Heart", "False" }, new[] { "Eyes", "False" }, new[] { "Soul", "False" }, CategoryType.Movies, DifficultyLevel.Easy);
+            CreateQuestion("In what year was the original 'Jurassic Park' film released?", new[] { "1991", "False" }, new[] { "1993", "True" }, new[] { "1991", "False" }, new[] { "1980", "False" }, CategoryType.Movies, DifficultyLevel.Easy);
+            CreateQuestion("What planet is the superhero, 'Superman', from?", new[] { "Pluto", "False" }, new[] { "Mars", "False" }, new[] { "Krypton", "True" }, new[] { "Jupiter", "False" }, CategoryType.Movies, DifficultyLevel.Easy);
+            CreateQuestion("What city is the home of Batman?", new[] { "New York", "False" }, new[] { "Chicago", "False" }, new[] { "Gotham City", "True" }, new[] { "Quebec City", "False" }, CategoryType.Movies, DifficultyLevel.Easy);
         }
 
         private void EasyLiteratureQuestions()
@@ -547,67 +547,55 @@ namespace Trivia.Core
         }
 
         // HARD
-        //todo
         private void HardMathQuestions()
         {
-            CreateQuestion("Hard math question 1", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Math, DifficultyLevel.Hard);
-            CreateQuestion("Hard math question 2", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Math, DifficultyLevel.Hard);
-            CreateQuestion("Hard math question 3", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Math, DifficultyLevel.Hard);
-            CreateQuestion("Hard math question 4", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Math, DifficultyLevel.Hard);
+            CreateQuestion("10^-2 means...?", new[] { "centi", "True" }, new[] { "milli", "False" }, new[] { "micro", "False" }, new[] { "nano", "False" }, CategoryType.Math, DifficultyLevel.Hard);
+            CreateQuestion("All natural numbers and 0 are called the... numbers?", new[] { "prime", "False" }, new[] { "whole", "True" }, new[] { "integer", "False" }, new[] { "rational", "False" }, CategoryType.Math, DifficultyLevel.Hard);
+            CreateQuestion("8x1^0 is equal to...?", new[] { "-1", "False" }, new[] { "0", "False" }, new[] { "1", "True" }, new[] { "8", "False" }, CategoryType.Math, DifficultyLevel.Hard);
+            CreateQuestion("The wages of 10 workers for a six-day week is $ 1200. What are the one day’s wages of 4 workers?", new[] { "40$", "False" }, new[] { "80$", "True" }, new[] { "24$", "False" }, new[] { "50$", "False" }, CategoryType.Math, DifficultyLevel.Hard);
         }
-
-        //todo
         private void HardHistoryQuestions()
         {
-            CreateQuestion("Hard history question 1", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.History, DifficultyLevel.Hard);
-            CreateQuestion("Hard history question 2", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.History, DifficultyLevel.Hard);
-            CreateQuestion("Hard history question 3", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.History, DifficultyLevel.Hard);
-            CreateQuestion("Hard history question 4", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.History, DifficultyLevel.Hard);
+            CreateQuestion("What Roman Emperor made Christianity legal and ended the persecution of Christians?", new[] { "Napoleon", "False" }, new[] { "Constantine", "True" }, new[] { "Julius Ceasar", "False" }, new[] { "Nero", "False" }, CategoryType.History, DifficultyLevel.Hard);
+            CreateQuestion("What's the name of the famous battle where Napoleon Bonaparte was finally defeated?", new[] { "Battle of Waterloo", "True" }, new[] { "Battle of the Alamo", "False" }, new[] { "Battle of the Bulge", "False" }, new[] { "Battle Bunker Hill", "False" }, CategoryType.History, DifficultyLevel.Hard);
+            CreateQuestion("In World War II, what country was not a member of the Axis Powers?", new[] { "Soviet Union", "True" }, new[] { "Japan", "False" }, new[] { "Germany", "False" }, new[] { "Italy", "False" }, CategoryType.History, DifficultyLevel.Hard);
+            CreateQuestion("Chairman Mao Zedong lead what faction in the Chinese Civil War?", new[] { "Communists", "True" }, new[] { "Confederates", "False" }, new[] { "Nationalists", "False" }, new[] { "Protestants", "False" }, CategoryType.History, DifficultyLevel.Hard);
         }
-
-        //todo
         private void HardSciFiQuestions()
         {
-            CreateQuestion("Hard sci-fi question 1", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.SciFi, DifficultyLevel.Hard);
-            CreateQuestion("Hard sci-fi question 2", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.SciFi, DifficultyLevel.Hard);
-            CreateQuestion("Hard sci-fi question 3", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.SciFi, DifficultyLevel.Hard);
-            CreateQuestion("Hard sci-fi question 4", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.SciFi, DifficultyLevel.Hard);
+            CreateQuestion("Robert De Niro, Jonathan Pryce, and Bob Hoskins all appear in this 1985 sci-fi satire?", new[] { "Spaceballs", "False" }, new[] { "Brazil", "True" }, new[] { "Time Bandits", "False" }, new[] { "Innerspace", "False" }, CategoryType.SciFi, DifficultyLevel.Hard);
+            CreateQuestion("Who plays Khan in 'Star Trek II: The Wrath of Khan'?", new[] { "Harry Belafonte", "False" }, new[] { "Christopher Walken", "False" }, new[] { "Terance Stamp", "False" }, new[] { "Ricardo Montalban", "True" }, CategoryType.SciFi, DifficultyLevel.Hard);
+            CreateQuestion("How many humans does Schwarzenegger kill in 'Terminator 2: Judgment Day'?", new[] { "0", "True" }, new[] { "3", "False" }, new[] { "5", "False" }, new[] { "15", "False" }, CategoryType.SciFi, DifficultyLevel.Hard);
+            CreateQuestion("Hard sci-fi question 4", new[] { "Minority Report", "False" }, new[] { "A.I. Artificial Intelligence", "False" }, new[] { "Blade Runner", "True" }, new[] { "War of the worlds", "False" }, CategoryType.SciFi, DifficultyLevel.Hard);
         }
-
-        //todo
         private void HardMovieQuestions()
         {
-            CreateQuestion("Hard movie question 1", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Movies, DifficultyLevel.Hard);
-            CreateQuestion("Hard movie question 2", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Movies, DifficultyLevel.Hard);
-            CreateQuestion("Hard movie question 3", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Movies, DifficultyLevel.Hard);
-            CreateQuestion("Hard movie question 4", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Movies, DifficultyLevel.Hard);
+            CreateQuestion("What second Indiana Jones movie called?", new[] { "Indiana Jones and the Last Crusade", "False" }, new[] { "Indiana Jones and the Raiders of the Lost Ark", "False" }, new[] { "Indiana Jones and the Kingdom of the Crystal Skull", "False" }, new[] { "Indiana Jones and the Temple of Doom", "True" }, CategoryType.Movies, DifficultyLevel.Hard);
+            CreateQuestion("In Cloudy With a Chance of Meatballs 2, what type of food is is Berry?", new[] { "Blueberry", "False" }, new[] { "Strawberry", "True" }, new[] { "Blackberry", "False" }, new[] { "Raspberry", "False" }, CategoryType.Movies, DifficultyLevel.Hard);
+            CreateQuestion("In the Hunger Games, what district is Thresh from?", new[] { "11", "True" }, new[] { "4", "False" }, new[] { "6", "False" }, new[] { "10", "False" }, CategoryType.Movies, DifficultyLevel.Hard);
+            CreateQuestion("Hard movie question 4", new[] { "Wednesday", "False" }, new[] { "Saturday", "False" }, new[] { "Monday", "False" }, new[] { "Tuesday", "True" }, CategoryType.Movies, DifficultyLevel.Hard);
         }
 
-        //todo
         private void HardLiteratureQuestions()
         {
-            CreateQuestion("Hard literature question 1", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Literature, DifficultyLevel.Hard);
-            CreateQuestion("Hard literature question 2", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Literature, DifficultyLevel.Hard);
-            CreateQuestion("Hard literature question 3", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Literature, DifficultyLevel.Hard);
-            CreateQuestion("Hard literature question 4", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Literature, DifficultyLevel.Hard);
+            CreateQuestion("Which of these epic poems was written by the most famous blind Greek of all time, Homer?", new[] { "Antigone", "False" }, new[] { "Odyssey", "True" }, new[] { "Iliad", "False" }, new[] { "Phocais", "False" }, CategoryType.Literature, DifficultyLevel.Hard);
+            CreateQuestion("Which transcendentalist author penned Walden?", new[] { "Jones Very", "False" }, new[] { "Ralph Waldo Emerson", "False" }, new[] { "Margaret Fuller", "False" }, new[] { "Henry David Thoreau", "True" }, CategoryType.Literature, DifficultyLevel.Hard);
+            CreateQuestion("What is the name of the narrator in Moby Dick?", new[] { "Ishmael", "True" }, new[] { "Captain Ahab", "False" }, new[] { "Simon", "False" }, new[] { "Ginger Beard", "False" }, CategoryType.Literature, DifficultyLevel.Hard);
+            CreateQuestion("Which famed author wrote The Picture of Dorian Gray?", new[] { "James Joyce", "False" }, new[] { "Oscar Wilde", "True" }, new[] { "Mark Twain", "False" }, new[] { "Edgar Allen Poe", "False" }, CategoryType.Literature, DifficultyLevel.Hard);
         }
-
-        //todo
         private void HardScienceQuestions()
         {
-            CreateQuestion("Hard science question 1", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Science, DifficultyLevel.Hard);
-            CreateQuestion("Hard science question 2", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Science, DifficultyLevel.Hard);
-            CreateQuestion("Hard science question 3", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Science, DifficultyLevel.Hard);
-            CreateQuestion("Hard science question 4", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Science, DifficultyLevel.Hard);
+            CreateQuestion("What is an object in space that has an icy core with a tail of gas and dust that extends millions of miles?", new[] { "A star", "False" }, new[] { "A comet ", "True" }, new[] { "An asteroide", "False" }, new[] { "A moon", "False" }, CategoryType.Science, DifficultyLevel.Hard);
+            CreateQuestion("The loudness of a sound is determined by what property of a sound wave?", new[] { "Frequency", "False" }, new[] { "Wavelenght", "False" }, new[] { "Velocity or rate of rage", "False" }, new[] { "Amplitude or height", "True" }, CategoryType.Science, DifficultyLevel.Hard);
+            CreateQuestion("Which of these people developed the polio vaccine?", new[] { "Marie Curie", "False" }, new[] { "Isaac Newton", "False" }, new[] { "Albert Einstein", "False" }, new[] { "Jonas Salk", "True" }, CategoryType.Science, DifficultyLevel.Hard);
+            CreateQuestion("Which of these terms is defined as the study of how the positions of stars and planets can influence human behavior?", new[] { "Astrology", "True" }, new[] { "Astronomy", "False" }, new[] { "Metrology", "False" }, new[] { "Alchemistry", "False" }, CategoryType.Science, DifficultyLevel.Hard);
         }
-
-        //todo
         private void HardGeographyQuestions()
         {
-            CreateQuestion("Hard geography question 1", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Geography, DifficultyLevel.Hard);
-            CreateQuestion("Hard geography question 2", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Geography, DifficultyLevel.Hard);
-            CreateQuestion("Hard geography question 3", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Geography, DifficultyLevel.Hard);
-            CreateQuestion("Hard geography question 4", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Geography, DifficultyLevel.Hard);
+            CreateQuestion("Which state borders the east side of Texas and has a coastline on the Gulf of Mexico?", new[] { "New Mexico", "False" }, new[] { "Alabama", "False" }, new[] { "California", "False" }, new[] { "Louisiana", "True" }, CategoryType.Geography, DifficultyLevel.Hard);
+            CreateQuestion("Which country has the longest coastline in the world?", new[] { "Russia", "False" }, new[] { "Australia", "False" }, new[] { "Canada", "True" }, new[] { "France", "False" }, CategoryType.Geography, DifficultyLevel.Hard);
+            CreateQuestion("What is highest waterfall in the world?", new[] { "Raiskoto Praskalo", "False" }, new[] { "Victoria Falls", "False" }, new[] { "Niagara Falls", "False" }, new[] { "Angel Falls", "True" }, CategoryType.Geography, DifficultyLevel.Hard);
+            CreateQuestion("Which river flows through the Grand Canyon?", new[] { "Colorado River", "True" }, new[] { "Mississippi River", "False" }, new[] { "Savannah River", "False" }, new[] { "Housatonic River", "False" }, CategoryType.Geography, DifficultyLevel.Hard);
         }
 
         private void HardRandomQuestions()
