@@ -8,7 +8,7 @@ namespace Trivia.Models.Category
 {
     public class Category : ICategory
     {
-        private const int MaxQuestionsCount = 5;
+        private const int MaxQuestionsCount = 10;
         private readonly CategoryType categoryType;
         private IList<IQuestion> easyQuestions;
         private IList<IQuestion> normalQuestions;
