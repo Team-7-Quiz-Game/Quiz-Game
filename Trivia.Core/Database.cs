@@ -439,69 +439,59 @@ namespace Trivia.Core
         }
 
         // NORMAL
-        //todo
         private void NormalMathQuestions()
         {
-            CreateQuestion("Normal math question 1", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Math, DifficultyLevel.Normal);
-            CreateQuestion("Normal math question 2", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Math, DifficultyLevel.Normal);
-            CreateQuestion("Normal math question 3", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Math, DifficultyLevel.Normal);
-            CreateQuestion("Normal math question 4", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Math, DifficultyLevel.Normal);
+            CreateQuestion("Find the value of x, if x = (2 × 3) + 11?", new[] { "55", "False" }, new[] { "24", "False" }, new[] { "17", "True" }, new[] { "45", "False" }, CategoryType.Math, DifficultyLevel.Normal);
+            CreateQuestion("What is the smallest three digit number?", new[] { "101", "False" }, new[] { "100", "True" }, new[] { "999", "False" }, new[] { "111", "False" }, CategoryType.Math, DifficultyLevel.Normal);
+            CreateQuestion("If a number has an even number or zero at its unit place, the number is always divisible by...?", new[] { "4", "False" }, new[] { "5", "False" }, new[] { "10", "False" }, new[] { "2", "True" }, CategoryType.Math, DifficultyLevel.Normal);
+            CreateQuestion("20 is divisible by...?", new[] { "1", "True" }, new[] { "3", "False" }, new[] { "7", "False" }, new[] { "None of these", "False" }, CategoryType.Math, DifficultyLevel.Normal);
         }
 
-        //todo
         private void NormalHistoryQuestions()
         {
             CreateQuestion("Which civilization had the longest lasting ruling dynasty?", new[] { "Egypt", "False" }, new[] { "China", "False" }, new[] { "Japan", "True" }, new[] { "Rome", "False" }, CategoryType.History, DifficultyLevel.Normal);
-            //TODO Rest
-            CreateQuestion("Normal history question 2", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.History, DifficultyLevel.Normal);
-            CreateQuestion("Normal history question 3", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.History, DifficultyLevel.Normal);
-            CreateQuestion("Normal history question 4", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.History, DifficultyLevel.Normal);
+            CreateQuestion("What is the name of the scandal that forced US President Richard Nixon to resign?", new[] { "Vietnam", "False" }, new[] { "Panama papers", "False" }, new[] { "Checkers", "False" }, new[] { "Watergate", "True" }, CategoryType.History, DifficultyLevel.Normal);
+            CreateQuestion("What 1969 computer milestone would radically alter the course of human history?", new[] { "The creation of the Internet", "True" }, new[] { "Creation of the first online porn site", "False" }, new[] { "The invention of the iPod", "False" }, new[] { "The first PC", "False" }, CategoryType.History, DifficultyLevel.Normal);
+            CreateQuestion("What series of wars saw European Christians invading the middle east to retake the Holy Land?", new[] { "Punic Wars", "False" }, new[] { "The French Revolution", "False" }, new[] { "The Great Migration", "False" }, new[] { "The Crusades", "True" }, CategoryType.History, DifficultyLevel.Normal);
         }
-
-        //todo
         private void NormalSciFiQuestions()
         {
-            CreateQuestion("Normal sci-fi question 1", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.SciFi, DifficultyLevel.Normal);
-            CreateQuestion("Normal sci-fi question 2", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.SciFi, DifficultyLevel.Normal);
-            CreateQuestion("Normal sci-fi question 3", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.SciFi, DifficultyLevel.Normal);
-            CreateQuestion("Normal sci-fi question 4", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.SciFi, DifficultyLevel.Normal);
+            CreateQuestion("Leonardo DiCaprio plays this character in 'Inception', a film that explores shared dreaming?", new[] { "Arthur", "False" }, new[] { "Carter", "False" }, new[] { "Dom", "False" }, new[] { "Cobb", "True" }, CategoryType.SciFi, DifficultyLevel.Normal);
+            CreateQuestion("What color is Leeloo's hair in 'The Fifth Element'?", new[] { "Red", "False" }, new[] { "Pink", "False" }, new[] { "Orange", "True" }, new[] { "Yellow", "False" }, CategoryType.SciFi, DifficultyLevel.Normal);
+            CreateQuestion("The name of the ship in 'Alien' is?", new[] { "Explorer", "False" }, new[] { "Nostromo", "True" }, new[] { "Ranger 3", "False" }, new[] { "Prometeus", "False" }, CategoryType.SciFi, DifficultyLevel.Normal);
+            CreateQuestion("What derogotory term do humans use for the aliens in 'District 9'?", new[] { "Prawns", "True" }, new[] { "Shrimp", "False" }, new[] { "Crab people", "False" }, new[] { "Buggers", "False" }, CategoryType.SciFi, DifficultyLevel.Normal);
         }
 
-        //todo
         private void NormalMovieQuestions()
         {
-            CreateQuestion("Normal movie question 1", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Movies, DifficultyLevel.Normal);
-            CreateQuestion("Normal movie question 2", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Movies, DifficultyLevel.Normal);
-            CreateQuestion("Normal movie question 3", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Movies, DifficultyLevel.Normal);
-            CreateQuestion("Normal movie question 4", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Movies, DifficultyLevel.Normal);
+            CreateQuestion("Which movies are Bellatrix from?", new[] { "Harry Potter", "True" }, new[] { "Lord of the Rings", "False" }, new[] { "Pirates of the Carribbean", "False" }, new[] { "Star Wars", "False" }, CategoryType.Movies, DifficultyLevel.Normal);
+            CreateQuestion("In Wreck-it Ralph, which arcade game is King Candy in?", new[] { "Pac-man", "False" }, new[] { "Turbo", "False" }, new[] { "Sugar Rush", "True" }, new[] { "Fix-it Felix Jr", "False" }, CategoryType.Movies, DifficultyLevel.Normal);
+            CreateQuestion("In Lord of the Rings, who is the king of Rohan?", new[] { "Denethor", "False" }, new[] { "Theoden", "True" }, new[] { "Legolas", "False" }, new[] { "Gandalf", "False" }, CategoryType.Movies, DifficultyLevel.Normal);
+            CreateQuestion("In Harry Potter, what is Dumbledore's first name?", new[] { "Albus", "True" }, new[] { "Severus", "False" }, new[] { "Voldemort", "False" }, new[] { "Arthur", "False" }, CategoryType.Movies, DifficultyLevel.Normal);
         }
 
-        //todo
         private void NormalLiteratureQuestions()
         {
-            CreateQuestion("Normal literature question 1", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Literature, DifficultyLevel.Normal);
-            CreateQuestion("Normal literature question 2", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Literature, DifficultyLevel.Normal);
-            CreateQuestion("Normal literature question 3", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Literature, DifficultyLevel.Normal);
-            CreateQuestion("Normal literature question 4", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Literature, DifficultyLevel.Normal);
+            CreateQuestion("Which Bronte sister wrote Jane Eyre?", new[] { "Branwell Bronte", "False" }, new[] { "Charlotte Bronte", "True" }, new[] { "Anne Bronte", "False" }, new[] { "Emily Bronte", "False" }, CategoryType.Literature, DifficultyLevel.Normal);
+            CreateQuestion("Which novel was famous for depicting a dystopian society that burned any books that were found?", new[] { "Harry Potter", "False" }, new[] { "Catch-22", "False" }, new[] { "Fahrenheit 451", "True" }, new[] { "King Kong", "False" }, CategoryType.Literature, DifficultyLevel.Normal);
+            CreateQuestion("In which country is Don Quixote set?", new[] { "England", "False" }, new[] { "Spain", "True" }, new[] { "Bulgaria", "False" }, new[] { "China", "False" }, CategoryType.Literature, DifficultyLevel.Normal);
+            CreateQuestion("Which Shakespearean tragedy features a Scottish kingdom?", new[] { "Macbeth", "True" }, new[] { "King Lear", "False" }, new[] { "Othello", "False" }, new[] { "Hamlet", "False" }, CategoryType.Literature, DifficultyLevel.Normal);
         }
 
-        //todo
         private void NormalScienceQuestions()
         {
-            CreateQuestion("Normal science question 1", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Science, DifficultyLevel.Normal);
-            CreateQuestion("Normal science question 2", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Science, DifficultyLevel.Normal);
-            CreateQuestion("Normal science question 3", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Science, DifficultyLevel.Normal);
-            CreateQuestion("Normal science question 4", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Science, DifficultyLevel.Normal);
+            CreateQuestion("Who invented the vaccine against rabies?", new[] { "Pasteur", "True" }, new[] { "Nobody", "False" }, new[] { "Galilee", "False" }, new[] { "Mendeleïev", "False" }, CategoryType.Science, DifficultyLevel.Normal);
+            CreateQuestion("Which kind of waves are used to make and receive cellphone calls?", new[] { "Radio waves", "True" }, new[] { "Visible light waves", "False" }, new[] { "Gravity waves", "False" }, new[] { "Sound waves", "False" }, CategoryType.Science, DifficultyLevel.Normal);
+            CreateQuestion("What does a light-year measure?", new[] { "Brightness", "False" }, new[] { "Distance", "True" }, new[] { "Time ", "False" }, new[] { "Weight", "False" }, CategoryType.Science, DifficultyLevel.Normal);
+            CreateQuestion("Normal science question 4", new[] { "Sodium chloride", "False" }, new[] { "Uranium", "True" }, new[] { "Nitrogen", "False" }, new[] { "Carbone dioxide", "False" }, CategoryType.Science, DifficultyLevel.Normal);
         }
 
-        //todo
         private void NormalGeographyQuestions()
         {
             CreateQuestion("How high is the highest volcano found on Mars up to this point in human history?", new[] { "21.2 km", "True" }, new[] { "16.1 km", "False" }, new[] { "18.2 km", "False" }, new[] { "19.6 km", "False" }, CategoryType.Geography, DifficultyLevel.Normal);
-            //TODO Rest
-            CreateQuestion("Normal geography question 2", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Geography, DifficultyLevel.Normal);
-            CreateQuestion("Normal geography question 3", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Geography, DifficultyLevel.Normal);
-            CreateQuestion("Normal geography question 4", new[] { "a1", "True" }, new[] { "a2", "False" }, new[] { "a3", "False" }, new[] { "a4", "False" }, CategoryType.Geography, DifficultyLevel.Normal);
+            CreateQuestion("On which continent is Tripoli located?", new[] { "Europe", "False" }, new[] { "Africa", "True" }, new[] { "Asia", "False" }, new[] { "America", "False" }, CategoryType.Geography, DifficultyLevel.Normal);
+            CreateQuestion("What is the name given to the active volcano located in Sicily?", new[] { "Mount Etna", "True" }, new[] { "Pompeii", "False" }, new[] { "Python", "False" }, new[] { "Sinabung", "False" }, CategoryType.Geography, DifficultyLevel.Normal);
+            CreateQuestion("What is the biggest country by area in North America?", new[] { "United States of America", "False" }, new[] { "Mexico", "False" }, new[] { "Canada", "True" }, new[] { "Panama", "False" }, CategoryType.Geography, DifficultyLevel.Normal);
         }
 
         private void NormalRandomQuestions()
