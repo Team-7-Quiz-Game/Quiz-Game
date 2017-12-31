@@ -19,6 +19,7 @@ using Trivia.Contracts;
 using Trivia.Core.Contracts;
 using Trivia.Models.Category;
 using Trivia.Core;
+using Trivia.Models.Question;
 
 namespace Trivia.UI
 {
@@ -36,6 +37,7 @@ namespace Trivia.UI
         static IList<IQuestion> easyQuestions;
         static int countQuestions = 0;
         static NormalPlayer currentPlayer;
+
         public PlayerFirstLevelPage(IEngine engine)
         {
             InitializeComponent();
@@ -55,10 +57,10 @@ namespace Trivia.UI
             answerA = easyQuestions[countQuestions].Answers[0].IsCorrect;
             if (answerA)
             {
-                pointsPlayer += 100;
+                currentPlayer.Points += 100;
                 correctAnswer.Visibility = Visibility.Visible;
                 wrongAnswer.Visibility = Visibility.Collapsed;
-                pPoints.Text = pointsPlayer.ToString();
+                pPoints.Text = currentPlayer.Points.ToString();
             }
             else
             {
@@ -68,7 +70,6 @@ namespace Trivia.UI
             countQuestions++;
             if (countQuestions > easyQuestions.Count - 1)
             {
-                currentPlayer.Points = pointsPlayer;
                 EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(currentPlayer.Points, playerName);
                 this.NavigationService.Navigate(endOfFirstLevelPage);
             }
@@ -83,10 +84,10 @@ namespace Trivia.UI
             answerB = easyQuestions[countQuestions].Answers[1].IsCorrect;
             if (answerB)
             {
-                pointsPlayer += 100;
+                currentPlayer.Points += 100;
                 correctAnswer.Visibility = Visibility.Visible;
                 wrongAnswer.Visibility = Visibility.Collapsed;
-                pPoints.Text = pointsPlayer.ToString();
+                pPoints.Text = currentPlayer.Points.ToString();
             }
             else
             {
@@ -96,7 +97,6 @@ namespace Trivia.UI
             countQuestions++;
             if (countQuestions > easyQuestions.Count - 1)
             {
-                currentPlayer.Points = pointsPlayer;
                 EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(currentPlayer.Points, playerName);
                 this.NavigationService.Navigate(endOfFirstLevelPage);
             }
@@ -112,10 +112,10 @@ namespace Trivia.UI
             answerC = easyQuestions[countQuestions].Answers[2].IsCorrect;
             if (answerC)
             {
-                pointsPlayer += 100;
+                currentPlayer.Points += 100;
                 correctAnswer.Visibility = Visibility.Visible;
                 wrongAnswer.Visibility = Visibility.Collapsed;
-                pPoints.Text = pointsPlayer.ToString();
+                pPoints.Text = currentPlayer.Points.ToString();
             }
             else
             {
@@ -125,7 +125,6 @@ namespace Trivia.UI
             countQuestions++;
             if (countQuestions > easyQuestions.Count - 1)
             {
-                currentPlayer.Points = pointsPlayer;
                 EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(currentPlayer.Points, playerName);
                 this.NavigationService.Navigate(endOfFirstLevelPage);
             }
@@ -140,10 +139,10 @@ namespace Trivia.UI
             answerD = easyQuestions[countQuestions].Answers[3].IsCorrect;
             if (answerD)
             {
-                pointsPlayer += 100;
+                currentPlayer.Points += 100;
                 correctAnswer.Visibility = Visibility.Visible;
                 wrongAnswer.Visibility = Visibility.Collapsed;
-                pPoints.Text = pointsPlayer.ToString();
+                pPoints.Text = currentPlayer.Points.ToString();
             }
             else
             {
@@ -153,7 +152,6 @@ namespace Trivia.UI
             countQuestions++;
             if(countQuestions > easyQuestions.Count - 1)
             {
-                currentPlayer.Points = pointsPlayer;
                 EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(currentPlayer.Points, playerName);
                 this.NavigationService.Navigate(endOfFirstLevelPage);
             }

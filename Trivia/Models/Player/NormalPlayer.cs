@@ -26,7 +26,7 @@ namespace Trivia.Models.Player
             {
                 Validator.CheckIfIntNegative(value, string.Format(GlobalConstants.NumberCannotBeNegative, "Points"));
 
-                this.points += value;
+                this.points = value;
             }
         }
 
