@@ -25,7 +25,12 @@ namespace Trivia.UI
     public partial class StartQuizzardTest : Page
     {
         private IEngine engine;
-
+        static bool answerA;
+        static bool answerB;
+        static bool answerC;
+        static bool answerD;
+        static int countQuestions = 0;
+        static int points;
         public StartQuizzardTest()
         {
             InitializeComponent();
@@ -36,57 +41,127 @@ namespace Trivia.UI
             {
                 question.ShuffleAnswers();
             }
-
-            QuestionText.Text = engine.QuizzardQuestions[0].QuestionText;
-            AnswerA.Content = engine.QuizzardQuestions[0].Answers[0];
-            AnswerB.Content = engine.QuizzardQuestions[0].Answers[1];
-            AnswerC.Content = engine.QuizzardQuestions[0].Answers[2];
-            AnswerD.Content = engine.QuizzardQuestions[0].Answers[3];
+            DisplayTextForQuestionAndAnswers(engine.QuizzardQuestions, countQuestions);
         }
         // The buttons will be binded with the answers from the list. Upon clicking on a button 
 
         private void AnswerAButton(object sender, RoutedEventArgs e)
         {
-            //Check if answer is correct 
-            //if yes add points
-            //if no do not add points 
-            //then remove this question from engine.QuizzardQuestions
-            //then check if there are any other questions left
-            //if no load end screen
-            //if yes proceed to the same page
-        }
+            answerA = engine.QuizzardQuestions[countQuestions].Answers[0].IsCorrect;
 
+            if (answerA)
+            {
+                points += engine.QuizzardQuestions[countQuestions].Points;
+                correctAnswer.Visibility = Visibility.Visible;
+                wrongAnswer.Visibility = Visibility.Collapsed;
+                pPoints.Text = points.ToString();
+            }
+            else
+            {
+                correctAnswer.Visibility = Visibility.Collapsed;
+                wrongAnswer.Visibility = Visibility.Visible;
+            }
+            countQuestions++;
+            if (countQuestions > engine.QuizzardQuestions.Count - 1)
+            {
+                QuizzardEndPage endOfQuizzardTest = new QuizzardEndPage(points);
+                this.NavigationService.Navigate(endOfQuizzardTest);
+            }
+            else
+            {
+                DisplayTextForQuestionAndAnswers(engine.QuizzardQuestions, countQuestions);
+            }
+        }
         private void AnswerBButton(object sender, RoutedEventArgs e)
         {
-            //Check if answer is correct 
-            //if yes add points
-            //if no do not add points 
-            //then remove this question from engine.QuizzardQuestions 
-            //then check if there are any other questions left
-            //if no load end screen
-            //if yes proceed to the same page
+            answerB = engine.QuizzardQuestions[countQuestions].Answers[1].IsCorrect;
+
+            if (answerB)
+            {
+                points += engine.QuizzardQuestions[countQuestions].Points;
+                correctAnswer.Visibility = Visibility.Visible;
+                wrongAnswer.Visibility = Visibility.Collapsed;
+                pPoints.Text = points.ToString();
+            }
+            else
+            {
+                correctAnswer.Visibility = Visibility.Collapsed;
+                wrongAnswer.Visibility = Visibility.Visible;
+            }
+            countQuestions++;
+            if (countQuestions > engine.QuizzardQuestions.Count - 1)
+            {
+                QuizzardEndPage endOfQuizzardTest = new QuizzardEndPage(points);
+                this.NavigationService.Navigate(endOfQuizzardTest);
+            }
+            else
+            {
+                DisplayTextForQuestionAndAnswers(engine.QuizzardQuestions, countQuestions);
+            }
         }
 
         private void AnswerCButton(object sender, RoutedEventArgs e)
         {
-            //Check if answer is correct 
-            //if yes add points
-            //if no do not add points 
-            //then remove this question from engine.QuizzardQuestions 
-            //then check if there are any other questions left
-            //if no load end screen
-            //if yes proceed to the same page
+            answerC = engine.QuizzardQuestions[countQuestions].Answers[2].IsCorrect;
+
+            if (answerC)
+            {
+                points += engine.QuizzardQuestions[countQuestions].Points;
+                correctAnswer.Visibility = Visibility.Visible;
+                wrongAnswer.Visibility = Visibility.Collapsed;
+                pPoints.Text = points.ToString();
+            }
+            else
+            {
+                correctAnswer.Visibility = Visibility.Collapsed;
+                wrongAnswer.Visibility = Visibility.Visible;
+            }
+            countQuestions++;
+            if (countQuestions > engine.QuizzardQuestions.Count - 1)
+            {
+                QuizzardEndPage endOfQuizzardTest = new QuizzardEndPage(points);
+                this.NavigationService.Navigate(endOfQuizzardTest);
+            }
+            else
+            {
+                DisplayTextForQuestionAndAnswers(engine.QuizzardQuestions, countQuestions);
+            }
         }
 
         private void AnswerDButton(object sender, RoutedEventArgs e)
         {
-            //Check if answer is correct 
-            //if yes add points
-            //if no do not add points 
-            //then remove this question from engine.QuizzardQuestions 
-            //then check if there are any other questions left
-            //if no load end screen
-            //if yes proceed to the same page
+            answerD = engine.QuizzardQuestions[countQuestions].Answers[3].IsCorrect;
+
+            if (answerD)
+            {
+                points += engine.QuizzardQuestions[countQuestions].Points;
+                correctAnswer.Visibility = Visibility.Visible;
+                wrongAnswer.Visibility = Visibility.Collapsed;
+                pPoints.Text = points.ToString();
+            }
+            else
+            {
+                correctAnswer.Visibility = Visibility.Collapsed;
+                wrongAnswer.Visibility = Visibility.Visible;
+            }
+            countQuestions++;
+            if (countQuestions > engine.QuizzardQuestions.Count - 1)
+            {
+                QuizzardEndPage endOfQuizzardTest = new QuizzardEndPage(points);
+                this.NavigationService.Navigate(endOfQuizzardTest);
+            }
+            else
+            {
+                DisplayTextForQuestionAndAnswers(engine.QuizzardQuestions, countQuestions);
+            }
+        }
+        private void DisplayTextForQuestionAndAnswers(IList<IQuestion> quizzardQuestions, int countQuestions)
+        {
+            QuestionText.Text = engine.QuizzardQuestions[countQuestions].QuestionText;
+            AnswerA.Content = engine.QuizzardQuestions[countQuestions].Answers[0];
+            AnswerB.Content = engine.QuizzardQuestions[countQuestions].Answers[1];
+            AnswerC.Content = engine.QuizzardQuestions[countQuestions].Answers[2];
+            AnswerD.Content = engine.QuizzardQuestions[countQuestions].Answers[3];
         }
     }
 }

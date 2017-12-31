@@ -16,13 +16,14 @@ using System.Windows.Shapes;
 namespace Trivia.UI
 {
     /// <summary>
-    /// Interaction logic for WrongAnswer.xaml
+    /// Interaction logic for QuizzardEndPage.xaml
     /// </summary>
-    public partial class WrongAnswer : Page
+    public partial class QuizzardEndPage : Page
     {
-        public WrongAnswer()
+        public QuizzardEndPage(int points)
         {
             InitializeComponent();
+            score.Text = points.ToString();
         }
     }
 }
