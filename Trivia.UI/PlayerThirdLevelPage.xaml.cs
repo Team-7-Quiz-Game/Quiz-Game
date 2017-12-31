@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Trivia.Contracts;
 using Trivia.Core.Contracts;
+using Trivia.Models.Player;
 
 namespace Trivia.UI
 {
@@ -21,9 +23,149 @@ namespace Trivia.UI
     /// </summary>
     public partial class PlayerThirdLevelPage : Page
     {
+        string playerName;
+        static bool answerA;
+        static bool answerB;
+        static bool answerC;
+        static bool answerD;
+        static int pointsPlayer;
+        static IList<IQuestion> hardQuestions;
+        static int countQuestions = 0;
+        static NormalPlayer currentPlayer;
         public PlayerThirdLevelPage(IEngine engine)
         {
             InitializeComponent();
+
+            playerName = engine.Player.Name;
+            currentPlayer = (NormalPlayer)engine.Player;
+            pointsPlayer = currentPlayer.Points;
+            pNameTB.Text = playerName;
+            pPoints.Text = pointsPlayer.ToString();
+            hardQuestions = engine.EasyQuestions;
+
+            DisplayTextForQuestionAndAnswers(hardQuestions, countQuestions);
+        }
+
+        private void AnswerAButton(object sender, RoutedEventArgs e)
+        {
+            answerA = hardQuestions[countQuestions].Answers[0].IsCorrect;
+            if (answerA)
+            {
+                pointsPlayer += 300;
+                correctAnswer.Visibility = Visibility.Visible;
+                wrongAnswer.Visibility = Visibility.Collapsed;
+                pPoints.Text = pointsPlayer.ToString();
+            }
+            else
+            {
+                correctAnswer.Visibility = Visibility.Collapsed;
+                wrongAnswer.Visibility = Visibility.Visible;
+            }
+            countQuestions++;
+            if (countQuestions > hardQuestions.Count - 1)
+            {
+                currentPlayer.Points = pointsPlayer;
+                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(currentPlayer.Points, playerName);
+                this.NavigationService.Navigate(endOfThirdLevelPage);
+            }
+            else
+            {
+                DisplayTextForQuestionAndAnswers(hardQuestions, countQuestions);
+            }
+        }
+
+        private void AnswerBButton(object sender, RoutedEventArgs e)
+        {
+            answerB = hardQuestions[countQuestions].Answers[1].IsCorrect;
+
+            if (answerB)
+            {
+                pointsPlayer += 300;
+                correctAnswer.Visibility = Visibility.Visible;
+                wrongAnswer.Visibility = Visibility.Collapsed;
+                pPoints.Text = pointsPlayer.ToString();
+            }
+            else
+            {
+                correctAnswer.Visibility = Visibility.Collapsed;
+                wrongAnswer.Visibility = Visibility.Visible;
+            }
+            countQuestions++;
+            if (countQuestions > hardQuestions.Count - 1)
+            {
+                currentPlayer.Points = pointsPlayer;
+                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(currentPlayer.Points, playerName);
+                this.NavigationService.Navigate(endOfThirdLevelPage);
+            }
+            else
+            {
+                DisplayTextForQuestionAndAnswers(hardQuestions, countQuestions);
+            }
+        }
+
+        private void AnswerCButton(object sender, RoutedEventArgs e)
+        {
+            answerC = hardQuestions[countQuestions].Answers[2].IsCorrect;
+            if (answerC)
+            {
+                pointsPlayer += 300;
+                correctAnswer.Visibility = Visibility.Visible;
+                wrongAnswer.Visibility = Visibility.Collapsed;
+                pPoints.Text = pointsPlayer.ToString();
+            }
+            else
+            {
+                correctAnswer.Visibility = Visibility.Collapsed;
+                wrongAnswer.Visibility = Visibility.Visible;
+            }
+            countQuestions++;
+            if (countQuestions > hardQuestions.Count - 1)
+            {
+                currentPlayer.Points = pointsPlayer;
+                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(currentPlayer.Points, playerName);
+                this.NavigationService.Navigate(endOfThirdLevelPage);
+            }
+            else
+            {
+                DisplayTextForQuestionAndAnswers(hardQuestions, countQuestions);
+            }
+        }
+
+        private void AnswerDButton(object sender, RoutedEventArgs e)
+        {
+            answerD = hardQuestions[countQuestions].Answers[3].IsCorrect;
+            if (answerD)
+            {
+                pointsPlayer += 300;
+                correctAnswer.Visibility = Visibility.Visible;
+                wrongAnswer.Visibility = Visibility.Collapsed;
+                pPoints.Text = pointsPlayer.ToString();
+            }
+            else
+            {
+                correctAnswer.Visibility = Visibility.Collapsed;
+                wrongAnswer.Visibility = Visibility.Visible;
+            }
+            countQuestions++;
+            if (countQuestions > hardQuestions.Count - 1)
+            {
+                currentPlayer.Points = pointsPlayer;
+                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(currentPlayer.Points, playerName);
+                this.NavigationService.Navigate(endOfThirdLevelPage);
+            }
+            else
+            {
+                DisplayTextForQuestionAndAnswers(hardQuestions, countQuestions);
+            }
+        }
+        private void DisplayTextForQuestionAndAnswers(IList<IQuestion> hardQuestions, int countQuestions)
+        {
+            displayQuestion.Text = hardQuestions[countQuestions].QuestionText;
+
+            displayAnswerA.Content = hardQuestions[countQuestions].Answers[0].ToString();
+            displayAnswerB.Content = hardQuestions[countQuestions].Answers[1].ToString();
+            displayAnswerC.Content = hardQuestions[countQuestions].Answers[2].ToString();
+            displayAnswerD.Content = hardQuestions[countQuestions].Answers[3].ToString();
         }
     }
 }

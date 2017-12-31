@@ -60,6 +60,9 @@
     <Compile Include="EndOfSecondLevelPage.xaml.cs">
       <DependentUpon>EndOfSecondLevelPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EndOfThirdLevel.xaml.cs">
+      <DependentUpon>EndOfThirdLevel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PlayerFirstLevelPage.xaml.cs">
       <DependentUpon>PlayerFirstLevelPage.xaml</DependentUpon>
     </Compile>
@@ -86,6 +89,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EndOfSecondLevelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EndOfThirdLevel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
