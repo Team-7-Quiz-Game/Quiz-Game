@@ -1,0 +1,20 @@
+﻿<Page x:Class="Trivia.UI.EndOfSecondLevelPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Trivia.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="900" Background="#edea49"
+      Title="EndOfSecondLevelPage">
+
+    <Grid>
+        <Label Content="Oh, wow!" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="96,81,0,0" Height="71" Width="262" FontFamily="Showcard Gothic" FontSize="48" Foreground="Black"/>
+        <Button Content="Continue" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="134" Click="ContinueButton" Background="#FF7AB0A3" FontFamily="Consolas" FontSize="18" Foreground="Black" Margin="657,362,0,0" FontWeight="Bold"/>
+        <Label Content="Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="305,184,0,0" Height="71" Width="178" FontFamily="Showcard Gothic" FontSize="48" Foreground="Black"/>
+        <TextBlock Text="0" Name="pPoints" HorizontalAlignment="Left" Height="62" Margin="488,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" FontFamily="Showcard Gothic" FontSize="48" Foreground="#FF43076B"/>
+        <Label Content="ready for the final round?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="52,352,0,0" Height="71" Width="537" FontFamily="Showcard Gothic" FontSize="36" Foreground="Black"/>
+        <TextBlock x:Name="pNameTB" HorizontalAlignment="Right" Height="66" Margin="0,86,62,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" IsEnabled="False" FontFamily="Showcard Gothic" FontSize="48" Foreground="#FF43076B" RenderTransformOrigin="0.484,1.064" Text=" Player"/>
+        <Label Content="Oh, wow! good job,  " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="96,81,0,0" Height="71" Width="526" FontFamily="Showcard Gothic" FontSize="48" Foreground="Black"/>
+    </Grid>
+</Page>

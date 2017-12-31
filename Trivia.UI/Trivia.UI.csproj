@@ -57,11 +57,17 @@
     <Compile Include="EndOfFirstLevelPage.xaml.cs">
       <DependentUpon>EndOfFirstLevelPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EndOfSecondLevelPage.xaml.cs">
+      <DependentUpon>EndOfSecondLevelPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PlayerFirstLevelPage.xaml.cs">
       <DependentUpon>PlayerFirstLevelPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlayerSecondLevelPage.xaml.cs">
       <DependentUpon>PlayerSecondLevelPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerThirdLevelPage.xaml.cs">
+      <DependentUpon>PlayerThirdLevelPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="QuizzardInitialPage.xaml.cs">
       <DependentUpon>QuizzardInitialPage.xaml</DependentUpon>
@@ -76,6 +82,10 @@
       <DependentUpon>WrongAnswer.xaml</DependentUpon>
     </Compile>
     <Page Include="EndOfFirstLevelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EndOfSecondLevelPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -107,6 +117,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PlayerSecondLevelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlayerThirdLevelPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

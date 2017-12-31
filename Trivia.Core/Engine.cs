@@ -18,7 +18,7 @@ namespace Trivia.Core
         private readonly IDictionary<string, ICategory> categories;
         private IList<IQuestion> easyQuestions;
         // TEST
-        //private IList<IQuestion> normalQuestions;
+        private IList<IQuestion> normalQuestions;
 
         private Engine()
         {
@@ -26,6 +26,7 @@ namespace Trivia.Core
             this.database = Database.Instance;
             this.categories = new Dictionary<string, ICategory>();
             this.easyQuestions = new List<IQuestion>();
+            this.normalQuestions = new List<IQuestion>();
         }
 
         public static IEngine Instance
@@ -51,18 +52,18 @@ namespace Trivia.Core
         }
 
         // TEST Property
-        //public IList<IQuestion> NormalQuestions
-        //{
-        //    get
-        //    {
-        //        return GetNormalQuestions(categories);
-        //    }
-        //    set
-        //    {
-        //        this.normalQuestions = value;
-        //    }
-        //}
-     
+        public IList<IQuestion> NormalQuestions
+        {
+            get
+            {
+                return GetNormalQuestions(categories);
+            }
+            set
+            {
+                this.normalQuestions = value;
+            }
+        }
+
         public void CreateCategory(IList<string> categories)
         {
             Validator.CheckIfNull(categories, string.Format(GlobalConstants.ObjectCannotBeNull, "List of categories"));
@@ -127,18 +128,19 @@ namespace Trivia.Core
         }
 
         // TEST
-        //public IList<IQuestion> GetNormalQuestions(IDictionary<string, ICategory> categories)
-        //{
-        //    this.normalQuestions = new List<IQuestion>();
-        //    foreach (var category in this.categories)
-        //    {
-        //        foreach (var question in category.Value.NormalQuestions)
-        //        {
-        //            this.normalQuestions.Add(question);
-        //        }
-        //    }
-        //    return this.normalQuestions;
-        //}
+        public IList<IQuestion> GetNormalQuestions(IDictionary<string, ICategory> categories)
+        {
+            Validator.CheckIfNull(categories, string.Format(GlobalConstants.ObjectCannotBeNull, "Dictionary of categories"));
+
+            foreach (var category in this.categories)
+            {
+                foreach (var question in category.Value.NormalQuestions)
+                {
+                    this.normalQuestions.Add(question);
+                }
+            }
+            return this.normalQuestions;
+        }
 
         public IPlayer CreateNormalPlayer(string name)
         {

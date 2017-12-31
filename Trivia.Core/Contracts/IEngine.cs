@@ -12,6 +12,8 @@ namespace Trivia.Core.Contracts
     {
         IPlayer Player { get ; set; }
         IList<IQuestion> EasyQuestions { get; }
+        // TEST
+        IList<IQuestion> NormalQuestions { get; }
 
         void CreateCategory(IList<string> checkedCategories);
 
@@ -28,6 +30,6 @@ namespace Trivia.Core.Contracts
         IQuestion CreateTimedQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int timeForAnswer);
         IList<IQuestion> GetEasyQuestions(IDictionary<string, ICategory> categories);
         // TEST
-        //IList<IQuestion> GetNormalQuestions(IDictionary<string, ICategory> categories);
+        IList<IQuestion> GetNormalQuestions(IDictionary<string, ICategory> categories);
     }
 }
