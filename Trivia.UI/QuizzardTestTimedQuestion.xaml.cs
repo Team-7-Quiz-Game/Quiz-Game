@@ -20,9 +20,9 @@ using Trivia.Core.Contracts;
 namespace Trivia.UI
 {
     /// <summary>
-    /// Interaction logic for StartQuizzardTest.xaml
+    /// Interaction logic for QuizzardTestTimedQuestion.xaml
     /// </summary>
-    public partial class StartQuizzardTest : Page
+    public partial class QuizzardTestTimedQuestion : Page
     {
         private IEngine engine;
         static bool answerA;
@@ -31,7 +31,7 @@ namespace Trivia.UI
         static bool answerD;
         static int countQuestions = 0;
         static int points;
-        public StartQuizzardTest()
+        public QuizzardTestTimedQuestion()
         {
             InitializeComponent();
             this.engine = Engine.Instance;
@@ -43,7 +43,7 @@ namespace Trivia.UI
             }
             DisplayTextForQuestionAndAnswers(engine.QuizzardQuestions, countQuestions);
         }
-        // The buttons will be binded with the answers from the list. Upon clicking on a button 
+        // TODO: Implement time logic
 
         private void AnswerAButton(object sender, RoutedEventArgs e)
         {

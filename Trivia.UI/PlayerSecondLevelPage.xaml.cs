@@ -164,5 +164,15 @@ namespace Trivia.UI
                 DisplayTextForQuestionAndAnswers(normalQuestions, countQuestions);
             }
         }
+
+        private void Hint5050Button(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SkipQuestionButton(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

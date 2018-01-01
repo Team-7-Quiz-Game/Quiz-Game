@@ -78,7 +78,7 @@ namespace Trivia.UI
                 engine.QuizzardQuestions.Add(question);
             }
 
-            StartQuizzardTest startQuizzardTest = new StartQuizzardTest();
+            QuizzardTestStart startQuizzardTest = new QuizzardTestStart();
             this.NavigationService.Navigate(startQuizzardTest);
         }
     }

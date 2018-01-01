@@ -11,6 +11,7 @@ namespace Trivia.Program
     {
         static void Main()
         {
+           // TimeSpan s = new TimeSpan(0, 0, 100);            
         }
     }
 }

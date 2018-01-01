@@ -163,5 +163,15 @@ namespace Trivia.UI
             displayAnswerC.Content = hardQuestions[countQuestions].Answers[2].ToString();
             displayAnswerD.Content = hardQuestions[countQuestions].Answers[3].ToString();
         }
+
+        private void Hint5050Button(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SkipQuestionButton(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

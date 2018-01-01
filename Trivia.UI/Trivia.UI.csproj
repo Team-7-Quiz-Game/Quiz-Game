@@ -78,8 +78,11 @@
     <Compile Include="QuizzardInitialPage.xaml.cs">
       <DependentUpon>QuizzardInitialPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StartQuizzardTest.xaml.cs">
-      <DependentUpon>StartQuizzardTest.xaml</DependentUpon>
+    <Compile Include="QuizzardTestTimedQuestion.xaml.cs">
+      <DependentUpon>QuizzardTestTimedQuestion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuizzardTestStart.xaml.cs">
+      <DependentUpon>QuizzardTestStart.xaml</DependentUpon>
     </Compile>
     <Page Include="EndOfFirstLevelPage.xaml">
       <SubType>Designer</SubType>
@@ -136,7 +139,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StartQuizzardTest.xaml">
+    <Page Include="QuizzardTestTimedQuestion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuizzardTestStart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

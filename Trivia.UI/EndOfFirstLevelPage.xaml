@@ -9,11 +9,11 @@
       Title="EndOfFirstLevelPage">
 
     <Grid>
-        <Label Content=", congrats!" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="415,86,0,0" Height="71" Width="303" FontFamily="Showcard Gothic" FontSize="48" Foreground="Black"/>
-        <Button Content="Continue" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="134" Click="ContinueButton" Background="#FF7AB0A3" FontFamily="Consolas" FontSize="18" Foreground="Black" Margin="657,362,0,0" FontWeight="Bold"/>
-        <Label Content="Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="325,176,0,0" Height="71" Width="178" FontFamily="Showcard Gothic" FontSize="48" Foreground="Black"/>
-        <TextBlock Text="0" Name="pPoints" HorizontalAlignment="Left" Height="62" Margin="508,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" FontFamily="Showcard Gothic" FontSize="48" Foreground="#FF43076B"/>
-        <Label Content="now it's getting harder..." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="97,360,0,0" Height="71" Width="537" FontFamily="Showcard Gothic" FontSize="36" Foreground="Black"/>
-        <TextBlock x:Name="pNameTB" TextAlignment="Right" HorizontalAlignment="Right" Height="66" Margin="0,91,485,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" IsEnabled="False" FontFamily="Showcard Gothic" FontSize="48" Foreground="#FF43076B" RenderTransformOrigin="0.484,1.064"><Run Text="Player"/></TextBlock>
+        <Label Content=", congrats!" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="415,100,0,0" Height="71" Width="303" FontFamily="Showcard Gothic" FontSize="48" Foreground="Black"/>
+        <Button Content="Continue" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="134" Click="ContinueButton" Background="#FF7AB0A3" FontFamily="Consolas" FontSize="18" Foreground="Black" Margin="657,376,0,0" FontWeight="Bold"/>
+        <Label Content="Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="325,190,0,0" Height="71" Width="178" FontFamily="Showcard Gothic" FontSize="48" Foreground="Black"/>
+        <TextBlock Text="0" Name="pPoints" HorizontalAlignment="Left" Height="62" Margin="508,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" FontFamily="Showcard Gothic" FontSize="48" Foreground="#FF43076B"/>
+        <Label Content="now it's getting harder..." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="97,374,0,0" Height="71" Width="537" FontFamily="Showcard Gothic" FontSize="36" Foreground="Black"/>
+        <TextBlock x:Name="pNameTB" TextAlignment="Right" HorizontalAlignment="Right" Height="66" Margin="0,105,485,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" IsEnabled="False" FontFamily="Showcard Gothic" FontSize="48" Foreground="#FF43076B" RenderTransformOrigin="0.484,1.064"><Run Text="Player"/></TextBlock>
     </Grid>
 </Page>
