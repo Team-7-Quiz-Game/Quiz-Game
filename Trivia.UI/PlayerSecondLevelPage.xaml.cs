@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Trivia.Contracts;
+using Trivia.Core;
 using Trivia.Core.Contracts;
 using Trivia.Models.Player;
 
@@ -23,6 +24,7 @@ namespace Trivia.UI
     /// </summary>
     public partial class PlayerSecondLevelPage : Page
     {
+        private IEngine engine;
         string playerName;
         static int pointsPlayer;
         static IList<IQuestion> normalQuestions;
@@ -36,6 +38,7 @@ namespace Trivia.UI
         public PlayerSecondLevelPage(IEngine engine)
         {
             InitializeComponent();
+            this.engine = Engine.Instance;
             playerName = engine.Player.Name;
             currentPlayer = (NormalPlayer)engine.Player;
             pNameTB.Text = playerName;
@@ -44,6 +47,7 @@ namespace Trivia.UI
             normalQuestions = engine.NormalQuestions;
 
             DisplayTextForQuestionAndAnswers(normalQuestions, countQuestions);
+            DisplayHints();
         }
 
         private void DisplayTextForQuestionAndAnswers(IList<IQuestion> normalQuestions, int countQuestions)
@@ -63,12 +67,14 @@ namespace Trivia.UI
             {
                 currentPlayer.Points += 200;
                 correctAnswer.Visibility = Visibility.Visible;
+                skippedAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Collapsed;
                 pPoints.Text = currentPlayer.Points.ToString();
             }
             else
             {
                 correctAnswer.Visibility = Visibility.Collapsed;
+                skippedAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
             }
             countQuestions++;
@@ -90,12 +96,14 @@ namespace Trivia.UI
             {
                 currentPlayer.Points += 200;
                 correctAnswer.Visibility = Visibility.Visible;
+                skippedAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Collapsed;
                 pPoints.Text = currentPlayer.Points.ToString();
             }
             else
             {
                 correctAnswer.Visibility = Visibility.Collapsed;
+                skippedAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
             }
             countQuestions++;
@@ -117,12 +125,14 @@ namespace Trivia.UI
             {
                 currentPlayer.Points += 200;
                 correctAnswer.Visibility = Visibility.Visible;
+                skippedAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Collapsed;
                 pPoints.Text = currentPlayer.Points.ToString();
             }
             else
             {
                 correctAnswer.Visibility = Visibility.Collapsed;
+                skippedAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
             }
             countQuestions++;
@@ -145,12 +155,14 @@ namespace Trivia.UI
                 currentPlayer.Points += 200;
                 correctAnswer.Visibility = Visibility.Visible;
                 wrongAnswer.Visibility = Visibility.Collapsed;
+                skippedAnswer.Visibility = Visibility.Collapsed;
                 pPoints.Text = currentPlayer.Points.ToString();
             }
             else
             {
                 correctAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
+                skippedAnswer.Visibility = Visibility.Collapsed;
             }
 
             countQuestions++;
@@ -172,7 +184,42 @@ namespace Trivia.UI
 
         private void SkipQuestionButton(object sender, RoutedEventArgs e)
         {
+            this.engine.SkipQuestionHint.Quantity--;
 
+            currentPlayer.Points += normalQuestions[countQuestions].Points;
+            pPoints.Text = currentPlayer.Points.ToString();
+            countQuestions++;
+            skippedAnswer.Visibility = Visibility.Visible;
+            correctAnswer.Visibility = Visibility.Collapsed;
+            wrongAnswer.Visibility = Visibility.Collapsed;
+
+            if (countQuestions > normalQuestions.Count - 1)
+            {
+                EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(currentPlayer.Points, playerName);
+                this.NavigationService.Navigate(endOfSecondLevelPage);
+            }
+            else
+            {
+                DisplayTextForQuestionAndAnswers(normalQuestions, countQuestions);
+            }
+
+            DisplayHints();
+        }
+
+        private void DisplayHints()
+        {
+            HintSkipQuestion.Text = this.engine.SkipQuestionHint.Quantity.ToString();
+            Hint5050.Text = this.engine.FiftyFiftyHint.Quantity.ToString();
+
+            if (this.engine.SkipQuestionHint.Quantity == 0)
+            {
+                SkipBtn.IsEnabled = false;
+            }
+
+            if (this.engine.FiftyFiftyHint.Quantity == 0)
+            {
+                FiftyBtn.IsEnabled = false;
+            }
         }
     }
 }

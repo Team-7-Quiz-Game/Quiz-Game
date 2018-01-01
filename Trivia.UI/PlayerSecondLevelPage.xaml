@@ -63,9 +63,10 @@
         <Button Name="displayAnswerC"  HorizontalAlignment="Left" Height="68" Margin="74,425,0,0" VerticalAlignment="Top" Width="319" Click="AnswerCButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
         <Button Name="displayAnswerD" HorizontalAlignment="Left" Height="68" Margin="551,425,0,0" VerticalAlignment="Top" Width="319" Click="AnswerDButton" Background="#FFE7D221" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
         <TextBlock x:Name="wrongAnswer" Visibility="Collapsed" HorizontalAlignment="Center" Height="37" Margin="356,245,319,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="225" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FF9C0000" RenderTransformOrigin="0.636,-0.086" Text="   Wrong answer"/>
+        <TextBlock x:Name="skippedAnswer"  Visibility="Collapsed" HorizontalAlignment="Center" Height="42" TextWrapping="Wrap" Text="  skipped question" VerticalAlignment="Top" Width="242" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FF396EB4" RenderTransformOrigin="0.501,2.04" Margin="357,245,301,0"/>
         <TextBlock x:Name="correctAnswer"  Visibility="Collapsed" HorizontalAlignment="Center" Height="42" TextWrapping="Wrap" Text="  correct answer" VerticalAlignment="Top" Width="224" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FF084000" RenderTransformOrigin="0.501,2.04" Margin="357,245,319,0"/>
-        <Button Content="50:50" HorizontalAlignment="Left" Height="43" VerticalAlignment="Top" Width="138" Click="Hint5050Button" FontSize="24" RenderTransformOrigin="0.496,0.47" Background="#FF7AB0A3" FontFamily="Consolas" Opacity="0.9" FontWeight="Bold" Margin="551,512,0,0"/>
-        <Button Content="Skip" HorizontalAlignment="Left" Height="43" VerticalAlignment="Top" Width="138" Click="SkipQuestionButton" FontSize="24" RenderTransformOrigin="0.496,0.47" Background="#FF7AB0A3" FontFamily="Consolas" Opacity="0.9" FontWeight="Bold" Margin="732,512,0,0"/>
+        <Button Name="FiftyBtn" Content="50:50" HorizontalAlignment="Left" Height="43" VerticalAlignment="Top" Width="138" Click="Hint5050Button" FontSize="24" RenderTransformOrigin="0.496,0.47" Background="#FF7AB0A3" FontFamily="Consolas" Opacity="0.9" FontWeight="Bold" Margin="551,512,0,0"/>
+        <Button Name="SkipBtn" Content="Skip" HorizontalAlignment="Left" Height="43" VerticalAlignment="Top" Width="138" Click="SkipQuestionButton" FontSize="24" RenderTransformOrigin="0.496,0.47" Background="#FF7AB0A3" FontFamily="Consolas" Opacity="0.9" FontWeight="Bold" Margin="732,512,0,0"/>
         <Label Content="         stuck and need help?            " HorizontalAlignment="Left" Height="37" Margin="68,516,0,0" VerticalAlignment="Top" Width="479" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.82,2.061">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -76,8 +77,8 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <TextBlock x:Name="Hint5050" HorizontalAlignment="Center" TextAlignment="Center" Height="44" Padding="7" Margin="732,565,30,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="138" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FF63005D"/>
-        <TextBlock x:Name="HintSkipQuestion" HorizontalAlignment="Center" TextAlignment="Center" Height="44" Padding="7" Margin="551,566,211,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="138" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="1.918,0.554" Foreground="#FF63005D"/>
+        <TextBlock x:Name="HintSkipQuestion" HorizontalAlignment="Center" TextAlignment="Center" Height="44" Padding="7" Margin="732,565,30,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="138" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FF63005D"/>
+        <TextBlock x:Name="Hint5050" HorizontalAlignment="Center" TextAlignment="Center" Height="44" Padding="7" Margin="551,566,211,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="138" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="1.918,0.554" Foreground="#FF63005D"/>
         <Label Content="&#x9;&#x9;&#x9;  Hints left:" HorizontalAlignment="Left" Height="37" Margin="71,563,0,0" VerticalAlignment="Top" Width="479" FontFamily="Consolas" FontSize="24" RenderTransformOrigin="0.82,2.061" FontWeight="Bold">
             <Label.RenderTransform>
                 <TransformGroup>
