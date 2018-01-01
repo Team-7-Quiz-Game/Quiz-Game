@@ -10,7 +10,6 @@ namespace Trivia.Core
 {
     public class Engine : IEngine
     {
-        private const int QuestionsPerLevelCount = 2;
         private readonly static IEngine engine = new Engine();
         private readonly Database database;
         private readonly IFactory factory;
@@ -18,7 +17,6 @@ namespace Trivia.Core
         private readonly IDictionary<string, ICategory> categories;
         private IList<IQuestion> easyQuestions;
         private IList<IQuestion> normalQuestions;
-        // TEST
         private IList<IQuestion> hardQuestions;
         private IList<IQuestion> quizzardQuestions;
 
@@ -37,14 +35,13 @@ namespace Trivia.Core
 
         public IPlayer Player { get => player; set => player = value; }
 
-        public IList<IQuestion> EasyQuestions { get => GetEasyQuestions(categories); set => this.easyQuestions = value; }
+        public IList<IQuestion> EasyQuestions => GetEasyQuestions();
 
-        public IList<IQuestion> NormalQuestions { get => GetNormalQuestions(categories); set => this.normalQuestions = value; }
+        public IList<IQuestion> NormalQuestions => GetNormalQuestions();
+        
+        public IList<IQuestion> HardQuestions => GetHardQuestions();
 
-        // TEST
-        public IList<IQuestion> HardQuestions { get => GetHardQuestions(categories); set => this.hardQuestions = value; }
-
-        public IList<IQuestion> QuizzardQuestions { get => this.quizzardQuestions; }
+        public IList<IQuestion> QuizzardQuestions => this.quizzardQuestions;
 
         public void CreateCategory(IList<string> categories)
         {
@@ -71,7 +68,7 @@ namespace Trivia.Core
         {
             Validator.CheckIfNull(category, string.Format(GlobalConstants.ObjectCannotBeNull, "Category"));
 
-            var questions = this.database.GetRandomQuestions(category, QuestionsPerLevelCount);
+            var questions = this.database.GetRandomQuestions(category, GlobalConstants.QuestionsPerLevelCount);
 
             foreach (var question in questions)
             {
@@ -94,10 +91,8 @@ namespace Trivia.Core
             category.AddQuestion(questionToAdd);
         }
 
-        public IList<IQuestion> GetEasyQuestions(IDictionary<string, ICategory> categories)
+        public IList<IQuestion> GetEasyQuestions()
         {
-            Validator.CheckIfNull(categories, string.Format(GlobalConstants.ObjectCannotBeNull, "Dictionary of categories"));
-
             foreach (var category in this.categories)
             {
                 foreach (var question in category.Value.EasyQuestions)
@@ -108,10 +103,8 @@ namespace Trivia.Core
             return this.easyQuestions;
         }
 
-        public IList<IQuestion> GetNormalQuestions(IDictionary<string, ICategory> categories)
+        public IList<IQuestion> GetNormalQuestions()
         {
-            Validator.CheckIfNull(categories, string.Format(GlobalConstants.ObjectCannotBeNull, "Dictionary of categories"));
-
             foreach (var category in this.categories)
             {
                 foreach (var question in category.Value.NormalQuestions)
@@ -121,10 +114,8 @@ namespace Trivia.Core
             }
             return this.normalQuestions;
         }
-        public IList<IQuestion> GetHardQuestions(IDictionary<string, ICategory> categories)
+        public IList<IQuestion> GetHardQuestions()
         {
-            Validator.CheckIfNull(categories, string.Format(GlobalConstants.ObjectCannotBeNull, "Dictionary of categories"));
-
             foreach (var category in this.categories)
             {
                 foreach (var question in category.Value.HardQuestions)

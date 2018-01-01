@@ -17,6 +17,8 @@ namespace Trivia.Common.Utils
         public const int MinTimeForAnswer = 6;
         public const int MaxTimeForAnswer = 10;
 
+        public const int QuestionsPerLevelCount = 2;
+
         public const string NumberCannotBeNegative = "{0} cannot be negative!";
 
         public const string MaxAnswersPerQuestionErrorMessage = "A question cannot have more than {0} answers!";

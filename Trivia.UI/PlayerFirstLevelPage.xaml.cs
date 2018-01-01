@@ -57,7 +57,7 @@ namespace Trivia.UI
             answerA = easyQuestions[countQuestions].Answers[0].IsCorrect;
             if (answerA)
             {
-                currentPlayer.Points += 100;
+                currentPlayer.Points += easyQuestions[countQuestions].Points;
                 correctAnswer.Visibility = Visibility.Visible;
                 wrongAnswer.Visibility = Visibility.Collapsed;
                 pPoints.Text = currentPlayer.Points.ToString();
@@ -84,7 +84,7 @@ namespace Trivia.UI
             answerB = easyQuestions[countQuestions].Answers[1].IsCorrect;
             if (answerB)
             {
-                currentPlayer.Points += 100;
+                currentPlayer.Points += easyQuestions[countQuestions].Points;
                 correctAnswer.Visibility = Visibility.Visible;
                 wrongAnswer.Visibility = Visibility.Collapsed;
                 pPoints.Text = currentPlayer.Points.ToString();
@@ -112,7 +112,7 @@ namespace Trivia.UI
             answerC = easyQuestions[countQuestions].Answers[2].IsCorrect;
             if (answerC)
             {
-                currentPlayer.Points += 100;
+                currentPlayer.Points += easyQuestions[countQuestions].Points;
                 correctAnswer.Visibility = Visibility.Visible;
                 wrongAnswer.Visibility = Visibility.Collapsed;
                 pPoints.Text = currentPlayer.Points.ToString();
@@ -139,7 +139,7 @@ namespace Trivia.UI
             answerD = easyQuestions[countQuestions].Answers[3].IsCorrect;
             if (answerD)
             {
-                currentPlayer.Points += 100;
+                currentPlayer.Points += easyQuestions[countQuestions].Points;
                 correctAnswer.Visibility = Visibility.Visible;
                 wrongAnswer.Visibility = Visibility.Collapsed;
                 pPoints.Text = currentPlayer.Points.ToString();
@@ -168,6 +168,16 @@ namespace Trivia.UI
             displayAnswerB.Content = easyQuestions[countQuestions].Answers[1].ToString();
             displayAnswerC.Content = easyQuestions[countQuestions].Answers[2].ToString();
             displayAnswerD.Content = easyQuestions[countQuestions].Answers[3].ToString();
+        }
+
+        private void Hint5050Button(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SkipQuestionButton(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

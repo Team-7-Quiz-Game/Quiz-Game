@@ -125,5 +125,6 @@
             </Label.RenderTransform>
         </Label>
         <Button Content="Finish" HorizontalAlignment="Left" Height="40" Margin="716,472,0,0" VerticalAlignment="Top" Width="161" Click="FinishButton" Background="#FF7DB07A" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
+        <RadioButton Content="RadioButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="182,497,0,0"/>
     </Grid>
 </Page>

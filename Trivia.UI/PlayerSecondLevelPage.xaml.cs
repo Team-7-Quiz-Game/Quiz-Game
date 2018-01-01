@@ -152,6 +152,7 @@ namespace Trivia.UI
                 correctAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
             }
+
             countQuestions++;
             if (countQuestions > normalQuestions.Count - 1)
             {
