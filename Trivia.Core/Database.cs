@@ -311,7 +311,7 @@ namespace Trivia.Core
 
         private void EasyScienceQuestions()
         {
-            var qSciText1 = "How many forces of nature,known to man, exist in the universe?";
+            var qSciText1 = "How many forces of nature, known to man, exist in the universe?";
             var scienceQ1 = this.factory.CreateNormalQuestion(qSciText1, DifficultyLevel.Easy, CategoryType.Science);
 
             var a1 = this.factory.CreateAnswer("3", false);
@@ -407,7 +407,7 @@ namespace Trivia.Core
 
             AddQuestion(randomQ1, a1, a2, a3, a4);
 
-            var qRText2 = "Why is it hard for programmers to learn Java? /n \"Because they can't: \"";
+            var qRText2 = "Why is it hard for programmers to learn Java? \n \"Because they can't: \"";
             var randomQ2 = this.factory.CreateNormalQuestion(qRText2, DifficultyLevel.Easy, CategoryType.Random);
 
             a1 = this.factory.CreateAnswer("JavaScript", false);
@@ -483,7 +483,7 @@ namespace Trivia.Core
             CreateQuestion("Who invented the vaccine against rabies?", new[] { "Pasteur", "True" }, new[] { "Nobody", "False" }, new[] { "Galilee", "False" }, new[] { "Mendeleïev", "False" }, CategoryType.Science, DifficultyLevel.Normal);
             CreateQuestion("Which kind of waves are used to make and receive cellphone calls?", new[] { "Radio waves", "True" }, new[] { "Visible light waves", "False" }, new[] { "Gravity waves", "False" }, new[] { "Sound waves", "False" }, CategoryType.Science, DifficultyLevel.Normal);
             CreateQuestion("What does a light-year measure?", new[] { "Brightness", "False" }, new[] { "Distance", "True" }, new[] { "Time ", "False" }, new[] { "Weight", "False" }, CategoryType.Science, DifficultyLevel.Normal);
-            CreateQuestion("Normal science question 4", new[] { "Sodium chloride", "False" }, new[] { "Uranium", "True" }, new[] { "Nitrogen", "False" }, new[] { "Carbone dioxide", "False" }, CategoryType.Science, DifficultyLevel.Normal);
+            CreateQuestion("Which of these elements is needed to make nuclear energy and nuclear weapons?", new[] { "Sodium chloride", "False" }, new[] { "Uranium", "True" }, new[] { "Nitrogen", "False" }, new[] { "Carbone dioxide", "False" }, CategoryType.Science, DifficultyLevel.Normal);
         }
 
         private void NormalGeographyQuestions()
@@ -573,7 +573,7 @@ namespace Trivia.Core
             CreateQuestion("How was second Indiana Jones movie called \"Indiana Jones and...\"?", new[] { "The Last Crusade", "False" }, new[] { "The Raiders of the Lost Ark", "False" }, new[] { "The Kingdom of the Crystal Skull", "False" }, new[] { "The Temple of Doom", "True" }, CategoryType.Movies, DifficultyLevel.Hard);
             CreateQuestion("In Cloudy With a Chance of Meatballs 2, what type of food is is Berry?", new[] { "Blueberry", "False" }, new[] { "Strawberry", "True" }, new[] { "Blackberry", "False" }, new[] { "Raspberry", "False" }, CategoryType.Movies, DifficultyLevel.Hard);
             CreateQuestion("In the Hunger Games, what district is Thresh from?", new[] { "11", "True" }, new[] { "4", "False" }, new[] { "6", "False" }, new[] { "10", "False" }, CategoryType.Movies, DifficultyLevel.Hard);
-            CreateQuestion("Hard movie question 4", new[] { "Wednesday", "False" }, new[] { "Saturday", "False" }, new[] { "Monday", "False" }, new[] { "Tuesday", "True" }, CategoryType.Movies, DifficultyLevel.Hard);
+            CreateQuestion("In The Lego Movie, what day of the week was President Business giving out free tacos?", new[] { "Wednesday", "False" }, new[] { "Saturday", "False" }, new[] { "Monday", "False" }, new[] { "Tuesday", "True" }, CategoryType.Movies, DifficultyLevel.Hard);
         }
 
         private void HardLiteratureQuestions()
@@ -636,7 +636,7 @@ namespace Trivia.Core
             a1 = this.factory.CreateAnswer("Healthy metabolism", false);
             a2 = this.factory.CreateAnswer("Discipline and consistency", true);
             a3 = this.factory.CreateAnswer("Good looking body", false);
-            a4 = this.factory.CreateAnswer("Denser and stronger muscle tissuejhu", false);
+            a4 = this.factory.CreateAnswer("Denser, stronger muscle tissue", false);
 
             AddQuestion(randomQ12, a1, a2, a3, a4);
 
@@ -666,7 +666,7 @@ namespace Trivia.Core
             a1 = this.factory.CreateAnswer("Hello", false);
             a2 = this.factory.CreateAnswer("Willkommen", false);
             a3 = this.factory.CreateAnswer("Nice to Mitio", true);
-            a4 = this.factory.CreateAnswer("Denser and stronger muscle tissuejhu", false);
+            a4 = this.factory.CreateAnswer("Bonjour", false);
 
             AddQuestion(randomQ15, a1, a2, a3, a4);
         }

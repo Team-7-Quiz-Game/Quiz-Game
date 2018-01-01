@@ -14,7 +14,7 @@
         <Label Content="Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="305,184,0,0" Height="71" Width="178" FontFamily="Showcard Gothic" FontSize="48" Foreground="Black"/>
         <TextBlock Text="0" Name="pPoints" HorizontalAlignment="Left" Height="62" Margin="488,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" FontFamily="Showcard Gothic" FontSize="48" Foreground="#FF43076B"/>
         <Label Content="ready for the final round?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="85,360,0,0" Height="71" Width="537" FontFamily="Showcard Gothic" FontSize="36" Foreground="Black"/>
-        <TextBlock x:Name="pNameTB" HorizontalAlignment="Right" TextAlignment="Left" Height="66" Margin="0,86,62,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" IsEnabled="False" FontFamily="Showcard Gothic" FontSize="48" Foreground="#FF43076B" RenderTransformOrigin="0.484,1.064" Text=" Player"/>
+        <TextBlock x:Name="pNameTB" HorizontalAlignment="Right" TextAlignment="Left" Padding="3" Height="66" Margin="0,86,62,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" IsEnabled="False" FontFamily="Showcard Gothic" FontSize="48" Foreground="#FF43076B" RenderTransformOrigin="0.484,1.064" Text=" Player"/>
         <Label Content="Oh, wow! good job,  " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="96,81,0,0" Height="71" Width="526" FontFamily="Showcard Gothic" FontSize="48" Foreground="Black"/>
     </Grid>
 </Page>
