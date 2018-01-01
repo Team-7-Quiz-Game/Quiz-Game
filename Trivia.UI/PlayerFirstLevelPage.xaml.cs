@@ -280,6 +280,7 @@ namespace Trivia.UI
             if (this.engine.FiftyFiftyHint.Quantity == 0)
             {
                 FiftyBtn.IsEnabled = false;
+                fiftyIsEnabled = false;
             }
 
             if (fiftyIsEnabled)
