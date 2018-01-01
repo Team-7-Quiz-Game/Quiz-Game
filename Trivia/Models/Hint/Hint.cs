@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Trivia.Common.Enums;
+﻿using Trivia.Common.Enums;
 using Trivia.Common.Utils;
 
 namespace Trivia.Models.Hint
@@ -27,6 +22,6 @@ namespace Trivia.Models.Hint
 
         public string Description { get => this.description; protected set => this.description = value; }
 
-        public int Quantity { get => this.quantity; set => this.quantity = value; }
+        public int Quantity { get => this.quantity; private set => this.quantity = value; }
     }
 }

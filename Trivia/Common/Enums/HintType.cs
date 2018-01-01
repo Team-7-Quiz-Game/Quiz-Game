@@ -2,7 +2,7 @@
 {
     public enum HintType
     {
-        RemoveTwo,
+        FiftyFifty,
         SkipQuestion
     }
 }

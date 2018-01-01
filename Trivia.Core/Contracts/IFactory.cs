@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Trivia.Common.Enums;
+﻿using Trivia.Common.Enums;
 using Trivia.Contracts;
 using Trivia.Models.Hint;
 
@@ -27,6 +22,6 @@ namespace Trivia.Core.Contracts
 
         Hint CreateSkipQuestionHint(int quantity);
 
-        Hint CreateRemoveTwoHint(int quantity);
+        Hint CreateFiftyFiftyHint(int quantity);
     }
 }

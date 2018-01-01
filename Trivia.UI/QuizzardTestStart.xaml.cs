@@ -31,20 +31,23 @@ namespace Trivia.UI
         static bool answerD;
         static int countQuestions = 0;
         static int points;
+
         public QuizzardTestStart()
         {
             InitializeComponent();
             this.engine = Engine.Instance;
 
             engine.QuizzardQuestions.Shuffle();
+
             foreach (var question in engine.QuizzardQuestions)
             {
                 question.ShuffleAnswers();
             }
+
             DisplayTextForQuestionAndAnswers(engine.QuizzardQuestions, countQuestions);
         }
-        // The buttons will be binded with the answers from the list. Upon clicking on a button 
 
+        // The buttons will be binded with the answers from the list. Upon clicking on a button
         private void AnswerAButton(object sender, RoutedEventArgs e)
         {
             answerA = engine.QuizzardQuestions[countQuestions].Answers[0].IsCorrect;
@@ -61,7 +64,9 @@ namespace Trivia.UI
                 correctAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
             }
+
             countQuestions++;
+
             if (countQuestions > engine.QuizzardQuestions.Count - 1)
             {
                 QuizzardEndPage endOfQuizzardTest = new QuizzardEndPage(points);
@@ -88,7 +93,9 @@ namespace Trivia.UI
                 correctAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
             }
+
             countQuestions++;
+
             if (countQuestions > engine.QuizzardQuestions.Count - 1)
             {
                 QuizzardEndPage endOfQuizzardTest = new QuizzardEndPage(points);
@@ -116,7 +123,9 @@ namespace Trivia.UI
                 correctAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
             }
+
             countQuestions++;
+
             if (countQuestions > engine.QuizzardQuestions.Count - 1)
             {
                 QuizzardEndPage endOfQuizzardTest = new QuizzardEndPage(points);
@@ -144,7 +153,9 @@ namespace Trivia.UI
                 correctAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
             }
+
             countQuestions++;
+
             if (countQuestions > engine.QuizzardQuestions.Count - 1)
             {
                 QuizzardEndPage endOfQuizzardTest = new QuizzardEndPage(points);
@@ -155,6 +166,7 @@ namespace Trivia.UI
                 DisplayTextForQuestionAndAnswers(engine.QuizzardQuestions, countQuestions);
             }
         }
+
         private void DisplayTextForQuestionAndAnswers(IList<IQuestion> quizzardQuestions, int countQuestions)
         {
             QuestionText.Text = engine.QuizzardQuestions[countQuestions].QuestionText;

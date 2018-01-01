@@ -61,7 +61,9 @@ namespace Trivia.UI
                 correctAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
             }
+
             countQuestions++;
+
             if (countQuestions > engine.QuizzardQuestions.Count - 1)
             {
                 QuizzardEndPage endOfQuizzardTest = new QuizzardEndPage(points);
@@ -72,6 +74,7 @@ namespace Trivia.UI
                 DisplayTextForQuestionAndAnswers(engine.QuizzardQuestions, countQuestions);
             }
         }
+
         private void AnswerBButton(object sender, RoutedEventArgs e)
         {
             answerB = engine.QuizzardQuestions[countQuestions].Answers[1].IsCorrect;
@@ -88,7 +91,9 @@ namespace Trivia.UI
                 correctAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
             }
+
             countQuestions++;
+
             if (countQuestions > engine.QuizzardQuestions.Count - 1)
             {
                 QuizzardEndPage endOfQuizzardTest = new QuizzardEndPage(points);
@@ -116,7 +121,9 @@ namespace Trivia.UI
                 correctAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
             }
+
             countQuestions++;
+
             if (countQuestions > engine.QuizzardQuestions.Count - 1)
             {
                 QuizzardEndPage endOfQuizzardTest = new QuizzardEndPage(points);
@@ -144,7 +151,9 @@ namespace Trivia.UI
                 correctAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
             }
+
             countQuestions++;
+
             if (countQuestions > engine.QuizzardQuestions.Count - 1)
             {
                 QuizzardEndPage endOfQuizzardTest = new QuizzardEndPage(points);
@@ -155,6 +164,7 @@ namespace Trivia.UI
                 DisplayTextForQuestionAndAnswers(engine.QuizzardQuestions, countQuestions);
             }
         }
+
         private void DisplayTextForQuestionAndAnswers(IList<IQuestion> quizzardQuestions, int countQuestions)
         {
             QuestionText.Text = engine.QuizzardQuestions[countQuestions].QuestionText;

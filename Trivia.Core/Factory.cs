@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Trivia.Common.Enums;
+﻿using Trivia.Common.Enums;
 using Trivia.Contracts;
 using Trivia.Core.Contracts;
 using Trivia.Models.Category;
@@ -24,9 +23,9 @@ namespace Trivia.Core
             return new Answer(answerText, isCorrect);
         }
 
-        public IQuestion CreateBonusQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int pointsAmplifier)
+        public IQuestion CreateBonusQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int pointsMultiplier)
         {
-            return new BonusQuestion(questionText, difficultyLevel, category, pointsAmplifier);
+            return new BonusQuestion(questionText, difficultyLevel, category, pointsMultiplier);
         }
 
         public IQuestion CreateTimedQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int timeForAnswer)
@@ -59,9 +58,9 @@ namespace Trivia.Core
             return new SkipQuestionHint(quantity);
         }
 
-        public Hint CreateRemoveTwoHint(int quantity)
+        public Hint CreateFiftyFiftyHint(int quantity)
         {
-            return new RemoveTwoHint(quantity);
+            return new FiftyFiftyHint(quantity);
         }
     }
 }

@@ -58,7 +58,7 @@
     <Compile Include="Contracts\IPlayer.cs" />
     <Compile Include="Contracts\IQuestion.cs" />
     <Compile Include="Models\Hint\Hint.cs" />
-    <Compile Include="Models\Hint\RemoveTwoHint.cs" />
+    <Compile Include="Models\Hint\FiftyFiftyHint.cs" />
     <Compile Include="Models\Hint\SkipQuestionHint.cs" />
     <Compile Include="Models\Player\QuizzardPlayer.cs" />
     <Compile Include="Models\Player\NormalPlayer.cs" />

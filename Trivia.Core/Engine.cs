@@ -35,11 +35,11 @@ namespace Trivia.Core
 
         public IPlayer Player { get => player; set => player = value; }
 
-        public IList<IQuestion> EasyQuestions => GetEasyQuestions();
+        public IList<IQuestion> EasyQuestions => this.GetEasyQuestions();
 
-        public IList<IQuestion> NormalQuestions => GetNormalQuestions();
+        public IList<IQuestion> NormalQuestions => this.GetNormalQuestions();
         
-        public IList<IQuestion> HardQuestions => GetHardQuestions();
+        public IList<IQuestion> HardQuestions => this.GetHardQuestions();
 
         public IList<IQuestion> QuizzardQuestions => this.quizzardQuestions;
 
@@ -68,7 +68,7 @@ namespace Trivia.Core
         {
             Validator.CheckIfNull(category, string.Format(GlobalConstants.ObjectCannotBeNull, "Category"));
 
-            var questions = this.database.GetRandomQuestions(category, GlobalConstants.QuestionsPerLevelCount);
+            var questions = this.database.GetRandomQuestions(category, GlobalConstants.QuestionsPerDifficultyLevel);
 
             foreach (var question in questions)
             {
@@ -97,9 +97,11 @@ namespace Trivia.Core
             {
                 foreach (var question in category.Value.EasyQuestions)
                 {
+                    question.ShuffleAnswers();
                     this.easyQuestions.Add(question);
                 }
             }
+
             return this.easyQuestions;
         }
 
@@ -109,22 +111,28 @@ namespace Trivia.Core
             {
                 foreach (var question in category.Value.NormalQuestions)
                 {
+                    question.ShuffleAnswers();
                     this.normalQuestions.Add(question);
                 }
             }
+
             return this.normalQuestions;
         }
+
         public IList<IQuestion> GetHardQuestions()
         {
             foreach (var category in this.categories)
             {
                 foreach (var question in category.Value.HardQuestions)
                 {
+                    question.ShuffleAnswers();
                     this.hardQuestions.Add(question);
                 }
             }
+
             return this.hardQuestions;
         }
+
         public IPlayer CreateNormalPlayer(string name)
         {
             Validator.CheckIfStringIsNullOrEmpty(name, string.Format(GlobalConstants.StringCannotBeNullOrEmpty, "Player name"));
@@ -150,28 +158,28 @@ namespace Trivia.Core
 
         public IQuestion CreateNormalQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category)
         {
-            this.CheckQuizzardCreateQuestions(questionText, difficultyLevel, category);
+            this.CheckQuizzardCreateQuestionsParams(questionText, difficultyLevel, category);
 
             return this.factory.CreateNormalQuestion(questionText, difficultyLevel, category);
         }
 
-        public IQuestion CreateBonusQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int pointsAmplifier)
+        public IQuestion CreateBonusQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int pointsMultiplier)
         {
-            this.CheckQuizzardCreateQuestions(questionText, difficultyLevel, category);
-            Validator.CheckIntRange(pointsAmplifier, GlobalConstants.MinPointsAmplifier, GlobalConstants.MaxPointsAmplifier, string.Format(GlobalConstants.NumberMustBeBetweenMinAndMax, "Points amplifier", GlobalConstants.MinPointsAmplifier, GlobalConstants.MaxPointsAmplifier));
+            this.CheckQuizzardCreateQuestionsParams(questionText, difficultyLevel, category);
+            Validator.CheckIntRange(pointsMultiplier, GlobalConstants.MinPointsMultiplier, GlobalConstants.MaxPointsMultiplier, string.Format(GlobalConstants.NumberMustBeBetweenMinAndMax, "Points amplifier", GlobalConstants.MinPointsMultiplier, GlobalConstants.MaxPointsMultiplier));
 
-            return this.factory.CreateBonusQuestion(questionText, difficultyLevel, category, pointsAmplifier);
+            return this.factory.CreateBonusQuestion(questionText, difficultyLevel, category, pointsMultiplier);
         }
 
         public IQuestion CreateTimedQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int timeForAnswer)
         {
-            this.CheckQuizzardCreateQuestions(questionText, difficultyLevel, category);
+            this.CheckQuizzardCreateQuestionsParams(questionText, difficultyLevel, category);
             Validator.CheckIntRange(timeForAnswer, GlobalConstants.MinTimeForAnswer, GlobalConstants.MaxTimeForAnswer, string.Format(GlobalConstants.NumberMustBeBetweenMinAndMax, "Time for answer", GlobalConstants.MinTimeForAnswer, GlobalConstants.MaxTimeForAnswer));
 
             return this.factory.CreateTimedQuestion(questionText, difficultyLevel, category, timeForAnswer);
         }
 
-        private void CheckQuizzardCreateQuestions(string questionText, DifficultyLevel difficultyLevel, CategoryType category)
+        private void CheckQuizzardCreateQuestionsParams(string questionText, DifficultyLevel difficultyLevel, CategoryType category)
         {
             Validator.CheckIfStringIsNullOrEmpty(questionText, string.Format(GlobalConstants.StringCannotBeNullOrEmpty, "Question's text"));
             Validator.CheckIfNull(difficultyLevel, string.Format(GlobalConstants.ObjectCannotBeNull, "Difficulty level"));

@@ -5,17 +5,17 @@ namespace Trivia.Models.Question
 {
     public class BonusQuestion : Question
     {
-        private readonly int pointsAmplifier;
+        private readonly int pointsMultiplier;
 
-        public BonusQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int pointsAmplifier)
+        public BonusQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int pointsMultiplier)
             : base(questionText, difficultyLevel, category, QuestionType.Bonus)
         {
-            Validator.CheckIntRange(pointsAmplifier, GlobalConstants.MinPointsAmplifier, GlobalConstants.MaxPointsAmplifier, string.Format(GlobalConstants.NumberMustBeBetweenMinAndMax, "Points' amplifier", GlobalConstants.MinPointsAmplifier, GlobalConstants.MaxPointsAmplifier));
+            Validator.CheckIntRange(pointsMultiplier, GlobalConstants.MinPointsMultiplier, GlobalConstants.MaxPointsMultiplier, string.Format(GlobalConstants.NumberMustBeBetweenMinAndMax, "Points' amplifier", GlobalConstants.MinPointsMultiplier, GlobalConstants.MaxPointsMultiplier));
 
-            this.pointsAmplifier = pointsAmplifier;
-            this.Points = (int)difficultyLevel * 100 * this.pointsAmplifier;
+            this.pointsMultiplier = pointsMultiplier;
+            this.Points = (int)difficultyLevel * 100 * this.pointsMultiplier;
         }
 
-        public int PointsAmplifier => this.pointsAmplifier;
+        public int PointsMultiplier => this.pointsMultiplier;
     }
 }

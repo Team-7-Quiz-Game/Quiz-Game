@@ -11,13 +11,13 @@ namespace Trivia.Common.Utils
         public const int MaxAnswersPerQuestion = 4;
         public const int MaxQuestionsInCategory = 10;
 
-        public const int MinPointsAmplifier = 2;
-        public const int MaxPointsAmplifier = 10;
+        public const int MinPointsMultiplier = 2;
+        public const int MaxPointsMultiplier = 10;
 
         public const int MinTimeForAnswer = 6;
         public const int MaxTimeForAnswer = 10;
 
-        public const int QuestionsPerLevelCount = 2;
+        public const int QuestionsPerDifficultyLevel = 2;
 
         public const string NumberCannotBeNegative = "{0} cannot be negative!";
 

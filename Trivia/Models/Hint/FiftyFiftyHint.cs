@@ -7,10 +7,10 @@ using Trivia.Common.Enums;
 
 namespace Trivia.Models.Hint
 {
-    public class RemoveTwoHint : Hint
+    public class FiftyFiftyHint : Hint
     {
-        public RemoveTwoHint(int quantity) 
-            : base(quantity, HintType.RemoveTwo)
+        public FiftyFiftyHint(int quantity = 1) 
+            : base(quantity, HintType.FiftyFifty)
         {
             this.Description = "Removes two wrong answers.";
         }
