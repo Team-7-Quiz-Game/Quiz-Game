@@ -29,15 +29,15 @@ namespace Trivia.UI
     public partial class PlayerFirstLevelPage : Page
     {
         private IEngine engine;
-        string playerName;
-        static bool answerA;
-        static bool answerB;
-        static bool answerC;
-        static bool answerD;
-        static int pointsPlayer;
-        static IList<IQuestion> easyQuestions;
-        static int countQuestions = 0;
-        static NormalPlayer currentPlayer;
+        private string playerName;
+        private static bool answerA;
+        private static bool answerB;
+        private static bool answerC;
+        private static bool answerD;
+        private static int pointsPlayer;
+        private static IList<IQuestion> easyQuestions;
+        private static int countQuestions = 0;
+        private static NormalPlayer currentPlayer;
 
         public PlayerFirstLevelPage(IEngine engine)
         {
@@ -50,7 +50,7 @@ namespace Trivia.UI
             pNameTB.Text = playerName;
             pPoints.Text = pointsPlayer.ToString();
             easyQuestions = engine.EasyQuestions;
-
+            
             DisplayHints();
             DisplayTextForQuestionAndAnswers(easyQuestions, countQuestions);
         }
@@ -74,6 +74,7 @@ namespace Trivia.UI
                 skippedAnswer.Visibility = Visibility.Collapsed;
             }
 
+            DisplayHints();
             countQuestions++;
 
             if (countQuestions > easyQuestions.Count - 1)
@@ -105,6 +106,7 @@ namespace Trivia.UI
                 skippedAnswer.Visibility = Visibility.Collapsed;
             }
 
+            DisplayHints();
             countQuestions++;
 
             if (countQuestions > easyQuestions.Count - 1)
@@ -137,6 +139,7 @@ namespace Trivia.UI
                 skippedAnswer.Visibility = Visibility.Collapsed;
             }
 
+            DisplayHints();
             countQuestions++;
 
             if (countQuestions > easyQuestions.Count - 1)
@@ -169,6 +172,7 @@ namespace Trivia.UI
                 wrongAnswer.Visibility = Visibility.Visible;
             }
 
+            DisplayHints();
             countQuestions++;
 
             if(countQuestions > easyQuestions.Count - 1)
@@ -186,6 +190,11 @@ namespace Trivia.UI
         {
             displayQuestion.Text = easyQuestions[countQuestions].QuestionText;
 
+            displayAnswerA.IsEnabled = true;
+            displayAnswerB.IsEnabled = true;
+            displayAnswerC.IsEnabled = true;
+            displayAnswerD.IsEnabled = true;
+
             displayAnswerA.Content = easyQuestions[countQuestions].Answers[0].ToString();
             displayAnswerB.Content = easyQuestions[countQuestions].Answers[1].ToString();
             displayAnswerC.Content = easyQuestions[countQuestions].Answers[2].ToString();
@@ -195,9 +204,41 @@ namespace Trivia.UI
         private void Hint5050Button(object sender, RoutedEventArgs e)
         {
             this.engine.FiftyFiftyHint.Quantity--;
-            
 
-            DisplayHints();
+            Random rnd = new Random();
+            int counter = 0;
+            int[] uniqueIndices = new int[2];
+
+            while (counter < 2)
+            {
+                int rNext = rnd.Next(easyQuestions[countQuestions].Answers.Count);
+
+                if (!easyQuestions[countQuestions].Answers[rNext].IsCorrect && !uniqueIndices.Contains(rNext))
+                {
+                    uniqueIndices[counter] = rNext;
+                    counter++;
+
+                    switch (rNext)
+                    {
+                        case 0:
+                            displayAnswerA.IsEnabled = false;
+                            break;
+                        case 1:
+                            displayAnswerB.IsEnabled = false;
+                            break;
+                        case 2:
+                            displayAnswerC.IsEnabled = false;
+                            break;
+                        case 3:
+                            displayAnswerD.IsEnabled = false;
+                            break;
+                        default: throw new ArgumentException("Invalid answer index!");
+                    }
+                }
+            }
+
+            FiftyBtn.IsEnabled = false;
+            DisplayHints(false);
         }
 
         private void SkipQuestionButton(object sender, RoutedEventArgs e)
@@ -206,6 +247,8 @@ namespace Trivia.UI
 
             currentPlayer.Points += easyQuestions[countQuestions].Points;
             pPoints.Text = currentPlayer.Points.ToString();
+
+            DisplayHints();
             countQuestions++;
             skippedAnswer.Visibility = Visibility.Visible;
             correctAnswer.Visibility = Visibility.Collapsed;
@@ -224,7 +267,7 @@ namespace Trivia.UI
             DisplayHints();
         }
 
-        private void DisplayHints()
+        private void DisplayHints(bool fiftyIsEnabled = true)
         {
             HintSkipQuestion.Text = this.engine.SkipQuestionHint.Quantity.ToString();
             Hint5050.Text = this.engine.FiftyFiftyHint.Quantity.ToString();
@@ -237,6 +280,11 @@ namespace Trivia.UI
             if (this.engine.FiftyFiftyHint.Quantity == 0)
             {
                 FiftyBtn.IsEnabled = false;
+            }
+
+            if (fiftyIsEnabled)
+            {
+                FiftyBtn.IsEnabled = true;
             }
         }
     }

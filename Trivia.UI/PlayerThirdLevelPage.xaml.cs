@@ -69,6 +69,7 @@ namespace Trivia.UI
                 wrongAnswer.Visibility = Visibility.Visible;
             }
 
+            DisplayHints();
             countQuestions++;
 
             if (countQuestions > hardQuestions.Count - 1)
@@ -101,6 +102,7 @@ namespace Trivia.UI
                 wrongAnswer.Visibility = Visibility.Visible;
             }
 
+            DisplayHints();
             countQuestions++;
 
             if (countQuestions > hardQuestions.Count - 1)
@@ -133,6 +135,7 @@ namespace Trivia.UI
                 wrongAnswer.Visibility = Visibility.Visible;
             }
 
+            DisplayHints();
             countQuestions++;
 
             if (countQuestions > hardQuestions.Count - 1)
@@ -165,6 +168,7 @@ namespace Trivia.UI
                 wrongAnswer.Visibility = Visibility.Visible;
             }
 
+            DisplayHints();
             countQuestions++;
 
             if (countQuestions > hardQuestions.Count - 1)
@@ -181,6 +185,11 @@ namespace Trivia.UI
         {
             displayQuestion.Text = hardQuestions[countQuestions].QuestionText;
 
+            displayAnswerA.IsEnabled = true;
+            displayAnswerB.IsEnabled = true;
+            displayAnswerC.IsEnabled = true;
+            displayAnswerD.IsEnabled = true;
+
             displayAnswerA.Content = hardQuestions[countQuestions].Answers[0].ToString();
             displayAnswerB.Content = hardQuestions[countQuestions].Answers[1].ToString();
             displayAnswerC.Content = hardQuestions[countQuestions].Answers[2].ToString();
@@ -189,7 +198,42 @@ namespace Trivia.UI
 
         private void Hint5050Button(object sender, RoutedEventArgs e)
         {
+            this.engine.FiftyFiftyHint.Quantity--;
 
+            Random rnd = new Random();
+            int counter = 0;
+            int[] uniqueIndices = new int[2];
+
+            while (counter < 2)
+            {
+                int rNext = rnd.Next(hardQuestions[countQuestions].Answers.Count);
+
+                if (!hardQuestions[countQuestions].Answers[rNext].IsCorrect && !uniqueIndices.Contains(rNext))
+                {
+                    uniqueIndices[counter] = rNext;
+                    counter++;
+
+                    switch (rNext)
+                    {
+                        case 0:
+                            displayAnswerA.IsEnabled = false;
+                            break;
+                        case 1:
+                            displayAnswerB.IsEnabled = false;
+                            break;
+                        case 2:
+                            displayAnswerC.IsEnabled = false;
+                            break;
+                        case 3:
+                            displayAnswerD.IsEnabled = false;
+                            break;
+                        default: throw new ArgumentException("Invalid answer index!");
+                    }
+                }
+            }
+
+            FiftyBtn.IsEnabled = false;
+            DisplayHints(false);
         }
 
         private void SkipQuestionButton(object sender, RoutedEventArgs e)
@@ -198,6 +242,7 @@ namespace Trivia.UI
 
             currentPlayer.Points += hardQuestions[countQuestions].Points;
             pPoints.Text = currentPlayer.Points.ToString();
+            DisplayHints();
             countQuestions++;
             skippedAnswer.Visibility = Visibility.Visible;
             correctAnswer.Visibility = Visibility.Collapsed;
@@ -216,7 +261,7 @@ namespace Trivia.UI
             DisplayHints();
         }
 
-        private void DisplayHints()
+        private void DisplayHints(bool fiftyIsEnabled = true)
         {
             HintSkipQuestion.Text = this.engine.SkipQuestionHint.Quantity.ToString();
             Hint5050.Text = this.engine.FiftyFiftyHint.Quantity.ToString();
@@ -229,6 +274,11 @@ namespace Trivia.UI
             if (this.engine.FiftyFiftyHint.Quantity == 0)
             {
                 FiftyBtn.IsEnabled = false;
+            }
+
+            if (fiftyIsEnabled)
+            {
+                FiftyBtn.IsEnabled = true;
             }
         }
     }
