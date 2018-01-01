@@ -8,7 +8,7 @@ namespace Trivia.Core.Contracts
     {
         IAnswer CreateAnswer(string answerText, bool isCorrect);
 
-        IQuestion CreateBonusQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int pointsAmplifier);
+        IQuestion CreateBonusQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int pointsMultiplier);
 
         IQuestion CreateTimedQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int timeForAnswer);
 

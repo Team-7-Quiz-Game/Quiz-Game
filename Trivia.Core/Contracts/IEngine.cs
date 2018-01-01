@@ -39,7 +39,7 @@ namespace Trivia.Core.Contracts
 
         IQuestion CreateNormalQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category);
 
-        IQuestion CreateBonusQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int pointsAmplifier);
+        IQuestion CreateBonusQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int pointsMultiplier);
 
         IQuestion CreateTimedQuestion(string questionText, DifficultyLevel difficultyLevel, CategoryType category, int timeForAnswer);
 

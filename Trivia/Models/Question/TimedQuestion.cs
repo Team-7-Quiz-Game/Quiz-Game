@@ -13,5 +13,7 @@ namespace Trivia.Models.Question
             Validator.CheckIntRange(timeForAnswer, GlobalConstants.MinTimeForAnswer, GlobalConstants.MaxTimeForAnswer, string.Format(GlobalConstants.NumberMustBeBetweenMinAndMax, "Time for answer", GlobalConstants.MinTimeForAnswer, GlobalConstants.MaxTimeForAnswer));
             this.timeForAnswer = timeForAnswer;
         }
+
+        public int Time => this.timeForAnswer;
     }
 }

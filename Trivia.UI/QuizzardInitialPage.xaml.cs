@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Trivia.Common.Enums;
 using Trivia.Common.Utils;
 using Trivia.Contracts;
 using Trivia.Core;
@@ -33,6 +34,8 @@ namespace Trivia.UI
         private string answerB;
         private string answerC;
         private string answerD;
+        private double multiValue;
+        private double timerValue;
 
         public QuizzardInitialPage()
         {
@@ -50,12 +53,30 @@ namespace Trivia.UI
             answerB = AnswerB.Text;
             answerC = AnswerC.Text;
             answerD = AnswerD.Text;
-            //Add checkbox for difficulty level
-            //Add checkboxes for question type = normal/bonus/timed
+            IQuestion q;
+
+            if (rBtnNormal.IsChecked == true)
+            {
+                q = this.engine.CreateNormalQuestion(question, DifficultyLevel.Easy, CategoryType.Random);
+            }
+            else if (rBtnBonus.IsChecked == true)
+            {
+                int multiplyBy = (int)this.multiValue;
+                
+                Validator.CheckIntRange(multiplyBy, GlobalConstants.MinPointsMultiplier, GlobalConstants.MaxPointsMultiplier, string.Format(GlobalConstants.NumberMustBeBetweenMinAndMax,"Point's multiplier", GlobalConstants.MinPointsMultiplier, GlobalConstants.MaxPointsMultiplier));
+                q = this.engine.CreateBonusQuestion(question, DifficultyLevel.Easy, CategoryType.Random, multiplyBy);
+            }
+            else
+            {
+                int time = (int)this.timerValue;
+
+                Validator.CheckIntRange(time, GlobalConstants.MinTimeForAnswer, GlobalConstants.MaxTimeForAnswer, string.Format(GlobalConstants.NumberMustBeBetweenMinAndMax, "Question's timer", GlobalConstants.MinTimeForAnswer, GlobalConstants.MaxTimeForAnswer));
+                q = this.engine.CreateTimedQuestion(question, DifficultyLevel.Easy, CategoryType.Random, time);
+            }
 
             Validator.CheckIfStringCollectionHasNullOrEmpty(new string[] { question, answerACorrect, answerB, answerC, answerD }, "Quizzard question or answer cannot be null or empty!");
 
-            var q = this.engine.CreateNormalQuestion(question, Common.Enums.DifficultyLevel.Normal, Common.Enums.CategoryType.Random);
+            
             var a1 = this.engine.CreateAnswer(answerACorrect, true);
             var a2 = this.engine.CreateAnswer(answerB, false);
             var a3 = this.engine.CreateAnswer(answerC, false);
@@ -80,6 +101,20 @@ namespace Trivia.UI
 
             QuizzardTestStart startQuizzardTest = new QuizzardTestStart();
             this.NavigationService.Navigate(startQuizzardTest);
+        }
+
+        private void SliderBonus_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            var slider = sender as Slider;
+            BonusNum.Text = slider.Value.ToString();
+            this.multiValue = slider.Value;
+        }
+
+        private void SliderTime_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            var slider = sender as Slider;
+            TimeNum.Text = slider.Value.ToString();
+            this.timerValue = slider.Value;
         }
     }
 }

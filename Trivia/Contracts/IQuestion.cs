@@ -19,6 +19,8 @@ namespace Trivia.Contracts
 
         void AddAnswer(IAnswer answer);
 
+        QuestionType QuestionType { get; }
+
         IQuestion AddAnswerFluent(IAnswer answer);
 
         void ShuffleAnswers();
