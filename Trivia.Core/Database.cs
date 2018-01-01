@@ -261,7 +261,7 @@ namespace Trivia.Core
         private void EasyMovieQuestions()
         {
             CreateQuestion("In the movie 'The Wizard of Oz', what did the Scarecrow want from the wizard?", new[] { "Brain", "True" }, new[] { "Heart", "False" }, new[] { "Eyes", "False" }, new[] { "Soul", "False" }, CategoryType.Movies, DifficultyLevel.Easy);
-            CreateQuestion("In what year was the original 'Jurassic Park' film released?", new[] { "1991", "False" }, new[] { "1993", "True" }, new[] { "1991", "False" }, new[] { "1980", "False" }, CategoryType.Movies, DifficultyLevel.Easy);
+            CreateQuestion("In what year was the original 'Jurassic Park' film released?", new[] { "1991", "False" }, new[] { "1993", "True" }, new[] { "1992", "False" }, new[] { "1980", "False" }, CategoryType.Movies, DifficultyLevel.Easy);
             CreateQuestion("What planet is the superhero, 'Superman', from?", new[] { "Pluto", "False" }, new[] { "Mars", "False" }, new[] { "Krypton", "True" }, new[] { "Jupiter", "False" }, CategoryType.Movies, DifficultyLevel.Easy);
             CreateQuestion("What city is the home of Batman?", new[] { "New York", "False" }, new[] { "Chicago", "False" }, new[] { "Gotham City", "True" }, new[] { "Quebec City", "False" }, CategoryType.Movies, DifficultyLevel.Easy);
         }
