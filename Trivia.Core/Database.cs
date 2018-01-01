@@ -268,13 +268,13 @@ namespace Trivia.Core
 
         private void EasyLiteratureQuestions()
         {
-            var qLText1 = "Which of the following authors inspired the following words \"The world's a stage, and we are but the actors.\"?";
+            var qLText1 = "Who wrote \"The Great Gatsby\"?";
             var literatureQ1 = this.factory.CreateNormalQuestion(qLText1, DifficultyLevel.Easy, CategoryType.Literature);
 
             var a1 = this.factory.CreateAnswer("Mark Twain", false);
-            var a2 = this.factory.CreateAnswer("William Shakespeare", true);
+            var a2 = this.factory.CreateAnswer("F. Scott Fitzgerald", true);
             var a3 = this.factory.CreateAnswer("Sir Arthur Conan Doyle", false);
-            var a4 = this.factory.CreateAnswer("Doktor Radeva", false);
+            var a4 = this.factory.CreateAnswer("Ernest Hemingway", false);
 
             AddQuestion(literatureQ1, a1, a2, a3, a4);
 
@@ -288,13 +288,13 @@ namespace Trivia.Core
 
             AddQuestion(literatureQ2, a1, a2, a3, a4);
 
-            var qLText3 = "Which author augmented the most the profession known as \"acting\" throughout the timespan of human history?";
+            var qLText3 = "Which one of the following is not a symbolist poet?";
             var literatureQ3 = this.factory.CreateNormalQuestion(qLText3, DifficultyLevel.Easy, CategoryType.Literature);
 
-            a1 = this.factory.CreateAnswer("Arthur Miller", false);
-            a2 = this.factory.CreateAnswer("Anton Chekov", false);
-            a3 = this.factory.CreateAnswer("Tennessee Williams", false);
-            a4 = this.factory.CreateAnswer("William Shakespeare", true);
+            a1 = this.factory.CreateAnswer("Paul Verlaine", false);
+            a2 = this.factory.CreateAnswer("Arthur Rimbaud", false);
+            a3 = this.factory.CreateAnswer("Raul Brandão", false);
+            a4 = this.factory.CreateAnswer("Jacques Prévert", true);
 
             AddQuestion(literatureQ3, a1, a2, a3, a4);
 
@@ -364,7 +364,7 @@ namespace Trivia.Core
 
             AddQuestion(geographyQ1, a1, a2, a3, a4);
 
-            var qGText2 = "How many mountains over 8000 meters of height exists on the planet Earth?";
+            var qGText2 = "How many mountains over 8000 meters of height exist on the planet Earth?";
             var geographyQ2 = this.factory.CreateNormalQuestion(qGText2, DifficultyLevel.Easy, CategoryType.Geography);
 
             a1 = this.factory.CreateAnswer("27", false);
@@ -566,11 +566,11 @@ namespace Trivia.Core
             CreateQuestion("Robert De Niro, Jonathan Pryce, and Bob Hoskins all appear in this 1985 sci-fi satire?", new[] { "Spaceballs", "False" }, new[] { "Brazil", "True" }, new[] { "Time Bandits", "False" }, new[] { "Innerspace", "False" }, CategoryType.SciFi, DifficultyLevel.Hard);
             CreateQuestion("Who plays Khan in 'Star Trek II: The Wrath of Khan'?", new[] { "Harry Belafonte", "False" }, new[] { "Christopher Walken", "False" }, new[] { "Terance Stamp", "False" }, new[] { "Ricardo Montalban", "True" }, CategoryType.SciFi, DifficultyLevel.Hard);
             CreateQuestion("How many humans does Schwarzenegger kill in 'Terminator 2: Judgment Day'?", new[] { "0", "True" }, new[] { "3", "False" }, new[] { "5", "False" }, new[] { "15", "False" }, CategoryType.SciFi, DifficultyLevel.Hard);
-            CreateQuestion("Hard sci-fi question 4", new[] { "Minority Report", "False" }, new[] { "A.I. Artificial Intelligence", "False" }, new[] { "Blade Runner", "True" }, new[] { "War of the worlds", "False" }, CategoryType.SciFi, DifficultyLevel.Hard);
+            CreateQuestion("Which sci-fi movie did Steven Spielberg NOT direct?", new[] { "Minority Report", "False" }, new[] { "A.I. Artificial Intelligence", "False" }, new[] { "Blade Runner", "True" }, new[] { "War of the worlds", "False" }, CategoryType.SciFi, DifficultyLevel.Hard);
         }
         private void HardMovieQuestions()
         {
-            CreateQuestion("What second Indiana Jones movie called?", new[] { "Indiana Jones and the Last Crusade", "False" }, new[] { "Indiana Jones and the Raiders of the Lost Ark", "False" }, new[] { "Indiana Jones and the Kingdom of the Crystal Skull", "False" }, new[] { "Indiana Jones and the Temple of Doom", "True" }, CategoryType.Movies, DifficultyLevel.Hard);
+            CreateQuestion("How was second Indiana Jones movie called \"Indiana Jones and...\"?", new[] { "The Last Crusade", "False" }, new[] { "The Raiders of the Lost Ark", "False" }, new[] { "The Kingdom of the Crystal Skull", "False" }, new[] { "The Temple of Doom", "True" }, CategoryType.Movies, DifficultyLevel.Hard);
             CreateQuestion("In Cloudy With a Chance of Meatballs 2, what type of food is is Berry?", new[] { "Blueberry", "False" }, new[] { "Strawberry", "True" }, new[] { "Blackberry", "False" }, new[] { "Raspberry", "False" }, CategoryType.Movies, DifficultyLevel.Hard);
             CreateQuestion("In the Hunger Games, what district is Thresh from?", new[] { "11", "True" }, new[] { "4", "False" }, new[] { "6", "False" }, new[] { "10", "False" }, CategoryType.Movies, DifficultyLevel.Hard);
             CreateQuestion("Hard movie question 4", new[] { "Wednesday", "False" }, new[] { "Saturday", "False" }, new[] { "Monday", "False" }, new[] { "Tuesday", "True" }, CategoryType.Movies, DifficultyLevel.Hard);
@@ -600,18 +600,18 @@ namespace Trivia.Core
 
         private void HardRandomQuestions()
         {
-            var qRText9 = "How many mexicans does it take to change a light bulb?";
-            var randomQ9 = this.factory.CreateNormalQuestion(qRText9, DifficultyLevel.Normal, CategoryType.Random);
+            var qRText9 = "What is the name of the island prison where, Nelson Mandela was imprisioned?";
+            var randomQ9 = this.factory.CreateNormalQuestion(qRText9, DifficultyLevel.Hard, CategoryType.Random);
 
-            var a1 = this.factory.CreateAnswer("Juan Carlos", true);
-            var a2 = this.factory.CreateAnswer("Julio", false);
-            var a3 = this.factory.CreateAnswer("Antonio", false);
-            var a4 = this.factory.CreateAnswer("Banderas", false);
+            var a1 = this.factory.CreateAnswer("Robben Island", true);
+            var a2 = this.factory.CreateAnswer("Rikers Island", false);
+            var a3 = this.factory.CreateAnswer("Penal Colony Island", false);
+            var a4 = this.factory.CreateAnswer("Seal Island", false);
 
             AddQuestion(randomQ9, a1, a2, a3, a4);
 
             var qRText10 = "What does an angry russian say when his internet stops?";
-            var randomQ10 = this.factory.CreateNormalQuestion(qRText10, DifficultyLevel.Normal, CategoryType.Random);
+            var randomQ10 = this.factory.CreateNormalQuestion(qRText10, DifficultyLevel.Hard, CategoryType.Random);
 
             a1 = this.factory.CreateAnswer("Davai", false);
             a2 = this.factory.CreateAnswer("Suka", false);

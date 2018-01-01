@@ -17,7 +17,7 @@
 
         <TextBlock x:Name="pNameTB" HorizontalAlignment="Left" Height="40" Margin="738,26,0,0" TextWrapping="Wrap" Text="Player" VerticalAlignment="Top" Width="132" IsEnabled="False" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FF084000" RenderTransformOrigin="0.484,1.064"/>
         <TextBlock x:Name="pPoints" HorizontalAlignment="Left" Height="40" Margin="738,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" IsEnabled="False" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FFA50000" RenderTransformOrigin="0.484,1.064"><Run Text="0"/><LineBreak/><Run/></TextBlock>
-        <TextBlock Name="displayQuestion" HorizontalAlignment="Center" Height="69" Margin="102,147,0,0" TextWrapping="Wrap" Text="Some question" VerticalAlignment="Top" Width="700" FontFamily="Showcard Gothic" FontSize="24"/>
+        <TextBlock Name="displayQuestion" HorizontalAlignment="Center" TextAlignment="Center" Height="79" Margin="151,147,49,0" TextWrapping="Wrap" Text="Some question" VerticalAlignment="Top" Width="700" FontFamily="Showcard Gothic" FontSize="24"/>
         <Label Content="A:" HorizontalAlignment="Left" Height="37" Margin="26,299,0,0" VerticalAlignment="Top" Width="35" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>

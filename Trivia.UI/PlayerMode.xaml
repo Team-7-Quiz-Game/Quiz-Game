@@ -22,7 +22,7 @@
                 <CheckBox x:Name="science" FontSize="15" FontFamily="Consolas" Margin="5,5,5.2,5" Content="Science" Click="Check_Click" FontWeight="Bold"/>
                 <CheckBox x:Name="history" FontSize="15" FontFamily="Consolas" Margin="5" Content="History" Click="Check_Click" FontWeight="Bold"/>
                 <CheckBox x:Name="geography" FontSize="15" FontFamily="Consolas" Margin="5" Content="Geography" Click="Check_Click" FontWeight="Bold"/>
-                <CheckBox x:Name="sciFi" FontSize="15" FontFamily="Consolas" Margin="5" Content="Sci-Fi" Click="Check_Click" FontWeight="Bold"/>
+                <CheckBox x:Name="sciFi" FontSize="15" FontFamily="Consolas" Margin="5" Content="SciFi" Click="Check_Click" FontWeight="Bold"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Height="132" RenderTransformOrigin="0.505,0.532">
                 <CheckBox x:Name="math" FontSize="15" FontFamily="Consolas" Margin="5" Content="Math" Click="Check_Click" FontWeight="Bold"/>
