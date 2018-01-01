@@ -25,7 +25,10 @@ namespace Trivia.Common.Utils
         public const string StringCannotBeNullOrEmpty = "{0} cannot be null or empty!";
         public const string ObjectCannotBeNull = "{0} cannot be null!";
         public const string CategoryNotFound = "{0} category not found!";
+
+        public const string QuestionAlreadyAddedMessage = "{0} already added!";
         public const string CategoryAlreadyExists = "{0} category already created!";
+
         public const string NumberMustBeBetweenMinAndMax = "{0} must be between {1} and {2}!";
     }
 }

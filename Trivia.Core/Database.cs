@@ -454,6 +454,7 @@ namespace Trivia.Core
             CreateQuestion("What 1969 computer milestone would radically alter the course of human history?", new[] { "The creation of the Internet", "True" }, new[] { "Creation of the first online porn site", "False" }, new[] { "The invention of the iPod", "False" }, new[] { "The first PC", "False" }, CategoryType.History, DifficultyLevel.Normal);
             CreateQuestion("What series of wars saw European Christians invading the middle east to retake the Holy Land?", new[] { "Punic Wars", "False" }, new[] { "The French Revolution", "False" }, new[] { "The Great Migration", "False" }, new[] { "The Crusades", "True" }, CategoryType.History, DifficultyLevel.Normal);
         }
+
         private void NormalSciFiQuestions()
         {
             CreateQuestion("Leonardo DiCaprio plays this character in 'Inception', a film that explores shared dreaming?", new[] { "Arthur", "False" }, new[] { "Carter", "False" }, new[] { "Dom", "False" }, new[] { "Cobb", "True" }, CategoryType.SciFi, DifficultyLevel.Normal);
@@ -554,6 +555,7 @@ namespace Trivia.Core
             CreateQuestion("8x1^0 is equal to...?", new[] { "-1", "False" }, new[] { "0", "False" }, new[] { "1", "True" }, new[] { "8", "False" }, CategoryType.Math, DifficultyLevel.Hard);
             CreateQuestion("The wages of 10 workers for a six-day week is $ 1200. What are the one day’s wages of 4 workers?", new[] { "40$", "False" }, new[] { "80$", "True" }, new[] { "24$", "False" }, new[] { "50$", "False" }, CategoryType.Math, DifficultyLevel.Hard);
         }
+
         private void HardHistoryQuestions()
         {
             CreateQuestion("What Roman Emperor made Christianity legal and ended the persecution of Christians?", new[] { "Napoleon", "False" }, new[] { "Constantine", "True" }, new[] { "Julius Ceasar", "False" }, new[] { "Nero", "False" }, CategoryType.History, DifficultyLevel.Hard);
@@ -561,6 +563,7 @@ namespace Trivia.Core
             CreateQuestion("In World War II, what country was not a member of the Axis Powers?", new[] { "Soviet Union", "True" }, new[] { "Japan", "False" }, new[] { "Germany", "False" }, new[] { "Italy", "False" }, CategoryType.History, DifficultyLevel.Hard);
             CreateQuestion("Chairman Mao Zedong lead what faction in the Chinese Civil War?", new[] { "Communists", "True" }, new[] { "Confederates", "False" }, new[] { "Nationalists", "False" }, new[] { "Protestants", "False" }, CategoryType.History, DifficultyLevel.Hard);
         }
+
         private void HardSciFiQuestions()
         {
             CreateQuestion("Robert De Niro, Jonathan Pryce, and Bob Hoskins all appear in this 1985 sci-fi satire?", new[] { "Spaceballs", "False" }, new[] { "Brazil", "True" }, new[] { "Time Bandits", "False" }, new[] { "Innerspace", "False" }, CategoryType.SciFi, DifficultyLevel.Hard);
@@ -568,6 +571,7 @@ namespace Trivia.Core
             CreateQuestion("How many humans does Schwarzenegger kill in 'Terminator 2: Judgment Day'?", new[] { "0", "True" }, new[] { "3", "False" }, new[] { "5", "False" }, new[] { "15", "False" }, CategoryType.SciFi, DifficultyLevel.Hard);
             CreateQuestion("Which sci-fi movie did Steven Spielberg NOT direct?", new[] { "Minority Report", "False" }, new[] { "A.I. Artificial Intelligence", "False" }, new[] { "Blade Runner", "True" }, new[] { "War of the worlds", "False" }, CategoryType.SciFi, DifficultyLevel.Hard);
         }
+
         private void HardMovieQuestions()
         {
             CreateQuestion("How was second Indiana Jones movie called \"Indiana Jones and...\"?", new[] { "The Last Crusade", "False" }, new[] { "The Raiders of the Lost Ark", "False" }, new[] { "The Kingdom of the Crystal Skull", "False" }, new[] { "The Temple of Doom", "True" }, CategoryType.Movies, DifficultyLevel.Hard);
@@ -583,6 +587,7 @@ namespace Trivia.Core
             CreateQuestion("What is the name of the narrator in Moby Dick?", new[] { "Ishmael", "True" }, new[] { "Captain Ahab", "False" }, new[] { "Simon", "False" }, new[] { "Ginger Beard", "False" }, CategoryType.Literature, DifficultyLevel.Hard);
             CreateQuestion("Which famed author wrote The Picture of Dorian Gray?", new[] { "James Joyce", "False" }, new[] { "Oscar Wilde", "True" }, new[] { "Mark Twain", "False" }, new[] { "Edgar Allen Poe", "False" }, CategoryType.Literature, DifficultyLevel.Hard);
         }
+
         private void HardScienceQuestions()
         {
             CreateQuestion("What is an object in space that has an icy core with a tail of gas and dust that extends millions of miles?", new[] { "A star", "False" }, new[] { "A comet ", "True" }, new[] { "An asteroide", "False" }, new[] { "A moon", "False" }, CategoryType.Science, DifficultyLevel.Hard);
@@ -590,6 +595,7 @@ namespace Trivia.Core
             CreateQuestion("Which of these people developed the polio vaccine?", new[] { "Marie Curie", "False" }, new[] { "Isaac Newton", "False" }, new[] { "Albert Einstein", "False" }, new[] { "Jonas Salk", "True" }, CategoryType.Science, DifficultyLevel.Hard);
             CreateQuestion("Which of these terms is defined as the study of how the positions of stars and planets can influence human behavior?", new[] { "Astrology", "True" }, new[] { "Astronomy", "False" }, new[] { "Metrology", "False" }, new[] { "Alchemistry", "False" }, CategoryType.Science, DifficultyLevel.Hard);
         }
+
         private void HardGeographyQuestions()
         {
             CreateQuestion("Which state borders the east side of Texas and has a coastline on the Gulf of Mexico?", new[] { "New Mexico", "False" }, new[] { "Alabama", "False" }, new[] { "California", "False" }, new[] { "Louisiana", "True" }, CategoryType.Geography, DifficultyLevel.Hard);
@@ -734,6 +740,5 @@ namespace Trivia.Core
 
             this.categories.Single(x => x.CategoryType == question.CategoryType).AddQuestion(question);
         }
-
     }
 }

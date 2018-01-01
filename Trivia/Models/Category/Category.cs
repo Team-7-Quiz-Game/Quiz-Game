@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Trivia.Common.Enums;
+using Trivia.Common.Exceptions;
 using Trivia.Common.Utils;
 using Trivia.Contracts;
 
@@ -62,12 +63,27 @@ namespace Trivia.Models.Category
             switch (question.DifficultyLevel)
             {
                 case DifficultyLevel.Easy:
+                    if (this.easyQuestions.Contains(question))
+                    {
+                        throw new QuestionAlreadyAddedException(string.Format(GlobalConstants.QuestionAlreadyAddedMessage, question.QuestionText));
+                    }
+
                     this.AddEasyQuestion(question);
                     break;
                 case DifficultyLevel.Normal:
+                    if (this.normalQuestions.Contains(question))
+                    {
+                        throw new QuestionAlreadyAddedException(string.Format(GlobalConstants.QuestionAlreadyAddedMessage, question.QuestionText));
+                    }
+
                     this.AddNormalQuestion(question);
                     break;
                 case DifficultyLevel.Hard:
+                    if (this.hardQuestions.Contains(question))
+                    {
+                        throw new QuestionAlreadyAddedException(string.Format(GlobalConstants.QuestionAlreadyAddedMessage, question.QuestionText));
+                    }
+
                     this.AddHardQuestion(question);
                     break;
                 default: throw new ArgumentException("Difficulty level not valid!");
