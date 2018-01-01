@@ -77,8 +77,8 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <TextBlock x:Name="Hint5050" HorizontalAlignment="Center" TextAlignment="Center" Height="44" Padding="7" Margin="732,565,30,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="138" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FF63005D"/>
-        <TextBlock x:Name="HintSkipQuestion" HorizontalAlignment="Center" TextAlignment="Center" Height="44" Padding="7" Margin="551,566,211,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="138" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="1.918,0.554" Foreground="#FF63005D"/>
+        <TextBlock x:Name="HintSkipQuestion" HorizontalAlignment="Center" TextAlignment="Center" Height="44" Padding="7" Margin="732,565,30,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="138" FontFamily="Showcard Gothic" FontSize="24" Foreground="#FF63005D"/>
+        <TextBlock x:Name="Hint5050" HorizontalAlignment="Center" TextAlignment="Center" Height="44" Padding="7" Margin="551,566,211,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="138" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="1.918,0.554" Foreground="#FF63005D"/>
         <Label Content="&#x9;&#x9;&#x9;  Hints left:" HorizontalAlignment="Left" Height="37" Margin="71,563,0,0" VerticalAlignment="Top" Width="479" FontFamily="Consolas" FontSize="24" RenderTransformOrigin="0.82,2.061" FontWeight="Bold">
             <Label.RenderTransform>
                 <TransformGroup>

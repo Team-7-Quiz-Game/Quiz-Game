@@ -58,6 +58,7 @@ namespace Trivia.UI
         private void AnswerAButton(object sender, RoutedEventArgs e)
         {
             answerA = easyQuestions[countQuestions].Answers[0].IsCorrect;
+
             if (answerA)
             {
                 currentPlayer.Points += easyQuestions[countQuestions].Points;

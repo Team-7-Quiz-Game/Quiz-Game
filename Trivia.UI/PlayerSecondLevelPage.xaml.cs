@@ -38,6 +38,7 @@ namespace Trivia.UI
         public PlayerSecondLevelPage(IEngine engine)
         {
             InitializeComponent();
+
             this.engine = Engine.Instance;
             playerName = engine.Player.Name;
             currentPlayer = (NormalPlayer)engine.Player;
@@ -63,9 +64,10 @@ namespace Trivia.UI
         private void AnswerAButton(object sender, RoutedEventArgs e)
         {
             answerA = normalQuestions[countQuestions].Answers[0].IsCorrect;
+
             if (answerA)
             {
-                currentPlayer.Points += 200;
+                currentPlayer.Points += normalQuestions[countQuestions].Points;
                 correctAnswer.Visibility = Visibility.Visible;
                 skippedAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Collapsed;
@@ -77,7 +79,9 @@ namespace Trivia.UI
                 skippedAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
             }
+
             countQuestions++;
+
             if (countQuestions > normalQuestions.Count - 1)
             {
                 EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(currentPlayer.Points, playerName);
@@ -92,9 +96,10 @@ namespace Trivia.UI
         private void AnswerBButton(object sender, RoutedEventArgs e)
         {
             answerB = normalQuestions[countQuestions].Answers[1].IsCorrect;
+
             if (answerB)
             {
-                currentPlayer.Points += 200;
+                currentPlayer.Points += normalQuestions[countQuestions].Points;
                 correctAnswer.Visibility = Visibility.Visible;
                 skippedAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Collapsed;
@@ -106,7 +111,9 @@ namespace Trivia.UI
                 skippedAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
             }
+
             countQuestions++;
+
             if (countQuestions > normalQuestions.Count - 1)
             {
                 EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(currentPlayer.Points, playerName);
@@ -121,9 +128,10 @@ namespace Trivia.UI
         private void AnswerCButton(object sender, RoutedEventArgs e)
         {
             answerC = normalQuestions[countQuestions].Answers[2].IsCorrect;
+
             if (answerC)
             {
-                currentPlayer.Points += 200;
+                currentPlayer.Points += normalQuestions[countQuestions].Points;
                 correctAnswer.Visibility = Visibility.Visible;
                 skippedAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Collapsed;
@@ -135,7 +143,9 @@ namespace Trivia.UI
                 skippedAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
             }
+
             countQuestions++;
+
             if (countQuestions > normalQuestions.Count - 1)
             {
                 EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(currentPlayer.Points, playerName);
@@ -150,9 +160,10 @@ namespace Trivia.UI
         private void AnswerDButton(object sender, RoutedEventArgs e)
         {
             answerD = normalQuestions[countQuestions].Answers[3].IsCorrect;
+
             if (answerD)
             {
-                currentPlayer.Points += 200;
+                currentPlayer.Points += normalQuestions[countQuestions].Points;
                 correctAnswer.Visibility = Visibility.Visible;
                 wrongAnswer.Visibility = Visibility.Collapsed;
                 skippedAnswer.Visibility = Visibility.Collapsed;
@@ -166,6 +177,7 @@ namespace Trivia.UI
             }
 
             countQuestions++;
+
             if (countQuestions > normalQuestions.Count - 1)
             {
                 EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(currentPlayer.Points, playerName);

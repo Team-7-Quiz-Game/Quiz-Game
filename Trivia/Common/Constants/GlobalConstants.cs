@@ -14,8 +14,8 @@ namespace Trivia.Common.Utils
         public const int MinPointsMultiplier = 2;
         public const int MaxPointsMultiplier = 10;
 
-        public const int MinTimeForAnswer = 6;
-        public const int MaxTimeForAnswer = 10;
+        public const int MinTimeForAnswer = 7;
+        public const int MaxTimeForAnswer = 20;
 
         public const int QuestionsPerDifficultyLevel = 2;
 
