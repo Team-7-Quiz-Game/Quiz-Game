@@ -9,7 +9,7 @@ namespace Trivia.Models.Hint
 {
     public class FiftyFiftyHint : Hint
     {
-        public FiftyFiftyHint(int quantity = 1) 
+        public FiftyFiftyHint(int quantity) 
             : base(quantity, HintType.FiftyFifty)
         {
             this.Description = "Removes two wrong answers.";

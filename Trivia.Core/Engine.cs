@@ -5,6 +5,7 @@ using Trivia.Common.Exceptions;
 using Trivia.Common.Utils;
 using Trivia.Contracts;
 using Trivia.Core.Contracts;
+using Trivia.Models.Hint;
 
 namespace Trivia.Core
 {
@@ -19,6 +20,8 @@ namespace Trivia.Core
         private IList<IQuestion> normalQuestions;
         private IList<IQuestion> hardQuestions;
         private IList<IQuestion> quizzardQuestions;
+        private Hint fiftyFifty;
+        private Hint skipQuestion;
 
         private Engine()
         {
@@ -29,6 +32,8 @@ namespace Trivia.Core
             this.normalQuestions = new List<IQuestion>();
             this.hardQuestions = new List<IQuestion>();
             this.quizzardQuestions = new List<IQuestion>();
+            this.fiftyFifty = this.CreateFiftyFiftyHint();
+            this.skipQuestion = this.CreateSkipQuestionHint();
         }
 
         public static IEngine Instance => engine;
@@ -38,10 +43,14 @@ namespace Trivia.Core
         public IList<IQuestion> EasyQuestions => this.GetEasyQuestions();
 
         public IList<IQuestion> NormalQuestions => this.GetNormalQuestions();
-        
+
         public IList<IQuestion> HardQuestions => this.GetHardQuestions();
 
         public IList<IQuestion> QuizzardQuestions => this.quizzardQuestions;
+
+        public Hint FiftyFiftyHint => this.fiftyFifty;
+
+        public Hint SkipQuestionHint => this.skipQuestion;
 
         public void CreateCategory(IList<string> categories)
         {
@@ -184,6 +193,20 @@ namespace Trivia.Core
             Validator.CheckIfStringIsNullOrEmpty(questionText, string.Format(GlobalConstants.StringCannotBeNullOrEmpty, "Question's text"));
             Validator.CheckIfNull(difficultyLevel, string.Format(GlobalConstants.ObjectCannotBeNull, "Difficulty level"));
             Validator.CheckIfNull(category, string.Format(GlobalConstants.ObjectCannotBeNull, "Category"));
+        }
+
+        public Hint CreateFiftyFiftyHint(int quantity = GlobalConstants.DefaultHintQuantity)
+        {
+            Validator.CheckIfIntNegative(quantity, string.Format(GlobalConstants.NumberCannotBeNegative, "Hint quantity"));
+
+            return this.factory.CreateFiftyFiftyHint(quantity);
+        }
+
+        public Hint CreateSkipQuestionHint(int quantity = GlobalConstants.DefaultHintQuantity)
+        {
+            Validator.CheckIfIntNegative(quantity, string.Format(GlobalConstants.NumberCannotBeNegative, "Hint quantity"));
+
+            return this.factory.CreateSkipQuestionHint(quantity);
         }
     }
 }

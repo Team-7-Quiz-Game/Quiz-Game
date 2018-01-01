@@ -28,6 +28,7 @@ namespace Trivia.UI
     /// </summary>
     public partial class PlayerFirstLevelPage : Page
     {
+        private IEngine engine;
         string playerName;
         static bool answerA;
         static bool answerB;
@@ -42,6 +43,7 @@ namespace Trivia.UI
         {
             InitializeComponent();
 
+            this.engine = Engine.Instance;
             playerName = engine.Player.Name;
             currentPlayer = (NormalPlayer)engine.Player;
             pointsPlayer = currentPlayer.Points;
@@ -49,6 +51,7 @@ namespace Trivia.UI
             pPoints.Text = pointsPlayer.ToString();
             easyQuestions = engine.EasyQuestions;
 
+            DisplayHints();
             DisplayTextForQuestionAndAnswers(easyQuestions, countQuestions);
         }
 
@@ -59,6 +62,7 @@ namespace Trivia.UI
             {
                 currentPlayer.Points += easyQuestions[countQuestions].Points;
                 correctAnswer.Visibility = Visibility.Visible;
+                skippedAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Collapsed;
                 pPoints.Text = currentPlayer.Points.ToString();
             }
@@ -66,8 +70,11 @@ namespace Trivia.UI
             {
                 correctAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
+                skippedAnswer.Visibility = Visibility.Collapsed;
             }
+
             countQuestions++;
+
             if (countQuestions > easyQuestions.Count - 1)
             {
                 EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(currentPlayer.Points, playerName);
@@ -87,14 +94,18 @@ namespace Trivia.UI
                 currentPlayer.Points += easyQuestions[countQuestions].Points;
                 correctAnswer.Visibility = Visibility.Visible;
                 wrongAnswer.Visibility = Visibility.Collapsed;
+                skippedAnswer.Visibility = Visibility.Collapsed;
                 pPoints.Text = currentPlayer.Points.ToString();
             }
             else
             {
                 correctAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
+                skippedAnswer.Visibility = Visibility.Collapsed;
             }
+
             countQuestions++;
+
             if (countQuestions > easyQuestions.Count - 1)
             {
                 EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(currentPlayer.Points, playerName);
@@ -115,14 +126,18 @@ namespace Trivia.UI
                 currentPlayer.Points += easyQuestions[countQuestions].Points;
                 correctAnswer.Visibility = Visibility.Visible;
                 wrongAnswer.Visibility = Visibility.Collapsed;
+                skippedAnswer.Visibility = Visibility.Collapsed;
                 pPoints.Text = currentPlayer.Points.ToString();
             }
             else
             {
                 correctAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
+                skippedAnswer.Visibility = Visibility.Collapsed;
             }
+
             countQuestions++;
+
             if (countQuestions > easyQuestions.Count - 1)
             {
                 EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(currentPlayer.Points, playerName);
@@ -137,19 +152,24 @@ namespace Trivia.UI
         private void AnswerDButton(object sender, RoutedEventArgs e)
         {
             answerD = easyQuestions[countQuestions].Answers[3].IsCorrect;
+
             if (answerD)
             {
                 currentPlayer.Points += easyQuestions[countQuestions].Points;
                 correctAnswer.Visibility = Visibility.Visible;
                 wrongAnswer.Visibility = Visibility.Collapsed;
+                skippedAnswer.Visibility = Visibility.Collapsed;
                 pPoints.Text = currentPlayer.Points.ToString();
             }
             else
             {
                 correctAnswer.Visibility = Visibility.Collapsed;
+                skippedAnswer.Visibility = Visibility.Collapsed;
                 wrongAnswer.Visibility = Visibility.Visible;
             }
+
             countQuestions++;
+
             if(countQuestions > easyQuestions.Count - 1)
             {
                 EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(currentPlayer.Points, playerName);
@@ -160,6 +180,7 @@ namespace Trivia.UI
                 DisplayTextForQuestionAndAnswers(easyQuestions, countQuestions);
             }
         }
+
         private void DisplayTextForQuestionAndAnswers(IList<IQuestion> easyQuestions, int countQuestions)
         {
             displayQuestion.Text = easyQuestions[countQuestions].QuestionText;
@@ -172,12 +193,50 @@ namespace Trivia.UI
 
         private void Hint5050Button(object sender, RoutedEventArgs e)
         {
+            this.engine.FiftyFiftyHint.Quantity--;
+            
 
+            DisplayHints();
         }
 
         private void SkipQuestionButton(object sender, RoutedEventArgs e)
         {
+            this.engine.SkipQuestionHint.Quantity--;
 
+            currentPlayer.Points += easyQuestions[countQuestions].Points;
+            pPoints.Text = currentPlayer.Points.ToString();
+            countQuestions++;
+            skippedAnswer.Visibility = Visibility.Visible;
+            correctAnswer.Visibility = Visibility.Collapsed;
+            wrongAnswer.Visibility = Visibility.Collapsed;
+
+            if (countQuestions > easyQuestions.Count - 1)
+            {
+                EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(currentPlayer.Points, playerName);
+                this.NavigationService.Navigate(endOfFirstLevelPage);
+            }
+            else
+            {
+                DisplayTextForQuestionAndAnswers(easyQuestions, countQuestions);
+            }
+
+            DisplayHints();
+        }
+
+        private void DisplayHints()
+        {
+            HintSkipQuestion.Text = this.engine.SkipQuestionHint.Quantity.ToString();
+            Hint5050.Text = this.engine.FiftyFiftyHint.Quantity.ToString();
+
+            if (this.engine.SkipQuestionHint.Quantity == 0)
+            {
+                SkipBtn.IsEnabled = false;
+            }
+
+            if (this.engine.FiftyFiftyHint.Quantity == 0)
+            {
+                FiftyBtn.IsEnabled = false;
+            }
         }
     }
 }

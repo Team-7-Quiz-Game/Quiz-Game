@@ -15,13 +15,13 @@ namespace Trivia.Models.Hint
             Validator.CheckIfIntNegative(quantity, string.Format(GlobalConstants.NumberCannotBeNegative, "Hint quantity"));
 
             this.type = type;
-            this.quantity = quantity;
+            this.Quantity = quantity;
         }
 
-        public HintType Name => this.type;
+        public HintType Type => this.type;
 
         public string Description { get => this.description; protected set => this.description = value; }
 
-        public int Quantity { get => this.quantity; private set => this.quantity = value; }
+        public int Quantity { get => this.quantity; set => this.quantity = value; }
     }
 }

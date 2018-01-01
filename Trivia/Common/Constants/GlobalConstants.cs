@@ -19,6 +19,8 @@ namespace Trivia.Common.Utils
 
         public const int QuestionsPerDifficultyLevel = 2;
 
+        public const int DefaultHintQuantity = 2;
+
         public const string NumberCannotBeNegative = "{0} cannot be negative!";
 
         public const string MaxAnswersPerQuestionErrorMessage = "A question cannot have more than {0} answers!";

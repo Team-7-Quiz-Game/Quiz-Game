@@ -30,9 +30,9 @@ namespace Trivia.Models.Player
             }
         }
 
-        public int WrongAnswers { get => this.wrongAnswers; set => this.wrongAnswers += value; }
+        public int WrongAnswers { get => this.wrongAnswers; set => this.wrongAnswers = value; }
 
-        public int CorrectAnswers { get => this.correctAnswers; set => this.correctAnswers += value; }
+        public int CorrectAnswers { get => this.correctAnswers; set => this.correctAnswers = value; }
 
         public override string ToString()
         {
