@@ -25,12 +25,12 @@ namespace Trivia.UI
     public partial class QuizzardTestTimedQuestion : Page
     {
         private IEngine engine;
-        static bool answerA;
-        static bool answerB;
-        static bool answerC;
-        static bool answerD;
-        static int countQuestions = 0;
-        static int points;
+        private static bool answerA;
+        private static bool answerB;
+        private static bool answerC;
+        private static bool answerD;
+        private static int countQuestions = 0;
+        private static int points;
         public QuizzardTestTimedQuestion()
         {
             InitializeComponent();
