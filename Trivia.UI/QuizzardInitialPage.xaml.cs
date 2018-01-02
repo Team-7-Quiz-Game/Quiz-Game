@@ -94,6 +94,11 @@ namespace Trivia.UI
         {
             var quizzard = (QuizzardPlayer)engine.Player;
 
+            if (quizzard.QuizzardQuestions.Count == 0)
+            {
+                return;
+            }
+
             foreach (var question in quizzard.QuizzardQuestions)
             {
                 engine.QuizzardQuestions.Add(question);

@@ -57,6 +57,12 @@ namespace Trivia.UI
         private void GoPlayer(object sender, RoutedEventArgs e)
         {
             name = pName.Text;
+
+            if (this.checkedCategories.Count == 0)
+            {
+                return;
+            }
+
             this.engine.CreateCategory(checkedCategories);
     
             var player = engine.CreateNormalPlayer(name);
