@@ -25,15 +25,15 @@ namespace Trivia.UI
     public partial class PlayerThirdLevelPage : Page
     {
         private IEngine engine;
-        string playerName;
-        static bool answerA;
-        static bool answerB;
-        static bool answerC;
-        static bool answerD;
-        static int pointsPlayer;
-        static IList<IQuestion> hardQuestions;
-        static int countQuestions = 0;
-        static NormalPlayer currentPlayer;
+        private string playerName;
+        private static bool answerA;
+        private static bool answerB;
+        private static bool answerC;
+        private static bool answerD;
+        private static int pointsPlayer;
+        private static IList<IQuestion> hardQuestions;
+        private static int countQuestions = 0;
+        private static NormalPlayer currentPlayer;
         public PlayerThirdLevelPage(IEngine engine)
         {
             InitializeComponent();

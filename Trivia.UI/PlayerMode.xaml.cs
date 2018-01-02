@@ -27,7 +27,7 @@ namespace Trivia.UI
     {
         private IEngine engine;
         private string name;
-
+        private List<string> checkedCategories;
         public PlayerMode()
         {
             engine = Engine.Instance;
@@ -35,8 +35,6 @@ namespace Trivia.UI
             // We put the checked by the user categories in a list.
             checkedCategories = new List<string>();
         }
-
-        List<string> checkedCategories;
         private void Check_Click(object sender, RoutedEventArgs e)
         {
             CheckBox cbox = sender as CheckBox;
