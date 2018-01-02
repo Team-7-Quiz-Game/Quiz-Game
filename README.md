@@ -1,8 +1,8 @@
 # Quiz-Game
-TODOs:
-- write read me :D
-
-IDEAS:
-- add exit button
-- add stream to save best scores / display them
-- implement some shop to buy hints and some other stuff
+- Team name: Team 7/Quizzical
+- Team members: 
+  plmn.tnsv
+  s_kiryakova
+  strahoz
+- Project purpose: 
+The idea of our project is to create a Trivia Quiz game with a colorful UI done in WPF for a better user experience. 
