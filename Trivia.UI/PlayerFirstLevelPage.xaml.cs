@@ -1,25 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Trivia.Models.Player;
-using Trivia;
 using Trivia.Contracts;
-using Trivia.Core.Contracts;
-using Trivia.Models.Category;
 using Trivia.Core;
-using Trivia.Models.Question;
+using Trivia.Core.Contracts;
+using Trivia.Models.Player;
 
 namespace Trivia.UI
 {
@@ -61,17 +48,11 @@ namespace Trivia.UI
 
             if (answerA)
             {
-                currentPlayer.Points += easyQuestions[countQuestions].Points;
-                correctAnswer.Visibility = Visibility.Visible;
-                skippedAnswer.Visibility = Visibility.Collapsed;
-                wrongAnswer.Visibility = Visibility.Collapsed;
-                pPoints.Text = currentPlayer.Points.ToString();
+                TakeActionsUponCorrectAnswer();
             }
             else
             {
-                correctAnswer.Visibility = Visibility.Collapsed;
-                wrongAnswer.Visibility = Visibility.Visible;
-                skippedAnswer.Visibility = Visibility.Collapsed;
+                TakeActionsUponWrongAnswer();
             }
 
             DisplayHints();
@@ -87,23 +68,16 @@ namespace Trivia.UI
                 DisplayTextForQuestionAndAnswers(easyQuestions, countQuestions);
             }
         }
-
         private void AnswerBButton(object sender, RoutedEventArgs e)
         {
             answerB = easyQuestions[countQuestions].Answers[1].IsCorrect;
             if (answerB)
             {
-                currentPlayer.Points += easyQuestions[countQuestions].Points;
-                correctAnswer.Visibility = Visibility.Visible;
-                wrongAnswer.Visibility = Visibility.Collapsed;
-                skippedAnswer.Visibility = Visibility.Collapsed;
-                pPoints.Text = currentPlayer.Points.ToString();
+                TakeActionsUponCorrectAnswer();
             }
             else
             {
-                correctAnswer.Visibility = Visibility.Collapsed;
-                wrongAnswer.Visibility = Visibility.Visible;
-                skippedAnswer.Visibility = Visibility.Collapsed;
+                TakeActionsUponWrongAnswer();
             }
 
             DisplayHints();
@@ -126,17 +100,11 @@ namespace Trivia.UI
             answerC = easyQuestions[countQuestions].Answers[2].IsCorrect;
             if (answerC)
             {
-                currentPlayer.Points += easyQuestions[countQuestions].Points;
-                correctAnswer.Visibility = Visibility.Visible;
-                wrongAnswer.Visibility = Visibility.Collapsed;
-                skippedAnswer.Visibility = Visibility.Collapsed;
-                pPoints.Text = currentPlayer.Points.ToString();
+                TakeActionsUponCorrectAnswer();
             }
             else
             {
-                correctAnswer.Visibility = Visibility.Collapsed;
-                wrongAnswer.Visibility = Visibility.Visible;
-                skippedAnswer.Visibility = Visibility.Collapsed;
+                TakeActionsUponWrongAnswer();
             }
 
             DisplayHints();
@@ -159,17 +127,11 @@ namespace Trivia.UI
 
             if (answerD)
             {
-                currentPlayer.Points += easyQuestions[countQuestions].Points;
-                correctAnswer.Visibility = Visibility.Visible;
-                wrongAnswer.Visibility = Visibility.Collapsed;
-                skippedAnswer.Visibility = Visibility.Collapsed;
-                pPoints.Text = currentPlayer.Points.ToString();
+                TakeActionsUponCorrectAnswer();
             }
             else
             {
-                correctAnswer.Visibility = Visibility.Collapsed;
-                skippedAnswer.Visibility = Visibility.Collapsed;
-                wrongAnswer.Visibility = Visibility.Visible;
+                TakeActionsUponWrongAnswer();
             }
 
             DisplayHints();
@@ -200,7 +162,20 @@ namespace Trivia.UI
             displayAnswerC.Content = easyQuestions[countQuestions].Answers[2].ToString();
             displayAnswerD.Content = easyQuestions[countQuestions].Answers[3].ToString();
         }
-
+        private void TakeActionsUponCorrectAnswer()
+        {
+            currentPlayer.Points += easyQuestions[countQuestions].Points;
+            correctAnswer.Visibility = Visibility.Visible;
+            skippedAnswer.Visibility = Visibility.Collapsed;
+            wrongAnswer.Visibility = Visibility.Collapsed;
+            pPoints.Text = currentPlayer.Points.ToString();
+        }
+        private void TakeActionsUponWrongAnswer()
+        {
+            correctAnswer.Visibility = Visibility.Collapsed;
+            wrongAnswer.Visibility = Visibility.Visible;
+            skippedAnswer.Visibility = Visibility.Collapsed;
+        }
         private void Hint5050Button(object sender, RoutedEventArgs e)
         {
             this.engine.FiftyFiftyHint.Quantity--;
