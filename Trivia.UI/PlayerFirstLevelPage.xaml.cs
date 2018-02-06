@@ -68,6 +68,7 @@ namespace Trivia.UI
                 DisplayTextForQuestionAndAnswers(easyQuestions, countQuestions);
             }
         }
+
         private void AnswerBButton(object sender, RoutedEventArgs e)
         {
             answerB = easyQuestions[countQuestions].Answers[1].IsCorrect;
@@ -162,6 +163,7 @@ namespace Trivia.UI
             displayAnswerC.Content = easyQuestions[countQuestions].Answers[2].ToString();
             displayAnswerD.Content = easyQuestions[countQuestions].Answers[3].ToString();
         }
+
         private void TakeActionsUponCorrectAnswer()
         {
             currentPlayer.Points += easyQuestions[countQuestions].Points;
@@ -170,12 +172,14 @@ namespace Trivia.UI
             wrongAnswer.Visibility = Visibility.Collapsed;
             pPoints.Text = currentPlayer.Points.ToString();
         }
+
         private void TakeActionsUponWrongAnswer()
         {
             correctAnswer.Visibility = Visibility.Collapsed;
             wrongAnswer.Visibility = Visibility.Visible;
             skippedAnswer.Visibility = Visibility.Collapsed;
         }
+
         private void Hint5050Button(object sender, RoutedEventArgs e)
         {
             this.engine.FiftyFiftyHint.Quantity--;
