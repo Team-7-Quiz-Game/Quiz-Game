@@ -10,10 +10,10 @@ namespace Trivia.UI
     public partial class EndOfThirdLevel : Page
     {
         private IEngine engine;
-        public EndOfThirdLevel(int pointsPlayer, string playerName)
+        public EndOfThirdLevel(IEngine engine, int pointsPlayer, string playerName)
         {
             InitializeComponent();
-            engine = Engine.Instance;
+            this.engine = engine;
             pPoints.Text = pointsPlayer.ToString();
             pNameTB.Text = playerName;
         }

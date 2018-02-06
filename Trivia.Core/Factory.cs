@@ -10,13 +10,9 @@ namespace Trivia.Core
 {
     public class Factory : IFactory
     {
-        private static IFactory instanceHolder = new Factory();
-
-        private Factory()
+        public Factory()
         {
         }
-
-        public static IFactory Instance => instanceHolder;
 
         public IAnswer CreateAnswer (string answerText, bool isCorrect)
         {

@@ -24,10 +24,10 @@ namespace Trivia.UI
         private double multiValue;
         private double timerValue;
 
-        public QuizzardInitialPage()
+        public QuizzardInitialPage(IEngine engine)
         {
             InitializeComponent();
-            this.engine = Engine.Instance;
+            this.engine = engine;
             this.player = (QuizzardPlayer)engine.Player;
             QuestionsCount.Text = player.QuizzardQuestions.Count.ToString();
         }
@@ -73,7 +73,7 @@ namespace Trivia.UI
             QuizzardPlayer quizzard = (QuizzardPlayer)engine.Player;
             quizzard.AddQuestion(q);
 
-            QuizzardInitialPage quizzardInitialPage = new QuizzardInitialPage();
+            QuizzardInitialPage quizzardInitialPage = new QuizzardInitialPage(this.engine);
             this.NavigationService.Navigate(quizzardInitialPage);
         }
 
@@ -91,7 +91,7 @@ namespace Trivia.UI
                 engine.QuizzardQuestions.Add(question);
             }
 
-            QuizzardTestStart startQuizzardTest = new QuizzardTestStart();
+            QuizzardTestStart startQuizzardTest = new QuizzardTestStart(this.engine);
             this.NavigationService.Navigate(startQuizzardTest);
         }
 

@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AutofacModuleConfig.cs" />
     <Compile Include="EndOfFirstLevelPage.xaml.cs">
       <DependentUpon>EndOfFirstLevelPage.xaml</DependentUpon>
     </Compile>

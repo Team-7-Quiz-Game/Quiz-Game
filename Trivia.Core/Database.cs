@@ -7,21 +7,18 @@ using Trivia.Core.Contracts;
 
 namespace Trivia.Core
 {
-    public class Database
+    public class Database : IDatabase
     {
-        private static Database instanceHolder = new Database();
         private IList<ICategory> categories;
         private readonly IFactory factory;
 
-        private Database()
+        public Database(IFactory factory)
         {
+            this.factory = factory;
             this.categories = new List<ICategory>();
-            this.factory = Factory.Instance;
             this.PopulateCategories();
             this.PopulateQuestions();
         }
-
-        public static Database Instance => instanceHolder;
 
         public IList<ICategory> Categories => this.categories;
 

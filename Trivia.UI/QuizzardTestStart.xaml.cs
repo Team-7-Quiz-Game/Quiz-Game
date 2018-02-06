@@ -27,10 +27,10 @@ namespace Trivia.UI
         private int timer;
         private DispatcherTimer dispatcherTimer;
 
-        public QuizzardTestStart()
+        public QuizzardTestStart(IEngine engine)
         {
             InitializeComponent();
-            this.engine = Engine.Instance;
+            this.engine = engine;
 
             engine.QuizzardQuestions.Shuffle();
 

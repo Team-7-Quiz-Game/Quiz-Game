@@ -30,7 +30,7 @@ namespace Trivia.UI
         {
             InitializeComponent();
 
-            this.engine = Engine.Instance;
+            this.engine = engine;
             playerName = engine.Player.Name;
             currentPlayer = (NormalPlayer)engine.Player;
             pNameTB.Text = playerName;
@@ -59,7 +59,7 @@ namespace Trivia.UI
 
             if (countQuestions > normalQuestions.Count - 1)
             {
-                EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(currentPlayer.Points, playerName);
+                EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(this.engine, currentPlayer.Points, playerName);
                 this.NavigationService.Navigate(endOfSecondLevelPage);
             }
             else
@@ -85,7 +85,7 @@ namespace Trivia.UI
 
             if (countQuestions > normalQuestions.Count - 1)
             {
-                EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(currentPlayer.Points, playerName);
+                EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(this.engine, currentPlayer.Points, playerName);
                 this.NavigationService.Navigate(endOfSecondLevelPage);
             }
             else
@@ -112,7 +112,7 @@ namespace Trivia.UI
 
             if (countQuestions > normalQuestions.Count - 1)
             {
-                EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(currentPlayer.Points, playerName);
+                EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(this.engine, currentPlayer.Points, playerName);
                 this.NavigationService.Navigate(endOfSecondLevelPage);
             }
             else
@@ -139,7 +139,7 @@ namespace Trivia.UI
 
             if (countQuestions > normalQuestions.Count - 1)
             {
-                EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(currentPlayer.Points, playerName);
+                EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(this.engine, currentPlayer.Points, playerName);
                 this.NavigationService.Navigate(endOfSecondLevelPage);
             }
             else
@@ -229,7 +229,7 @@ namespace Trivia.UI
 
             if (countQuestions > normalQuestions.Count - 1)
             {
-                EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(currentPlayer.Points, playerName);
+                EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(engine, currentPlayer.Points, playerName);
                 this.NavigationService.Navigate(endOfSecondLevelPage);
             }
             else

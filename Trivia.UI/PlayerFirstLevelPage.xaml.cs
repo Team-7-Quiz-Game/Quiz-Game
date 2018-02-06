@@ -30,7 +30,7 @@ namespace Trivia.UI
         {
             InitializeComponent();
 
-            this.engine = Engine.Instance;
+            this.engine = engine;
             playerName = engine.Player.Name;
             currentPlayer = (NormalPlayer)engine.Player;
             pointsPlayer = currentPlayer.Points;
@@ -57,21 +57,13 @@ namespace Trivia.UI
 
             DisplayHints();
             countQuestions++;
-
-            if (countQuestions > easyQuestions.Count - 1)
-            {
-                EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(currentPlayer.Points, playerName);
-                this.NavigationService.Navigate(endOfFirstLevelPage);
-            }
-            else
-            {
-                DisplayTextForQuestionAndAnswers(easyQuestions, countQuestions);
-            }
+            Navigate(countQuestions);
         }
 
         private void AnswerBButton(object sender, RoutedEventArgs e)
         {
             answerB = easyQuestions[countQuestions].Answers[1].IsCorrect;
+
             if (answerB)
             {
                 TakeActionsUponCorrectAnswer();
@@ -83,22 +75,13 @@ namespace Trivia.UI
 
             DisplayHints();
             countQuestions++;
-
-            if (countQuestions > easyQuestions.Count - 1)
-            {
-                EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(currentPlayer.Points, playerName);
-                this.NavigationService.Navigate(endOfFirstLevelPage);
-            }
-            else
-            {
-                DisplayTextForQuestionAndAnswers(easyQuestions, countQuestions);
-            }
-
+            Navigate(countQuestions);
         }
 
         private void AnswerCButton(object sender, RoutedEventArgs e)
         {
             answerC = easyQuestions[countQuestions].Answers[2].IsCorrect;
+
             if (answerC)
             {
                 TakeActionsUponCorrectAnswer();
@@ -110,16 +93,7 @@ namespace Trivia.UI
 
             DisplayHints();
             countQuestions++;
-
-            if (countQuestions > easyQuestions.Count - 1)
-            {
-                EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(currentPlayer.Points, playerName);
-                this.NavigationService.Navigate(endOfFirstLevelPage);
-            }
-            else
-            {
-                DisplayTextForQuestionAndAnswers(easyQuestions, countQuestions);
-            }
+            Navigate(countQuestions);
         }
 
         private void AnswerDButton(object sender, RoutedEventArgs e)
@@ -137,16 +111,7 @@ namespace Trivia.UI
 
             DisplayHints();
             countQuestions++;
-
-            if(countQuestions > easyQuestions.Count - 1)
-            {
-                EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(currentPlayer.Points, playerName);
-                this.NavigationService.Navigate(endOfFirstLevelPage);
-            }
-            else
-            {
-                DisplayTextForQuestionAndAnswers(easyQuestions, countQuestions);
-            }
+            Navigate(countQuestions);
         }
 
         private void DisplayTextForQuestionAndAnswers(IList<IQuestion> easyQuestions, int countQuestions)
@@ -233,15 +198,7 @@ namespace Trivia.UI
             correctAnswer.Visibility = Visibility.Collapsed;
             wrongAnswer.Visibility = Visibility.Collapsed;
 
-            if (countQuestions > easyQuestions.Count - 1)
-            {
-                EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(currentPlayer.Points, playerName);
-                this.NavigationService.Navigate(endOfFirstLevelPage);
-            }
-            else
-            {
-                DisplayTextForQuestionAndAnswers(easyQuestions, countQuestions);
-            }
+            Navigate(countQuestions);
 
             DisplayHints();
         }
@@ -265,6 +222,19 @@ namespace Trivia.UI
             if (fiftyIsEnabled)
             {
                 FiftyBtn.IsEnabled = true;
+            }
+        }
+        
+        private void Navigate(int countQuestions)
+        {
+            if (countQuestions > easyQuestions.Count - 1)
+            {
+                EndOfFirstLevelPage endOfFirstLevelPage = new EndOfFirstLevelPage(engine, currentPlayer.Points, playerName);
+                this.NavigationService.Navigate(endOfFirstLevelPage);
+            }
+            else
+            {
+                DisplayTextForQuestionAndAnswers(easyQuestions, countQuestions);
             }
         }
     }
