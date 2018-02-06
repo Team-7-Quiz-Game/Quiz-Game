@@ -4,7 +4,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Trivia.Contracts;
-using Trivia.Core;
 using Trivia.Core.Contracts;
 using Trivia.Models.Player;
 
@@ -17,10 +16,7 @@ namespace Trivia.UI
     {
         private IEngine engine;
         private string playerName;
-        private static bool answerA;
-        private static bool answerB;
-        private static bool answerC;
-        private static bool answerD;
+        private static bool isCorrectAnswer;
         private static int pointsPlayer;
         private static IList<IQuestion> hardQuestions;
         private static int countQuestions = 0;
@@ -41,12 +37,28 @@ namespace Trivia.UI
             DisplayTextForQuestionAndAnswers(hardQuestions, countQuestions);
             DisplayHints();
         }
-
-        private void AnswerAButton(object sender, RoutedEventArgs e)
+        private void AnswerButton(object sender, RoutedEventArgs e)
         {
-            answerA = hardQuestions[countQuestions].Answers[0].IsCorrect;
+            var clickedBtn = (Button)sender;
+            var name = clickedBtn.Name;
 
-            if (answerA)
+            switch (name)
+            {
+                case "displayAnswerA":
+                    isCorrectAnswer = hardQuestions[countQuestions].Answers[0].IsCorrect;
+                    break;
+                case "displayAnswerB":
+                    isCorrectAnswer = hardQuestions[countQuestions].Answers[1].IsCorrect;
+                    break;
+                case "displayAnswerC":
+                    isCorrectAnswer = hardQuestions[countQuestions].Answers[2].IsCorrect;
+                    break;
+                case "displayAnswerD":
+                    isCorrectAnswer = hardQuestions[countQuestions].Answers[3].IsCorrect;
+                    break;
+            }
+
+            if (isCorrectAnswer)
             {
                 TakeActionsUponCorrectAnswer();
             }
@@ -57,97 +69,9 @@ namespace Trivia.UI
 
             DisplayHints();
             countQuestions++;
-
-            if (countQuestions > hardQuestions.Count - 1)
-            {
-                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(this.engine, currentPlayer.Points, playerName);
-                this.NavigationService.Navigate(endOfThirdLevelPage);
-            }
-            else
-            {
-                DisplayTextForQuestionAndAnswers(hardQuestions, countQuestions);
-            }
-        }
-        private void AnswerBButton(object sender, RoutedEventArgs e)
-        {
-            answerB = hardQuestions[countQuestions].Answers[1].IsCorrect;
-
-            if (answerB)
-            {
-                TakeActionsUponCorrectAnswer();
-            }
-            else
-            {
-                TakeActionsUponWrongAnswer();
-            }
-
-            DisplayHints();
-            countQuestions++;
-
-            if (countQuestions > hardQuestions.Count - 1)
-            {
-                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(this.engine, currentPlayer.Points, playerName);
-                this.NavigationService.Navigate(endOfThirdLevelPage);
-            }
-            else
-            {
-                DisplayTextForQuestionAndAnswers(hardQuestions, countQuestions);
-            }
-        }
-        
-        private void AnswerCButton(object sender, RoutedEventArgs e)
-        {
-            answerC = hardQuestions[countQuestions].Answers[2].IsCorrect;
-
-            if (answerC)
-            {
-                TakeActionsUponCorrectAnswer();
-            }
-            else
-            {
-                TakeActionsUponWrongAnswer();
-            }
-
-            DisplayHints();
-            countQuestions++;
-            
-            if (countQuestions > hardQuestions.Count - 1)
-            {
-                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(this.engine, currentPlayer.Points, playerName);
-                this.NavigationService.Navigate(endOfThirdLevelPage);
-            }
-            else
-            {
-                DisplayTextForQuestionAndAnswers(hardQuestions, countQuestions);
-            }
+            Navigate(countQuestions);
         }
 
-        private void AnswerDButton(object sender, RoutedEventArgs e)
-        {
-            answerD = hardQuestions[countQuestions].Answers[3].IsCorrect;
-
-            if (answerD)
-            {
-                TakeActionsUponCorrectAnswer();
-            }
-            else
-            {
-                TakeActionsUponWrongAnswer();
-            }
-
-            DisplayHints();
-            countQuestions++;
-            
-            if (countQuestions > hardQuestions.Count - 1)
-            {
-                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(this.engine, currentPlayer.Points, playerName);
-                this.NavigationService.Navigate(endOfThirdLevelPage);
-            }
-            else
-            {
-                DisplayTextForQuestionAndAnswers(hardQuestions, countQuestions);
-            }
-        }
         private void DisplayTextForQuestionAndAnswers(IList<IQuestion> hardQuestions, int countQuestions)
         {
             displayQuestion.Text = hardQuestions[countQuestions].QuestionText;
@@ -261,6 +185,18 @@ namespace Trivia.UI
             if (fiftyIsEnabled)
             {
                 FiftyBtn.IsEnabled = true;
+            }
+        }
+        private void Navigate(int countQuestions)
+        {
+            if (countQuestions > hardQuestions.Count - 1)
+            {
+                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(engine, currentPlayer.Points, playerName);
+                this.NavigationService.Navigate(endOfThirdLevelPage);
+            }
+            else
+            {
+                DisplayTextForQuestionAndAnswers(hardQuestions, countQuestions);
             }
         }
     }
