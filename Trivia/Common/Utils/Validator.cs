@@ -61,7 +61,7 @@ namespace Trivia.Common.Utils
         {
             if (value < 0)
             {
-                throw new IndexOutOfRangeException(message);
+                throw new ArgumentOutOfRangeException(message);
             }
         }
 
