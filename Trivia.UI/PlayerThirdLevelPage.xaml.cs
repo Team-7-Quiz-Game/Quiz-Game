@@ -25,11 +25,12 @@ namespace Trivia.UI
         private static IList<IQuestion> hardQuestions;
         private static int countQuestions = 0;
         private static NormalPlayer currentPlayer;
+
         public PlayerThirdLevelPage(IEngine engine)
         {
             InitializeComponent();
 
-            this.engine = Engine.Instance;
+            this.engine = engine;
             playerName = engine.Player.Name;
             currentPlayer = (NormalPlayer)engine.Player;
             pointsPlayer = currentPlayer.Points;
@@ -59,7 +60,7 @@ namespace Trivia.UI
 
             if (countQuestions > hardQuestions.Count - 1)
             {
-                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(currentPlayer.Points, playerName);
+                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(this.engine, currentPlayer.Points, playerName);
                 this.NavigationService.Navigate(endOfThirdLevelPage);
             }
             else
@@ -85,7 +86,7 @@ namespace Trivia.UI
 
             if (countQuestions > hardQuestions.Count - 1)
             {
-                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(currentPlayer.Points, playerName);
+                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(this.engine, currentPlayer.Points, playerName);
                 this.NavigationService.Navigate(endOfThirdLevelPage);
             }
             else
@@ -93,6 +94,7 @@ namespace Trivia.UI
                 DisplayTextForQuestionAndAnswers(hardQuestions, countQuestions);
             }
         }
+        
         private void AnswerCButton(object sender, RoutedEventArgs e)
         {
             answerC = hardQuestions[countQuestions].Answers[2].IsCorrect;
@@ -108,10 +110,10 @@ namespace Trivia.UI
 
             DisplayHints();
             countQuestions++;
-
+            
             if (countQuestions > hardQuestions.Count - 1)
             {
-                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(currentPlayer.Points, playerName);
+                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(this.engine, currentPlayer.Points, playerName);
                 this.NavigationService.Navigate(endOfThirdLevelPage);
             }
             else
@@ -135,10 +137,10 @@ namespace Trivia.UI
 
             DisplayHints();
             countQuestions++;
-
+            
             if (countQuestions > hardQuestions.Count - 1)
             {
-                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(currentPlayer.Points, playerName);
+                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(this.engine, currentPlayer.Points, playerName);
                 this.NavigationService.Navigate(endOfThirdLevelPage);
             }
             else
@@ -226,10 +228,10 @@ namespace Trivia.UI
             skippedAnswer.Visibility = Visibility.Visible;
             correctAnswer.Visibility = Visibility.Collapsed;
             wrongAnswer.Visibility = Visibility.Collapsed;
-
+            
             if (countQuestions > hardQuestions.Count - 1)
             {
-                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(currentPlayer.Points, playerName);
+                EndOfThirdLevel endOfThirdLevelPage = new EndOfThirdLevel(this.engine, currentPlayer.Points, playerName);
                 this.NavigationService.Navigate(endOfThirdLevelPage);
             }
             else

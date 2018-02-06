@@ -11,10 +11,10 @@ namespace Trivia.UI
     public partial class EndOfFirstLevelPage : Page
     {
         private IEngine engine;
-        public EndOfFirstLevelPage(int pointsPlayer, string playerName)
+        public EndOfFirstLevelPage(IEngine engine, int pointsPlayer, string playerName)
         {
             InitializeComponent();
-            engine = Engine.Instance;
+            this.engine = engine;
             pPoints.Text = pointsPlayer.ToString();
             pNameTB.Text = playerName;
         }

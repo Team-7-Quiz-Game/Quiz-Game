@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnswerHolder.cs" />
+    <Compile Include="Contracts\IDatabase.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="Factory.cs" />

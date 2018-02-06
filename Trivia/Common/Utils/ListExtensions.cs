@@ -7,6 +7,7 @@ namespace Trivia.Common.Utils
     {
         private static Random rng = new Random();
 
+        // Shallow copy
         public static IList<T> Clone<T>(this IList<T> listToClone)
         {
             Validator.CheckIfNull(listToClone, string.Format(GlobalConstants.ObjectCannotBeNull, "List"));

@@ -31,10 +31,11 @@ namespace Trivia.UI
         private static bool answerD;
         private static int countQuestions = 0;
         private static int points;
-        public QuizzardTestTimedQuestion()
+
+        public QuizzardTestTimedQuestion(IEngine engine)
         {
             InitializeComponent();
-            this.engine = Engine.Instance;
+            this.engine = engine;
 
             engine.QuizzardQuestions.Shuffle();
             foreach (var question in engine.QuizzardQuestions)

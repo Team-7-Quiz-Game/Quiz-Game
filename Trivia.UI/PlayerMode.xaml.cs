@@ -14,11 +14,11 @@ namespace Trivia.UI
     {
         private IEngine engine;
         private string name;
-        private List<string> checkedCategories;
+        private IList<string> checkedCategories;
 
-        public PlayerMode()
+        public PlayerMode(IEngine engine)
         {
-            engine = Engine.Instance;
+            this.engine = engine;
             InitializeComponent();
             // We put the checked by the user categories in a list.
             checkedCategories = new List<string>();
@@ -38,9 +38,9 @@ namespace Trivia.UI
                 checkedCategories.Remove(s);
             }
         }
+
         // Button for the Regular Player Page. It takes the checked categories.
         // We define a name variable that will take when the user presses the button either Go, Player or Go, Quizzard
-
         private void GoPlayer(object sender, RoutedEventArgs e)
         {
             name = pName.Text;
@@ -57,13 +57,14 @@ namespace Trivia.UI
             PlayerFirstLevelPage firstLevelPagePlayer = new PlayerFirstLevelPage(this.engine);
             this.NavigationService.Navigate(firstLevelPagePlayer);
         }
+
         // Button for the Quizzard Page.
         private void GoQuizzard(object sender, RoutedEventArgs e)
         {
             name = pName.Text;
             var player = engine.CreateQuizzardPlayer(name);
             this.engine.Player = (QuizzardPlayer)player;
-            QuizzardInitialPage quizzardInitialPage = new QuizzardInitialPage();
+            QuizzardInitialPage quizzardInitialPage = new QuizzardInitialPage(this.engine);
             this.NavigationService.Navigate(quizzardInitialPage);
         }
     }

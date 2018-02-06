@@ -11,8 +11,7 @@ namespace Trivia.Core
 {
     public class Engine : IEngine
     {
-        private readonly static IEngine engine = new Engine();
-        private readonly Database database;
+        private readonly IDatabase database;
         private readonly IFactory factory;
         private IPlayer player;
         private readonly IDictionary<string, ICategory> categories;
@@ -23,20 +22,20 @@ namespace Trivia.Core
         private Hint fiftyFifty;
         private Hint skipQuestion;
 
-        private Engine()
+        public Engine(IFactory factory, IDatabase database)
         {
-            this.factory = Factory.Instance;
-            this.database = Database.Instance;
+            this.factory = factory;
+            this.database = database;
+
             this.categories = new Dictionary<string, ICategory>();
             this.easyQuestions = new List<IQuestion>();
             this.normalQuestions = new List<IQuestion>();
             this.hardQuestions = new List<IQuestion>();
             this.quizzardQuestions = new List<IQuestion>();
+
             this.fiftyFifty = this.CreateFiftyFiftyHint();
             this.skipQuestion = this.CreateSkipQuestionHint();
         }
-
-        public static IEngine Instance => engine;
 
         public IPlayer Player { get => player; set => player = value; }
 
@@ -156,7 +155,7 @@ namespace Trivia.Core
             return this.factory.CreateQuizzardPlayer(name);
         }
 
-        //FOR QUIZZARD MODE BELLOW
+        // FOR QUIZZARD MODE BELLOW
 
         public IAnswer CreateAnswer(string answerText, bool isCorrect)
         {
