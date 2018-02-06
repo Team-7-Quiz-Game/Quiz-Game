@@ -4,7 +4,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Trivia.Contracts;
-using Trivia.Core;
 using Trivia.Core.Contracts;
 using Trivia.Models.Player;
 
@@ -17,14 +16,11 @@ namespace Trivia.UI
     {
         private IEngine engine;
         private string playerName;
+        private static bool isCorrectAnswer;
         private static int pointsPlayer;
         private static IList<IQuestion> normalQuestions;
         private static int countQuestions = 0;
-        private static bool answerA;
-        private static bool answerB;
-        private static bool answerC;
-        private static bool answerD;
-        static NormalPlayer currentPlayer;
+        private static NormalPlayer currentPlayer;
 
         public PlayerSecondLevelPage(IEngine engine)
         {
@@ -41,11 +37,28 @@ namespace Trivia.UI
             DisplayTextForQuestionAndAnswers(normalQuestions, countQuestions);
             DisplayHints();
         }
-        private void AnswerAButton(object sender, RoutedEventArgs e)
+        private void AnswerButton(object sender, RoutedEventArgs e)
         {
-            answerA = normalQuestions[countQuestions].Answers[0].IsCorrect;
+            var clickedBtn = (Button)sender;
+            var name = clickedBtn.Name;
 
-            if (answerA)
+            switch (name)
+            {
+                case "displayAnswerA":
+                    isCorrectAnswer = normalQuestions[countQuestions].Answers[0].IsCorrect;
+                    break;
+                case "displayAnswerB":
+                    isCorrectAnswer = normalQuestions[countQuestions].Answers[1].IsCorrect;
+                    break;
+                case "displayAnswerC":
+                    isCorrectAnswer = normalQuestions[countQuestions].Answers[2].IsCorrect;
+                    break;
+                case "displayAnswerD":
+                    isCorrectAnswer = normalQuestions[countQuestions].Answers[3].IsCorrect;
+                    break;
+            }
+
+            if (isCorrectAnswer)
             {
                 TakeActionsUponCorrectAnswer();
             }
@@ -56,97 +69,9 @@ namespace Trivia.UI
 
             DisplayHints();
             countQuestions++;
-
-            if (countQuestions > normalQuestions.Count - 1)
-            {
-                EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(this.engine, currentPlayer.Points, playerName);
-                this.NavigationService.Navigate(endOfSecondLevelPage);
-            }
-            else
-            {
-                DisplayTextForQuestionAndAnswers(normalQuestions, countQuestions);
-            }
+            Navigate(countQuestions);
         }
-        private void AnswerBButton(object sender, RoutedEventArgs e)
-        {
-            answerB = normalQuestions[countQuestions].Answers[1].IsCorrect;
-
-            if (answerB)
-            {
-                TakeActionsUponCorrectAnswer();
-            }
-            else
-            {
-                TakeActionsUponWrongAnswer();
-            }
-
-            DisplayHints();
-            countQuestions++;
-
-            if (countQuestions > normalQuestions.Count - 1)
-            {
-                EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(this.engine, currentPlayer.Points, playerName);
-                this.NavigationService.Navigate(endOfSecondLevelPage);
-            }
-            else
-            {
-                DisplayTextForQuestionAndAnswers(normalQuestions, countQuestions);
-            }
-        }
-
-        private void AnswerCButton(object sender, RoutedEventArgs e)
-        {
-            answerC = normalQuestions[countQuestions].Answers[2].IsCorrect;
-
-            if (answerC)
-            {
-                TakeActionsUponCorrectAnswer();
-            }
-            else
-            {
-                TakeActionsUponWrongAnswer();
-            }
-
-            DisplayHints();
-            countQuestions++;
-
-            if (countQuestions > normalQuestions.Count - 1)
-            {
-                EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(this.engine, currentPlayer.Points, playerName);
-                this.NavigationService.Navigate(endOfSecondLevelPage);
-            }
-            else
-            {
-                DisplayTextForQuestionAndAnswers(normalQuestions, countQuestions);
-            }
-        }
-
-        private void AnswerDButton(object sender, RoutedEventArgs e)
-        {
-            answerD = normalQuestions[countQuestions].Answers[3].IsCorrect;
-
-            if (answerD)
-            {
-                TakeActionsUponCorrectAnswer();
-            }
-            else
-            {
-                TakeActionsUponWrongAnswer();
-            }
-
-            DisplayHints();
-            countQuestions++;
-
-            if (countQuestions > normalQuestions.Count - 1)
-            {
-                EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(this.engine, currentPlayer.Points, playerName);
-                this.NavigationService.Navigate(endOfSecondLevelPage);
-            }
-            else
-            {
-                DisplayTextForQuestionAndAnswers(normalQuestions, countQuestions);
-            }
-        }
+      
         private void DisplayTextForQuestionAndAnswers(IList<IQuestion> normalQuestions, int countQuestions)
         {
             displayQuestion.Text = normalQuestions[countQuestions].QuestionText;
@@ -259,6 +184,19 @@ namespace Trivia.UI
             if (fiftyIsEnabled)
             {
                 FiftyBtn.IsEnabled = true;
+            }
+        }
+
+        private void Navigate(int countQuestions)
+        {
+            if (countQuestions > normalQuestions.Count - 1)
+            {
+                EndOfSecondLevelPage endOfSecondLevelPage = new EndOfSecondLevelPage(engine, currentPlayer.Points, playerName);
+                this.NavigationService.Navigate(endOfSecondLevelPage);
+            }
+            else
+            {
+                DisplayTextForQuestionAndAnswers(normalQuestions, countQuestions);
             }
         }
     }

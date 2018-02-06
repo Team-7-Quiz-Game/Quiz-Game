@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Trivia.Common.Enums;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using Trivia.Models.Player;
 
 namespace Trivia.Tests
@@ -27,6 +26,7 @@ namespace Trivia.Tests
             var normalPlayer = new NormalPlayer("Pink Unicorn");
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => normalPlayer.Points = -10);
         }
+
         [TestMethod]
         public void QuizzardPlayerConstructorShouldCreatePlayerWithGivenName()
         {
