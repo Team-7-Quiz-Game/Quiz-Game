@@ -20,15 +20,41 @@ namespace Trivia.Common.Utils
                 throw new NullReferenceException(message);
             }
         }
-
-        // This way we cannot know which element of the array throws = Bad. (works for now, fix later)
-        public static void CheckIfStringCollectionHasNullOrEmpty(string[] array, string message = null)
+        
+        public static void CheckIfStringArrayHasNullOrEmpty(string[] array, string message = null)
         {
             for (int i = 0; i < array.Length; i++)
             {
                 if (string.IsNullOrEmpty(array[i]))
                 {
-                    throw new NullReferenceException(message);
+                    string element = null;
+
+                    if (i == 0)
+                    {
+                        element = "Question text";
+                    }
+
+                    if (i == 1)
+                    {
+                        element = "Answer A";
+                    }
+
+                    if (i == 2)
+                    {
+                        element = "Answer B";
+                    }
+
+                    if (i == 3)
+                    {
+                        element = "Answer C";
+                    }
+
+                    if (i == 4)
+                    {
+                        element = "Answer D";
+                    }
+
+                    throw new NullReferenceException(($"{message} >{element}!"));
                 }
             }
         }

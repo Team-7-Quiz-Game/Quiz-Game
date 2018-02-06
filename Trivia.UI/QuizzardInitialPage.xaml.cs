@@ -16,7 +16,7 @@ namespace Trivia.UI
     {
         private IEngine engine;
         private QuizzardPlayer player;
-        private string question;
+        private string questionText;
         private string answerACorrect;
         private string answerB;
         private string answerC;
@@ -35,43 +35,42 @@ namespace Trivia.UI
         
         private void AddQuestionButton(object sender, RoutedEventArgs e)
         {
-            question = Question.Text;
+            this.questionText = Question.Text;
             answerACorrect = AnswerA.Text; 
             answerB = AnswerB.Text;
             answerC = AnswerC.Text;
             answerD = AnswerD.Text;
-            IQuestion q;
+            IQuestion question;
+
+            Validator.CheckIfStringArrayHasNullOrEmpty(new string[] { questionText, answerACorrect, answerB, answerC, answerD }, "Quizzard question or answer cannot be null or empty!");
 
             if (rBtnNormal.IsChecked == true)
             {
-                q = this.engine.CreateNormalQuestion(question, DifficultyLevel.Easy, CategoryType.Random);
+                question = this.engine.CreateNormalQuestion(questionText, DifficultyLevel.Easy, CategoryType.Random);
             }
             else if (rBtnBonus.IsChecked == true)
             {
                 int multiplyBy = (int)this.multiValue;
                 
                 Validator.CheckIntRange(multiplyBy, GlobalConstants.MinPointsMultiplier, GlobalConstants.MaxPointsMultiplier, string.Format(GlobalConstants.NumberMustBeBetweenMinAndMax,"Point's multiplier", GlobalConstants.MinPointsMultiplier, GlobalConstants.MaxPointsMultiplier));
-                q = this.engine.CreateBonusQuestion(question, DifficultyLevel.Easy, CategoryType.Random, multiplyBy);
+                question = this.engine.CreateBonusQuestion(questionText, DifficultyLevel.Easy, CategoryType.Random, multiplyBy);
             }
             else
             {
                 int time = (int)this.timerValue;
 
                 Validator.CheckIntRange(time, GlobalConstants.MinTimeForAnswer, GlobalConstants.MaxTimeForAnswer, string.Format(GlobalConstants.NumberMustBeBetweenMinAndMax, "Question's timer", GlobalConstants.MinTimeForAnswer, GlobalConstants.MaxTimeForAnswer));
-                q = this.engine.CreateTimedQuestion(question, DifficultyLevel.Easy, CategoryType.Random, time);
+                question = this.engine.CreateTimedQuestion(questionText, DifficultyLevel.Easy, CategoryType.Random, time);
             }
-
-            Validator.CheckIfStringCollectionHasNullOrEmpty(new string[] { question, answerACorrect, answerB, answerC, answerD }, "Quizzard question or answer cannot be null or empty!");
-
             
-            var a1 = this.engine.CreateAnswer(answerACorrect, true);
-            var a2 = this.engine.CreateAnswer(answerB, false);
-            var a3 = this.engine.CreateAnswer(answerC, false);
-            var a4 = this.engine.CreateAnswer(answerD, false);
-            q.AddAnswerFluent(a1).AddAnswerFluent(a2).AddAnswerFluent(a3).AddAnswerFluent(a4);
+            var anwerOne = this.engine.CreateAnswer(answerACorrect, true);
+            var answerTwo = this.engine.CreateAnswer(answerB, false);
+            var answerThree = this.engine.CreateAnswer(answerC, false);
+            var answerFour = this.engine.CreateAnswer(answerD, false);
+            question.AddAnswerFluent(anwerOne).AddAnswerFluent(answerTwo).AddAnswerFluent(answerThree).AddAnswerFluent(answerFour);
 
             QuizzardPlayer quizzard = (QuizzardPlayer)engine.Player;
-            quizzard.AddQuestion(q);
+            quizzard.AddQuestion(question);
 
             QuizzardInitialPage quizzardInitialPage = new QuizzardInitialPage(this.engine);
             this.NavigationService.Navigate(quizzardInitialPage);

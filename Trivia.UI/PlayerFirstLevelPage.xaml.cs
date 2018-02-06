@@ -17,10 +17,7 @@ namespace Trivia.UI
     {
         private IEngine engine;
         private string playerName;
-        private static bool answerA;
-        private static bool answerB;
-        private static bool answerC;
-        private static bool answerD;
+        private static bool isCorrectAnswer;
         private static int pointsPlayer;
         private static IList<IQuestion> easyQuestions;
         private static int countQuestions = 0;
@@ -42,65 +39,28 @@ namespace Trivia.UI
             DisplayTextForQuestionAndAnswers(easyQuestions, countQuestions);
         }
 
-        private void AnswerAButton(object sender, RoutedEventArgs e)
+        private void AnswerButton(object sender, RoutedEventArgs e)
         {
-            answerA = easyQuestions[countQuestions].Answers[0].IsCorrect;
+            var clickedBtn = (Button)sender;
+            var name = clickedBtn.Name;
 
-            if (answerA)
+            switch (name)
             {
-                TakeActionsUponCorrectAnswer();
-            }
-            else
-            {
-                TakeActionsUponWrongAnswer();
-            }
-
-            DisplayHints();
-            countQuestions++;
-            Navigate(countQuestions);
-        }
-
-        private void AnswerBButton(object sender, RoutedEventArgs e)
-        {
-            answerB = easyQuestions[countQuestions].Answers[1].IsCorrect;
-
-            if (answerB)
-            {
-                TakeActionsUponCorrectAnswer();
-            }
-            else
-            {
-                TakeActionsUponWrongAnswer();
+                case "displayAnswerA":
+                    isCorrectAnswer = easyQuestions[countQuestions].Answers[0].IsCorrect;
+                    break;
+                case "displayAnswerB":
+                    isCorrectAnswer = easyQuestions[countQuestions].Answers[1].IsCorrect;
+                    break;
+                case "displayAnswerC":
+                    isCorrectAnswer = easyQuestions[countQuestions].Answers[2].IsCorrect;
+                    break;
+                case "displayAnswerD":
+                    isCorrectAnswer = easyQuestions[countQuestions].Answers[3].IsCorrect;
+                    break;
             }
 
-            DisplayHints();
-            countQuestions++;
-            Navigate(countQuestions);
-        }
-
-        private void AnswerCButton(object sender, RoutedEventArgs e)
-        {
-            answerC = easyQuestions[countQuestions].Answers[2].IsCorrect;
-
-            if (answerC)
-            {
-                TakeActionsUponCorrectAnswer();
-            }
-            else
-            {
-                TakeActionsUponWrongAnswer();
-            }
-
-            DisplayHints();
-            countQuestions++;
-            Navigate(countQuestions);
-        }
-
-        private void AnswerDButton(object sender, RoutedEventArgs e)
-        {
-            answerD = easyQuestions[countQuestions].Answers[3].IsCorrect;
-
-            if (answerD)
+            if (isCorrectAnswer)
             {
                 TakeActionsUponCorrectAnswer();
             }

@@ -38,9 +38,9 @@ namespace Trivia.UI
                 checkedCategories.Remove(s);
             }
         }
+
         // Button for the Regular Player Page. It takes the checked categories.
         // We define a name variable that will take when the user presses the button either Go, Player or Go, Quizzard
-
         private void GoPlayer(object sender, RoutedEventArgs e)
         {
             name = pName.Text;
