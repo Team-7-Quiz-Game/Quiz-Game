@@ -10,8 +10,7 @@ namespace Trivia.Program
     public class StartUp
     {
         static void Main()
-        {
-           // TimeSpan s = new TimeSpan(0, 0, 100);            
+        {          
         }
     }
 }
