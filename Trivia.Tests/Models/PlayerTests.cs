@@ -1,8 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using System;
+using Trivia.Core.Contracts;
 using Trivia.Models.Player;
 
-namespace Trivia.Tests
+namespace Trivia.Tests.Models
 {
     [TestClass]
     public class PlayerTests

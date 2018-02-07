@@ -1,7 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using System;
 using System.Collections.Generic;
+using Trivia.Contracts;
+using Trivia.Core.Contracts;
+using Trivia.Models.Question;
 
-namespace Trivia.Tests
+namespace Trivia.Tests.Models
 {
     [TestClass]
     public class CategoryTests
