@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Trivia.Tests.Engine
+namespace Trivia.Tests.EngineTests
 {
-    public class EngineTests
+    public class DatabaseTests
     {
     }
 }
