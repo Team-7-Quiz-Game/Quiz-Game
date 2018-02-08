@@ -11,7 +11,7 @@ using Trivia.Core;
 using Trivia.Core.Contracts;
 using Trivia.Models.Question;
 
-namespace Trivia.Tests.EngineTests
+namespace Trivia.Tests.CoreTests
 {
     [TestClass]
     public class FactoryTests
