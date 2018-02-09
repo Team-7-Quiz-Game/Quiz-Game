@@ -4,13 +4,16 @@ using Trivia.Core.Contracts;
 using Trivia.Core;
 using Trivia.Common.Enums;
 using System;
+using Trivia.Contracts;
+using Trivia.Models.Category;
+using System.Collections.Generic;
+using Trivia.Common.Exceptions;
 
 namespace Trivia.Tests.CoreTests
 {
     [TestClass]
     public class EngineTests
     {
-        // TODO: Test  public void CreateCategory(IList<string> categories) from Engine
         [TestMethod]
         public void EngineShouldNotBeNull()
         {
@@ -264,6 +267,114 @@ namespace Trivia.Tests.CoreTests
             var engine = new Engine(mockFactory.Object, mockDatabase.Object);
             var hardQuestionsList = engine.GetHardQuestions();
             Assert.IsNotNull(hardQuestionsList);
+        }
+
+        [TestCategory("CreateCategoryTests")]
+        [TestMethod]
+        public void EngineShouldThrowNullReferenceExceptionWhenNullListParameterIsProvidedForCreateCategory()
+        {
+            var mockFactory = new Mock<IFactory>();
+            var mockDatabase = new Mock<IDatabase>();
+            var engine = new Engine(mockFactory.Object, mockDatabase.Object);
+
+            Assert.ThrowsException<NullReferenceException>(() => engine.CreateCategory(null));
+        }
+
+        [TestCategory("CreateCategoryTests")]
+        [TestMethod]
+        public void EngineShouldThrowCategoryAlreadyExistsExceptionWhenSameCategoryIsProvidedForCreateCategory()
+        {
+            var mockFactory = new Mock<IFactory>();
+            var mockDatabase = new Mock<IDatabase>();
+            var engine = new Engine(mockFactory.Object, mockDatabase.Object);
+            var mockMath = new Mock<ICategory>();
+
+            mockFactory.Setup(x => x.CreateCategory(CategoryType.Math)).Returns(mockMath.Object);
+            mockDatabase.Setup(x => x.GetRandomQuestions(It.IsAny<ICategory>(), It.IsAny<int>())).Returns(new List<IQuestion>());
+
+            var categories = new List<string>() { "Math", "Math" };
+
+            Assert.ThrowsException<CategoryAlreadyExistsException>(() => engine.CreateCategory(categories));
+        }
+
+        [TestCategory("CreateCategoryTests")]
+        [TestMethod]
+        public void EngineShouldCallFactoryCreateCategoryMethodOnceWhenOneCategoryIsProvidedForCreateCategory()
+        {
+            var mockFactory = new Mock<IFactory>();
+            var mockDatabase = new Mock<IDatabase>();
+            var engine = new Engine(mockFactory.Object, mockDatabase.Object);
+            var mockMath = new Mock<ICategory>();
+
+            mockFactory.Setup(x => x.CreateCategory(CategoryType.Math)).Returns(mockMath.Object);
+            mockDatabase.Setup(x => x.GetRandomQuestions(It.IsAny<ICategory>(), It.IsAny<int>())).Returns(new List<IQuestion>());
+
+            var categories = new List<string>() { "Math" };
+
+            engine.CreateCategory(categories);
+
+            mockFactory.Verify(x => x.CreateCategory(It.IsAny<CategoryType>()), Times.Once);
+        }
+
+        [TestCategory("CreateCategoryTests")]
+        [TestMethod]
+        public void EngineShouldHaveExactlyTwoCategoriesWhenTwoCategoriesAreProvidedForCreateCategory()
+        {
+            var mockFactory = new Mock<IFactory>();
+            var mockDatabase = new Mock<IDatabase>();
+            var engine = new Engine(mockFactory.Object, mockDatabase.Object);
+            var mockMath = new Mock<ICategory>();
+            var mockHistory = new Mock<ICategory>();
+
+            mockFactory.Setup(x => x.CreateCategory(CategoryType.Math)).Returns(mockMath.Object);
+            mockFactory.Setup(x => x.CreateCategory(CategoryType.History)).Returns(mockHistory.Object);
+            mockDatabase.Setup(x => x.GetRandomQuestions(It.IsAny<ICategory>(), It.IsAny<int>())).Returns(new List<IQuestion>());
+
+            var categories = new List<string>() { "Math", "History" };
+
+            engine.CreateCategory(categories);
+
+            Assert.AreEqual(2, engine.Categories.Count);
+        }
+
+        [TestCategory("CreateCategoryTests")]
+        [TestMethod]
+        public void EngineShouldReturnDifferentCopiesOfCategoriesForCategoriesProperty()
+        {
+            var mockFactory = new Mock<IFactory>();
+            var mockDatabase = new Mock<IDatabase>();
+            var engine = new Engine(mockFactory.Object, mockDatabase.Object);
+            var mockMath = new Mock<ICategory>();
+            var mockHistory = new Mock<ICategory>();
+
+            mockFactory.Setup(x => x.CreateCategory(CategoryType.Math)).Returns(mockMath.Object);
+            mockFactory.Setup(x => x.CreateCategory(CategoryType.History)).Returns(mockHistory.Object);
+            mockDatabase.Setup(x => x.GetRandomQuestions(It.IsAny<ICategory>(), It.IsAny<int>())).Returns(new List<IQuestion>());
+
+            var categories = new List<string>() { "Math", "History" };
+
+            engine.CreateCategory(categories);
+
+            Assert.AreNotSame(categories, engine.Categories);
+        }
+
+        [TestCategory("CreateCategoryTests")]
+        [TestMethod]
+        public void EngineShouldCallDatabaseGetRandomQuetionsMethodOnceWhenOneCategoryIsProvidedForCreateCategory()
+        {
+            var mockFactory = new Mock<IFactory>();
+            var mockDatabase = new Mock<IDatabase>();
+            var engine = new Engine(mockFactory.Object, mockDatabase.Object);
+            var mockMath = new Mock<ICategory>();
+
+            mockFactory.Setup(x => x.CreateCategory(CategoryType.Math)).Returns(mockMath.Object);
+            mockDatabase.Setup(x => x.GetRandomQuestions(It.IsAny<ICategory>(), It.IsAny<int>())).Returns(new List<IQuestion>());
+
+            var categories = new List<string>() { "Math" };
+
+            engine.CreateCategory(categories);
+
+            mockDatabase.Verify(x => x.GetRandomQuestions(It.IsAny<ICategory>(), It.IsAny<int>()), Times.Once);
         }
     }
 }

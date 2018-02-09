@@ -39,6 +39,8 @@ namespace Trivia.Core
 
         public IPlayer Player { get => player; set => player = value; }
 
+        public IDictionary<string, ICategory> Categories => new Dictionary<string, ICategory>(this.categories);
+
         public IList<IQuestion> EasyQuestions => this.GetEasyQuestions();
 
         public IList<IQuestion> NormalQuestions => this.GetNormalQuestions();
