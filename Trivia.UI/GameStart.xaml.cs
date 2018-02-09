@@ -15,6 +15,7 @@ namespace Trivia.UI
         {
             InitializeComponent();
         }
+
         private void StartGameButton(object sender, RoutedEventArgs e)
         {
             var builder = new ContainerBuilder();

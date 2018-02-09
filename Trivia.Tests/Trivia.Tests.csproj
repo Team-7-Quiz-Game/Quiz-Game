@@ -50,6 +50,7 @@
     <Reference Include="Moq, Version=4.8.0.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.8.1\lib\net45\Moq.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -58,6 +59,9 @@
     </Reference>
     <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="TestStack.White, Version=0.13.0.0, Culture=neutral, PublicKeyToken=2672efbf3e161801, processorArchitecture=MSIL">
+      <HintPath>..\packages\TestStack.White.0.13.3\lib\net40\TestStack.White.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -72,8 +76,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="UITests\GameStartTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -84,6 +90,10 @@
     <ProjectReference Include="..\Trivia.Core\Trivia.Core.csproj">
       <Project>{E0191A63-82A3-4216-8FB5-22CC07BAECF5}</Project>
       <Name>Trivia.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Trivia.UI\Trivia.UI.csproj">
+      <Project>{A8D6F766-6E38-4F3F-9146-DD4D07704911}</Project>
+      <Name>Trivia.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\Trivia\Trivia.csproj">
       <Project>{DCA06CD0-F54F-4EA9-A7E0-5C21961A3F03}</Project>

@@ -8,7 +8,7 @@
       Title="PlayerMode">
 
     <Grid>
-        <Label Content="Choose your mode" HorizontalAlignment="Left" Height="64" Margin="211,38,0,0" VerticalAlignment="Top" Width="484" FontSize="48" FontFamily="Showcard Gothic">
+        <Label Name="ChooseMode" Content="Choose your mode" HorizontalAlignment="Left" Height="64" Margin="211,38,0,0" VerticalAlignment="Top" Width="484" FontSize="48" FontFamily="Showcard Gothic">
             <Label.Effect>
                 <DropShadowEffect Color="#FFE366FF" ShadowDepth="7"/>
             </Label.Effect>

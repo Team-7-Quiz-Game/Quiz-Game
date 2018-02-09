@@ -6,6 +6,6 @@
         MinWidth="900"
         MaxHeight="700"
         MaxWidth="900"
-                  Source="GameStart.xaml">
+              Source="GameStart.xaml">
 
 </NavigationWindow>
