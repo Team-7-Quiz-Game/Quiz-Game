@@ -101,7 +101,6 @@ namespace Trivia.Core
 
             var Random = factory.CreateCategory(CategoryType.Random);
             this.categories.Add(Random);
-
         }
 
         private void PopulateQuestions()
