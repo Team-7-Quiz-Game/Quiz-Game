@@ -102,7 +102,7 @@ namespace Trivia.Tests.CoreTests
         }
 
         [TestMethod]
-        public void CreateABonusQuestionShouldThrowAnExeptionWhenPointsMultiplierIsLessThanTheGivenMaxValue()
+        public void CreateABonusQuestionShouldThrowAnExeptionWhenPointsMultiplierIsLessThanTheGivenMinValue()
         {
             var questionText = "Who wrote \"The Great Gatsby\"?";
             var categoryType = CategoryType.Literature;
@@ -122,6 +122,64 @@ namespace Trivia.Tests.CoreTests
             IQuestion bonusQuestion = factory.CreateBonusQuestion(questionText, DifficultyLevel.Hard, categoryType, pointsMultiplier);
 
             Assert.IsInstanceOfType(bonusQuestion, typeof(Question));
+        }
+
+        [TestMethod]
+        public void CreateATimedQuestionShouldReturnTheTimedQuestionWithTheProperText()
+        {
+            var questionText = "Are we testing the timed question now?";
+            var categoryType = CategoryType.Random;
+            var timeForAnswer = 10;
+            var factory = new Factory();
+            IQuestion timedQuestion = factory.CreateTimedQuestion(questionText, DifficultyLevel.Easy, categoryType, timeForAnswer);
+
+            Assert.AreEqual("Are we testing the timed question now?", timedQuestion.QuestionText);
+        }
+
+        [TestMethod]
+        public void CreateATimedQuestionShouldReturnAQuestionInTheProperCategory()
+        {
+            var questionText = "So now we are testing the category, right?";
+            var categoryType = CategoryType.Movies;
+            var timeForAnswer = 12;
+            var factory = new Factory();
+            IQuestion timedQuestion = factory.CreateTimedQuestion(questionText, DifficultyLevel.Easy, categoryType, timeForAnswer);
+
+            Assert.AreEqual(categoryType, timedQuestion.CategoryType);
+        }
+
+        [TestMethod]
+        public void CreateATimedQuestionShouldThrowAnExeptionWhenTheTimeForAnswerIsGreaterThanTheGivenMaxValue()
+        {
+            var questionText = "We are testing now the max value?";
+            var categoryType = CategoryType.Literature;
+            var timeForAnswer = 50;
+            var factory = new Factory();
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => factory.CreateTimedQuestion(questionText, DifficultyLevel.Easy, categoryType, timeForAnswer));
+        }
+
+        [TestMethod]
+        public void CreateATimedQuestionShouldThrowAnExeptionWhenTheTimeForAnswerIsLessThanTheGivenMinValue()
+        {
+            var questionText = "We are testing now a value lower than the min one?";
+            var categoryType = CategoryType.Literature;
+            var timeForAnswer = -1;
+            var factory = new Factory();
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => factory.CreateTimedQuestion(questionText, DifficultyLevel.Easy, categoryType, timeForAnswer));
+        }
+
+        [TestMethod]
+        public void CreateATimedQuestionMethodShouldCreateATypeOfQuestion()
+        {
+            var questionText = "Are we testing now the type of the created object?";
+            var categoryType = CategoryType.Movies;
+            var timeForAnswer = 10;
+            var factory = new Factory();
+            IQuestion timedQuestion = factory.CreateTimedQuestion(questionText, DifficultyLevel.Hard, categoryType, timeForAnswer);
+
+            Assert.IsInstanceOfType(timedQuestion, typeof(Question));
         }
 
         [TestMethod]
