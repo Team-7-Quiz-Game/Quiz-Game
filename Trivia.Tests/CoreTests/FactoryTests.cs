@@ -16,7 +16,6 @@ namespace Trivia.Tests.CoreTests
     [TestClass]
     public class FactoryTests
     {
-        // TODO: check if tests are correct
         [TestMethod]
         public void CreateAnswerMethodShouldCreateACorrectAnswerWithGivenText()
         {
@@ -65,6 +64,64 @@ namespace Trivia.Tests.CoreTests
             IAnswer answer = factory.CreateAnswer(answerText, true);
 
             Assert.IsInstanceOfType(answer, typeof(Answer));
+        }
+
+        [TestMethod]
+        public void CreateABonusQuestionShouldReturnTheBonusQuestionWithTheProperText()
+        {
+            var questionText = "Who wrote \"The Great Gatsby\"?";
+            var categoryType = CategoryType.Literature;
+            var pointsMultiplier = 5;
+            var factory = new Factory();
+            IQuestion bonusQuestion = factory.CreateBonusQuestion(questionText, DifficultyLevel.Easy, categoryType, pointsMultiplier);
+
+            Assert.AreEqual("Who wrote \"The Great Gatsby\"?", bonusQuestion.QuestionText);
+        }
+
+        [TestMethod]
+        public void CreateABonusQuestionShouldReturnAQuestionInTheProperCategory()
+        {
+            var questionText = "Who wrote \"The Great Gatsby\"?";
+            var categoryType = CategoryType.Literature;
+            var pointsMultiplier = 5;
+            var factory = new Factory();
+            IQuestion bonusQuestion = factory.CreateBonusQuestion(questionText, DifficultyLevel.Hard, categoryType, pointsMultiplier);
+
+            Assert.AreEqual(categoryType, bonusQuestion.CategoryType);
+        }
+
+        [TestMethod]
+        public void CreateABonusQuestionShouldThrowAnExeptionWhenPointsMultiplierIsGreaterThanTheGivenMaxValue()
+        {
+            var questionText = "Who wrote \"The Great Gatsby\"?";
+            var categoryType = CategoryType.Literature;
+            var pointsMultiplier = 20;
+            var factory = new Factory();          
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => factory.CreateBonusQuestion(questionText, DifficultyLevel.Easy, categoryType, pointsMultiplier));
+        }
+
+        [TestMethod]
+        public void CreateABonusQuestionShouldThrowAnExeptionWhenPointsMultiplierIsLessThanTheGivenMaxValue()
+        {
+            var questionText = "Who wrote \"The Great Gatsby\"?";
+            var categoryType = CategoryType.Literature;
+            var pointsMultiplier = -1;
+            var factory = new Factory();
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => factory.CreateBonusQuestion(questionText, DifficultyLevel.Easy, categoryType, pointsMultiplier));
+        }
+
+        [TestMethod]
+        public void CreateABonusQuestionMethodShouldCreateATypeOfQuestion()
+        {
+            var questionText = "Who wrote \"The Great Gatsby\"?";
+            var categoryType = CategoryType.Literature;
+            var pointsMultiplier = 5;
+            var factory = new Factory();
+            IQuestion bonusQuestion = factory.CreateBonusQuestion(questionText, DifficultyLevel.Hard, categoryType, pointsMultiplier);
+
+            Assert.IsInstanceOfType(bonusQuestion, typeof(Question));
         }
 
         [TestMethod]
