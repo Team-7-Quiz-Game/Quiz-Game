@@ -71,7 +71,7 @@ namespace Trivia.Common.Utils
         {
             if (value < min || value > max)
             {
-                throw new IndexOutOfRangeException(message);
+                throw new ArgumentOutOfRangeException(message);
             }
         }
 
@@ -79,7 +79,7 @@ namespace Trivia.Common.Utils
         {
             if (value > max)
             {
-                throw new IndexOutOfRangeException(message);
+                throw new ArgumentOutOfRangeException(message);
             }
         }
 

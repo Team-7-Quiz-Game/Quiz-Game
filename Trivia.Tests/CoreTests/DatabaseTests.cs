@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Trivia.Tests.EngineTests
+namespace Trivia.Tests.CoreTests
 {
     public class DatabaseTests
     {
