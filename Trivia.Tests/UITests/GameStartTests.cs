@@ -24,11 +24,10 @@ namespace Trivia.Tests.UITests
         }
 
         [TestMethod]
-        public void IsStartButtonClicked()
+        public void ClickStartButtonShouldGoToPlayerModePageSuccessfully()
         {
             Window window = app.GetWindow("Let's Get Quizzical", InitializeOption.NoCache);
             var startBtn = window.Get<Button>("StartBtn");
-            var test = window.Exists<Label>("ChooseMode");
 
             startBtn.Click();
 
