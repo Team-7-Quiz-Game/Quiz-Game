@@ -17,8 +17,8 @@
         <Label Content="Quizzard" HorizontalAlignment="Left" Height="36" Margin="627,185,0,0" VerticalAlignment="Top" Width="131" FontFamily="Showcard Gothic" FontSize="24" RenderTransformOrigin="0.513,0.513"/>
         <Label Content="Name" HorizontalAlignment="Left" Height="42" Margin="288,131,0,0" VerticalAlignment="Top" Width="77" FontFamily="Showcard Gothic" FontSize="24"/>
         <Label Content="Choose categories" HorizontalAlignment="Left" Height="29" Margin="118,240,0,0" VerticalAlignment="Top" Width="190" FontFamily="Showcard Gothic" FontSize="18" RenderTransformOrigin="0.484,0.407"/>
-        <StackPanel Orientation="Horizontal" Margin="60,286,362,135">
-            <StackPanel Orientation="Vertical" Height="132" RenderTransformOrigin="0.505,0.532">
+        <StackPanel Name="CategoriesBoxes" Orientation="Horizontal" Margin="60,286,362,135">
+            <StackPanel Name="DDZ" Orientation="Vertical" Height="132" RenderTransformOrigin="0.505,0.532">
                 <CheckBox x:Name="science" FontSize="15" FontFamily="Consolas" Margin="5,5,5.2,5" Content="Science" Click="Check_Click" FontWeight="Bold"/>
                 <CheckBox x:Name="history" FontSize="15" FontFamily="Consolas" Margin="5" Content="History" Click="Check_Click" FontWeight="Bold"/>
                 <CheckBox x:Name="geography" FontSize="15" FontFamily="Consolas" Margin="5" Content="Geography" Click="Check_Click" FontWeight="Bold"/>
@@ -32,7 +32,7 @@
             </StackPanel>
         </StackPanel>
         <Button Name="PlayerBtn" Content="Go, Player!" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="134" Click="GoPlayer" Background="#FF7AB0A3" FontFamily="Consolas" FontSize="18" Foreground="Black" Margin="305,474,0,0" FontWeight="Bold"/>
-        <Button Content="Go, Quizzard!" HorizontalAlignment="Left" Height="40" Margin="673,474,0,0" VerticalAlignment="Top" Width="161" Click="GoQuizzard" Background="#FF7AB0A3" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
+        <Button Name="QuizzardBtn" Content="Go, Quizzard!" HorizontalAlignment="Left" Height="40" Margin="673,474,0,0" VerticalAlignment="Top" Width="161" Click="GoQuizzard" Background="#FF7AB0A3" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
         <Label Content="In quizzard mode you&#xD;&#xA;can make your personal&#xD;&#xA;quiz and grill your friends&#xD;&#xA;with it!&#xD;&#xA;" HorizontalAlignment="Left" Height="136" Margin="543,276,0,0" VerticalAlignment="Top" Width="317" FontFamily="Consolas" FontSize="20" RenderTransformOrigin="0.513,0.513"/>
         <TextBox HorizontalAlignment="Left" Height="28" TextWrapping="Wrap" Text="  Enter your name"  FontFamily="Consolas" FontWeight="Bold" FontSize="17" VerticalAlignment="Top" Width="190" Margin="400,137,0,0" Name="pName" Background="#f4f490"/>
         

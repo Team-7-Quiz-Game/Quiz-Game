@@ -24,7 +24,16 @@ namespace Trivia.Tests.UITests
         }
 
         [TestMethod]
-        public void ClickStartButtonShouldGoToPlayerModePageSuccessfully()
+        public void GameStartStartButtonShouldBeExisting()
+        {
+            Window window = app.GetWindow("Let's Get Quizzical", InitializeOption.NoCache);
+            var startBtn = window.Exists<Button>("StartBtn");
+
+            Assert.IsTrue(startBtn);
+        }
+
+        [TestMethod]
+        public void GameStartClickStartButtonShouldGoToPlayerModePageSuccessfully()
         {
             Window window = app.GetWindow("Let's Get Quizzical", InitializeOption.NoCache);
             var startBtn = window.Get<Button>("StartBtn");

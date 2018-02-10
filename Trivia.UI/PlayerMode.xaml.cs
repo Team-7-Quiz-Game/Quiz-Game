@@ -45,6 +45,12 @@ namespace Trivia.UI
         {
             name = pName.Text;
 
+            if (string.IsNullOrEmpty(name))
+            {
+                pName.Text = "  Enter your name";
+                return;
+            }
+
             if (this.checkedCategories.Count == 0)
             {
                 return;
@@ -62,6 +68,12 @@ namespace Trivia.UI
         private void GoQuizzard(object sender, RoutedEventArgs e)
         {
             name = pName.Text;
+            if (string.IsNullOrEmpty(name))
+            {
+                pName.Text = "  Enter your name";
+                return;
+            }
+
             var player = engine.CreateQuizzardPlayer(name);
             this.engine.Player = (QuizzardPlayer)player;
             QuizzardInitialPage quizzardInitialPage = new QuizzardInitialPage(this.engine);

@@ -1,8 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System.Threading;
 using TestStack.White;
 using TestStack.White.Factory;
 using TestStack.White.UIItems;
+using TestStack.White.UIItems.Finders;
 using TestStack.White.UIItems.WindowItems;
 using Trivia.Core.Contracts;
 using Trivia.UI;
@@ -27,7 +29,107 @@ namespace Trivia.Tests.UITests
         }
 
         [TestMethod]
-        public void ClickingGoPlayerButtonShouldCreatePlayerWithProvidedName()
+        public void GoPlayerButtonShouldExist()
+        {
+            Window window = app.GetWindow("Let's Get Quizzical", InitializeOption.NoCache);
+            var startBtn = window.Get<Button>("StartBtn");
+            startBtn.Click();
+
+            Assert.IsTrue(window.Exists<Button>("PlayerBtn"));
+        }
+
+        [TestMethod]
+        public void ScienceCheckBoxShouldExist()
+        {
+            Window window = app.GetWindow("Let's Get Quizzical", InitializeOption.NoCache);
+            var startBtn = window.Get<Button>("StartBtn");
+            startBtn.Click();
+
+            Assert.IsTrue(window.Exists<CheckBox>("science"));
+        }
+
+        [TestMethod]
+        public void HistoryCheckBoxShouldExist()
+        {
+            Window window = app.GetWindow("Let's Get Quizzical", InitializeOption.NoCache);
+            var startBtn = window.Get<Button>("StartBtn");
+            startBtn.Click();
+
+            Assert.IsTrue(window.Exists<CheckBox>("history"));
+        }
+
+        [TestMethod]
+        public void GeographyCheckBoxShouldExist()
+        {
+            Window window = app.GetWindow("Let's Get Quizzical", InitializeOption.NoCache);
+            var startBtn = window.Get<Button>("StartBtn");
+            startBtn.Click();
+
+            Assert.IsTrue(window.Exists<CheckBox>("geography"));
+        }
+
+        [TestMethod]
+        public void SciFiCheckBoxShouldExist()
+        {
+            Window window = app.GetWindow("Let's Get Quizzical", InitializeOption.NoCache);
+            var startBtn = window.Get<Button>("StartBtn");
+            startBtn.Click();
+
+            Assert.IsTrue(window.Exists<CheckBox>("sciFi"));
+        }
+
+        [TestMethod]
+        public void MathCheckBoxShouldExist()
+        {
+            Window window = app.GetWindow("Let's Get Quizzical", InitializeOption.NoCache);
+            var startBtn = window.Get<Button>("StartBtn");
+            startBtn.Click();
+
+            Assert.IsTrue(window.Exists<CheckBox>("math"));
+        }
+
+        [TestMethod]
+        public void MoviesCheckBoxShouldExist()
+        {
+            Window window = app.GetWindow("Let's Get Quizzical", InitializeOption.NoCache);
+            var startBtn = window.Get<Button>("StartBtn");
+            startBtn.Click();
+
+            Assert.IsTrue(window.Exists<CheckBox>("movies"));
+        }
+
+        [TestMethod]
+        public void LiteratureCheckBoxShouldExist()
+        {
+            Window window = app.GetWindow("Let's Get Quizzical", InitializeOption.NoCache);
+            var startBtn = window.Get<Button>("StartBtn");
+            startBtn.Click();
+
+            Assert.IsTrue(window.Exists<CheckBox>("literature"));
+        }
+
+        [TestMethod]
+        public void RandomCheckBoxShouldExist()
+        {
+            Window window = app.GetWindow("Let's Get Quizzical", InitializeOption.NoCache);
+            var startBtn = window.Get<Button>("StartBtn");
+            startBtn.Click();
+
+            Assert.IsTrue(window.Exists<CheckBox>("random"));
+        }
+
+        [TestMethod]
+        public void GoQuizzardButtonShouldExist()
+        {
+            Window window = app.GetWindow("Let's Get Quizzical", InitializeOption.NoCache);
+            var startBtn = window.Get<Button>("StartBtn");
+            startBtn.Click();
+
+            Assert.IsTrue(window.Exists<Button>("QuizzardBtn"));
+        }
+
+        [TestMethod]
+        public void GoPlayerButtonClickShouldCreatePlayerWithProvidedName()
         {
             Window window = app.GetWindow("Let's Get Quizzical", InitializeOption.NoCache);
             var startBtn = window.Get<Button>("StartBtn");
@@ -36,7 +138,9 @@ namespace Trivia.Tests.UITests
             var playerBtn = window.Get<Button>("PlayerBtn");
             
             var nameBox = window.Get<TextBox>("pName");
+
             nameBox.Text = "Pesho";
+            Thread.Sleep(200);
 
             var checkedBox = window.Get<CheckBox>("science");
             checkedBox.Click();
@@ -48,7 +152,7 @@ namespace Trivia.Tests.UITests
         }
 
         [TestMethod]
-        public void ClickingGoPlayerButtonShouldNotThrowWhenNoCategoriesAreSelected()
+        public void GoPlayerButtonClickShouldNotThrowWhenNoCategoriesAreSelected()
         {
             Window window = app.GetWindow("Let's Get Quizzical", InitializeOption.NoCache);
             var startBtn = window.Get<Button>("StartBtn");
@@ -64,17 +168,46 @@ namespace Trivia.Tests.UITests
         }
 
         [TestMethod]
-        public void Test()
+        public void GoPlayerButtonClickShouldDoNothingWhenNameIsEmpty()
         {
             Window window = app.GetWindow("Let's Get Quizzical", InitializeOption.NoCache);
             var startBtn = window.Get<Button>("StartBtn");
             startBtn.Click();
 
+            var nameBox = window.Get<TextBox>("pName");
+            nameBox.Text = "";
+            Thread.Sleep(200);
+
             var playerBtn = window.Get<Button>("PlayerBtn");
+            var checkedBox = window.Get<CheckBox>("science");
+            checkedBox.Click();
 
-            var engineMock = new Mock<IEngine>();
+            playerBtn.Click();
 
-            var playerMode = new PlayerMode(engineMock.Object);
+            var labelExists = window.Exists<Label>("ChooseMode");
+
+            Assert.IsTrue(labelExists);
+        }
+
+        [TestMethod]
+        public void GoPlayerButtonClickShouldDoNothingWhenNameIsEmptyAndNameShouldNotBeEmptyAnymore()
+        {
+            Window window = app.GetWindow("Let's Get Quizzical", InitializeOption.NoCache);
+            var startBtn = window.Get<Button>("StartBtn");
+            startBtn.Click();
+
+            var nameBox = window.Get<TextBox>("pName");
+            var defaultName = nameBox.Text;
+            nameBox.Text = "";
+            Thread.Sleep(200);
+
+            var playerBtn = window.Get<Button>("PlayerBtn");
+            var checkedBox = window.Get<CheckBox>("science");
+            checkedBox.Click();
+
+            playerBtn.Click();
+
+            Assert.AreEqual(defaultName, nameBox.Text);
         }
     }
 }
