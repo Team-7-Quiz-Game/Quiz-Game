@@ -52,7 +52,7 @@ namespace Trivia.UI
 
             this.engine.CreateCategory(checkedCategories);
     
-            var player = engine.CreateNormalPlayer(name);
+            var player = this.engine.CreateNormalPlayer(name);
             this.engine.Player = (NormalPlayer)player;
             PlayerFirstLevelPage firstLevelPagePlayer = new PlayerFirstLevelPage(this.engine);
             this.NavigationService.Navigate(firstLevelPagePlayer);

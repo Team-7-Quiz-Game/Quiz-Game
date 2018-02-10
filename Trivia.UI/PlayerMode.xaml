@@ -31,9 +31,9 @@
                 <CheckBox x:Name="random" FontSize="15" FontFamily="Consolas" Margin="5" Content="Random" Click="Check_Click" FontWeight="Bold"/>
             </StackPanel>
         </StackPanel>
-        <Button Content="Go, Player!" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="134" Click="GoPlayer" Background="#FF7AB0A3" FontFamily="Consolas" FontSize="18" Foreground="Black" Margin="305,474,0,0" FontWeight="Bold"/>
+        <Button Name="PlayerBtn" Content="Go, Player!" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="134" Click="GoPlayer" Background="#FF7AB0A3" FontFamily="Consolas" FontSize="18" Foreground="Black" Margin="305,474,0,0" FontWeight="Bold"/>
         <Button Content="Go, Quizzard!" HorizontalAlignment="Left" Height="40" Margin="673,474,0,0" VerticalAlignment="Top" Width="161" Click="GoQuizzard" Background="#FF7AB0A3" FontFamily="Consolas" FontSize="18" Foreground="Black" FontWeight="Bold"/>
-        <Label Content="In quizzard mode you&#xD;&#xA;can make your personnal&#xD;&#xA;quiz and grill your friends&#xD;&#xA;with it!&#xD;&#xA;" HorizontalAlignment="Left" Height="136" Margin="543,276,0,0" VerticalAlignment="Top" Width="317" FontFamily="Consolas" FontSize="20" RenderTransformOrigin="0.513,0.513"/>
+        <Label Content="In quizzard mode you&#xD;&#xA;can make your personal&#xD;&#xA;quiz and grill your friends&#xD;&#xA;with it!&#xD;&#xA;" HorizontalAlignment="Left" Height="136" Margin="543,276,0,0" VerticalAlignment="Top" Width="317" FontFamily="Consolas" FontSize="20" RenderTransformOrigin="0.513,0.513"/>
         <TextBox HorizontalAlignment="Left" Height="28" TextWrapping="Wrap" Text="  Enter your name"  FontFamily="Consolas" FontWeight="Bold" FontSize="17" VerticalAlignment="Top" Width="190" Margin="400,137,0,0" Name="pName" Background="#f4f490"/>
         
     </Grid>
