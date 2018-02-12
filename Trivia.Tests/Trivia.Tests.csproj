@@ -67,10 +67,10 @@
   <ItemGroup>
     <Compile Include="CoreTests\DatabaseTests.cs" />
     <Compile Include="CoreTests\EngineTests.cs" />
-    <Compile Include="Models\CategoryTests.cs" />
+    <Compile Include="ModelsTests\CategoryTests.cs" />
     <Compile Include="CoreTests\FactoryTests.cs" />
-    <Compile Include="Models\PlayerTests.cs" />
-    <Compile Include="Models\QuestionTests.cs" />
+    <Compile Include="ModelsTests\PlayerTests.cs" />
+    <Compile Include="ModelsTests\QuestionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
