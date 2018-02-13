@@ -6,7 +6,7 @@ The idea of our project is to create a Trivia Quiz game with a colorful UI done 
 - GitHub URL: https://github.com/Team-7-Quiz-Game/Quiz-Game
 - Best.Telerik URL: http://best.telerikacademy.com/projects/788/Team-7-QuizGame
 
-# UPDATE
+# Update
 - Using Autofac for Inversion of control and resolving dependencies
 - Following SOLID principles
 - Added 100 Unit Tests
